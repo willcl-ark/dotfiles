@@ -1,0 +1,17 @@
+[user]
+	email = will8clark@gmail.com
+	name = willcl-ark
+	signingkey = 099BAD163C70FBFA
+[credential]
+	helper = osxkeychain
+[alias]
+	pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+[commit]
+	gpgsign = true
+[core]
+	excludesfile = /Users/will/.config/git/gitignore_global
+	pager = delta --dark
+[http]
+	postBuffer = 5242880

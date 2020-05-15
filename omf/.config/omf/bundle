@@ -1,0 +1,4 @@
+package colored-man-pages
+theme bobthefish
+theme default
+theme spacefish

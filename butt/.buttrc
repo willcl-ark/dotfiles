@@ -1,0 +1,86 @@
+#This is a configuration file for butt (broadcast using this tool)
+
+[main]
+bg_color = 151540480
+txt_color = -256
+server = seedbox
+srv_ent = NUC;seedbox
+icy = will-music
+icy_ent = will-music
+num_of_srv = 2
+num_of_icy = 1
+song_path = /Users/will/Desktop/song_name.txt
+song_update = 0
+read_last_line = 0
+app_update_service = 0
+app_update = 0
+gain = 1.000000
+silence_threshold = 0
+connect_at_startup = 0
+ic_charset = 
+log_file = 
+
+[audio]
+device = 5
+samplerate = 48000
+bitrate = 256
+channel = 2
+codec = opus
+aac_overwrite_aot = 0
+aac_aot = 5
+resample_mode = 0
+buffer_ms = 50
+
+[record]
+bitrate = 256
+codec = opus
+start_rec = 0
+rec_after_launch = 0
+sync_to_hour  = 0
+split_time = 0
+filename = rec_%Y%m%d-%H%M%S.opus
+silence_threshold = 0
+folder = /Users/will/Music/
+
+[dsp]
+equalizer = 0
+gain1 = 0.000000
+gain2 = 0.000000
+gain3 = 0.000000
+gain4 = 0.000000
+gain5 = 0.000000
+
+[gui]
+attach = 0
+ontop = 0
+hide_log_window = 0
+remember_pos = 1
+x_pos = 299
+y_pos = 610
+lcd_auto = 1
+
+[NUC]
+address = 77.98.116.8
+port = 8008
+password = fldigi
+type = 1
+mount = will.ogg
+usr = source
+
+[seedbox]
+address = 95.211.225.220
+port = 8000
+password = fldigi
+type = 1
+mount = will.ogg
+usr = source
+
+[will-music]
+pub = 0
+description = streaming electronic beats
+genre = 
+url = 
+irc = 
+icq = 
+aim = 
+

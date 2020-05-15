@@ -1,0 +1,18 @@
+" SYNTAX
+syntax enable           " enable syntax processing
+let g:python_highlight_all = 1
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+
+" VISUAL
+set background=dark
+colorscheme solarized
+set number              " show line numbers
+set cursorline          " highlight current line
+set wildmenu            " visual autocomplete for command menu
+set showmatch           " highlight matching [{()}]
+
+" SEARCHING
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
