@@ -4,7 +4,7 @@ SETUVAR --export ANDROID_NDK_HOME:/Users/will/Library/Android/sdk/ndk/21\x2e0\x2
 SETUVAR --export EDITOR:vim
 SETUVAR --export GOPATH:/Users/will/go
 SETUVAR --export LESSHISTFILE:/Users/will/\x2econfig/\x2elesshst
-SETUVAR --export PIP_REQUIRE_VIRTUALENV:1
+SETUVAR --export PIP_REQUIRE_VIRTUALENV:0
 SETUVAR VIRTUALFISH_DEFAULT_PYTHON:/usr/local/bin/python3
 SETUVAR VIRTUALFISH_HOME:/Users/will/\x2evirtualenvs
 SETUVAR --export VISUAL:vim
@@ -30,7 +30,6 @@ SETUVAR _fish_abbr_ping:prettyping\x20\x2dc10
 SETUVAR _fish_abbr_pipuninstallall:pip\x20freeze
 SETUVAR _fish_abbr_preimagehash:python3\x20\x2dm\x20/Users/will/scripts/hash\x2dpreimage
 SETUVAR _fish_abbr_speedtest_2D_curl:curl\x20\x2do\x20/dev/null\x20http\x3a//ipv4\x2edownload\x2ethinkbroadband\x2ecom/1GB\x2ezip
-SETUVAR _fish_abbr_sshnuc:/Users/will/scripts/\x2e/ssh_nuc\x2esh
 SETUVAR _fish_abbr_tail1:tail\x20\x2df\x20\x2dn\x20200\x20/tmp/l1\x2dregtest/log
 SETUVAR _fish_abbr_tail2:tail\x20\x2df\x20\x2dn\x20200\x20/tmp/l2\x2dregtest/log
 SETUVAR _fish_abbr_tb:nc\x20termbin\x2ecom\x209999

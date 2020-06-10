@@ -3,4 +3,5 @@ function venv
 pyenv virtualenv $argv[1] $argv[2]
 echo "$argv[2]" > .python-version
 pip install --upgrade pip
+pip install --upgrade wheel
 end

@@ -4,7 +4,7 @@ status --is-interactive; and source (pyenv init -|psub)
 # status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 # Python/PIP
-set -x PIP_REQUIRE_VIRTUALENV 1
+set -x PIP_REQUIRE_VIRTUALENV 0
 
 # Spacefish
 set -x SPACEFISH_PROMPT_ORDER time user dir host git rust pyenv exec_time jobs exit_code char
