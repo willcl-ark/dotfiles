@@ -1,18 +1,84 @@
-" SYNTAX
+" =======
+" General
+" =======
+set encoding=utf-8  " UTF-8 encoding
+set backspace=2     " Backspace deletes like most programs in insert mode
+set nobackup        " Don't backup automatically
+set nowritebackup   " Don't write backup file
+set noswapfile      " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set showcmd         " display incomplete commands
+let g:is_posix = 1  " for bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
+
+set list listchars=tab:»·,trail:·,nbsp:·    " Display extra whitespace
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+nnoremap <c-p> :Files<cr>                   " Map Ctrl + p to open fuzzy find (FZF)
+nnoremap <F5> :buffers<CR>:buffer<Space>    " Add F5 as quick buffer switcher
+
+" ======
+" Syntax
+" ======
 syntax enable           " enable syntax processing
 let g:python_highlight_all = 1
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set expandtab       " tabs are spaces
+set tabstop=4           " number of visual spaces per TAB
+set shiftwidth=4        " insert 4 spaces with tab
+set softtabstop=4       " number of spaces in tab when editing
+set expandtab           " tabs are spaces
+let g:ale_linters_explicit = 1      " Only run linters named in ale_linters settings.
+filetype plugin indent on
+autocmd Filetype cpp setlocal ts=4 sw=4 expandtab
 
-" VISUAL
+" ======
+" Visual
+" ======
 set background=dark
 colorscheme solarized
-set number              " show line numbers
-set cursorline          " highlight current line
-set wildmenu            " visual autocomplete for command menu
-set showmatch           " highlight matching [{()}]
+set termguicolors           " enable truecolor support
+set number                  " show line numbers
+set laststatus=2            " force bottom status bar
+set wildmenu                " visual autocomplete for command menu
+set showmatch               " highlight matching [{()}]
+set number relativenumber   " hybrid line numbers
 
-" SEARCHING
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+augroup numbertoggle    " sets and unsets relative number as the buffer loses focus
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" =========
+" Searching
+" =========
+set incsearch   " search as characters are entered
+set hlsearch    " highlight matches
+
+" =========
+" Statusbar
+" =========
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
+
