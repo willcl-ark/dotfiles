@@ -1,6 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ANDROID_NDK_HOME:/Users/will/Library/Android/sdk/ndk/21\x2e0\x2e6113669
+SETUVAR --export BDB_CFLAGS:\x2dI/Users/will/src/bitcoin/db4/include
+SETUVAR --export BDB_LIBS:\x2dL/Users/will/src/bitcoin/db4/lib\x20\x2dldb_cxx\x2d4\x2e8
+SETUVAR --export BDB_PREFIX:/Users/will/src/bitcoin/db4
 SETUVAR --export EDITOR:vim
 SETUVAR --export GOPATH:/Users/will/go
 SETUVAR --export LESSHISTFILE:/Users/will/\x2econfig/\x2elesshst
@@ -75,4 +78,4 @@ SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_prompt_pwd_dir_length:3
 SETUVAR fish_user_abbreviations:ytdl\x2daudio\x20youtube\x2ddl\x20\x2dx\x20\x2d\x2daudio\x2dformat\x20best\x1eytdl\x2dlist\x20youtube\x2ddl\x20\x2dF\x1espeedtest\x2dcurl\x20curl\x20\x2do\x20/dev/null\x20http\x3a//ipv4\x2edownload\x2ethinkbroadband\x2ecom/1GB\x2ezip\x1esshnuc\x20/Users/will/scripts/\x2e/ssh_nuc\x2esh\x1ediff\x20icdiff\x20\x2d\x2dno\x2dbold\x20\x2dN\x1eping\x20prettyping\x20\x2dc10\x1ecdsrc\x20cd\x20\x7e/Documents/src/\x1ell\x20ls\x20\x2dlap\x1egotop\x20gotop\x20\x2dc\x20solarized
-SETUVAR --export fish_user_paths:/Applications/Google\x1eChrome\x2eapp/Contents/MacOS\x1e/Users/will/Library/Android/sdk/platform\x2dtools\x1e/Users/will/\x2epoetry/bin\x1e/usr/local/opt/ccache/libexec\x1e/Users/will/\x2ecargo/bin\x1e/usr/local/sbin\x1e/usr/local/Cellar/pyenv\x2dvirtualenv/1\x2e1\x2e3/shims\x1e/Users/will/\x2epyenv/shims\x1e/Users/will/go/bin\x1e/usr/local/go/bin\x1e/usr/local/bin\x1e/Users/will/src/bitcoin/src
+SETUVAR --export fish_user_paths:/usr/local/opt/llvm/bin\x1e/Users/will/\x2epoetry/bin\x1e/Users/will/\x2ecargo/bin\x1e/usr/local/sbin\x1e/usr/local/Cellar/pyenv\x2dvirtualenv/1\x2e1\x2e3/shims\x1e/Users/will/\x2epyenv/shims\x1e/Users/will/go/bin\x1e/usr/local/go/bin\x1e/usr/local/bin
