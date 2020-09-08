@@ -3,10 +3,10 @@
 [main]
 bg_color = 151540480
 txt_color = -256
-server = seedbox
+server = NUC
 srv_ent = NUC;seedbox
-icy = will-music
-icy_ent = will-music
+icy = will
+icy_ent = will
 num_of_srv = 2
 num_of_icy = 1
 song_path = /Users/will/Desktop/song_name.txt
@@ -21,11 +21,11 @@ ic_charset =
 log_file = 
 
 [audio]
-device = 5
+device = 2
 samplerate = 48000
 bitrate = 256
 channel = 2
-codec = opus
+codec = mp3
 aac_overwrite_aot = 0
 aac_aot = 5
 resample_mode = 0
@@ -55,8 +55,8 @@ attach = 0
 ontop = 0
 hide_log_window = 0
 remember_pos = 1
-x_pos = 299
-y_pos = 610
+x_pos = 1024
+y_pos = 45
 lcd_auto = 1
 
 [NUC]
@@ -72,12 +72,12 @@ address = 95.211.225.220
 port = 8000
 password = fldigi
 type = 1
-mount = will.ogg
+mount = will.mp3
 usr = source
 
-[will-music]
+[will]
 pub = 0
-description = streaming electronic beats
+description = electronic
 genre = 
 url = 
 irc = 
