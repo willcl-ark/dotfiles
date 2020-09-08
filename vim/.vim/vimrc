@@ -8,6 +8,7 @@ set nowritebackup   " Don't write backup file
 set noswapfile      " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set showcmd         " display incomplete commands
 let g:is_posix = 1  " for bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
+set hidden          " when we switch buffers, don 't warn about save
 
 set list listchars=tab:»·,trail:·,nbsp:·    " Display extra whitespace
 
@@ -27,7 +28,6 @@ set tabstop=4           " number of visual spaces per TAB
 set shiftwidth=4        " insert 4 spaces with tab
 set softtabstop=4       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
-let g:ale_linters_explicit = 1      " Only run linters named in ale_linters settings.
 filetype plugin indent on
 autocmd Filetype cpp setlocal ts=4 sw=4 expandtab
 
@@ -36,7 +36,7 @@ autocmd Filetype cpp setlocal ts=4 sw=4 expandtab
 " ======
 set background=dark
 colorscheme solarized
-set termguicolors           " enable truecolor support
+set t_Co=256
 set number                  " show line numbers
 set laststatus=2            " force bottom status bar
 set wildmenu                " visual autocomplete for command menu
@@ -54,6 +54,8 @@ augroup END
 " =========
 set incsearch   " search as characters are entered
 set hlsearch    " highlight matches
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " =========
 " Statusbar
@@ -81,4 +83,11 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
+
+
+" ============
+" Clang format
+" ============
+map <C-K> :py3f /usr/local/Cellar/llvm/10.0.0_3/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:py3f /usr/local/Cellar/llvm/10.0.0_3/share/clang/clang-format.py<cr>
 
