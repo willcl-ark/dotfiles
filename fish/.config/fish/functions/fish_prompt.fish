@@ -1,1 +1,5 @@
+XSym
+0062
+a99052f2b32fabb82080bd342ddfcc1e
 /Users/will/.local/share/omf/themes/spacefish/fish_prompt.fish
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
