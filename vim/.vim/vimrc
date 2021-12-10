@@ -6,19 +6,29 @@ set backspace=2     " Backspace deletes like most programs in insert mode
 set nobackup        " Don't backup automatically
 set nowritebackup   " Don't write backup file
 set noswapfile      " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+"set backupdir=/Users/will/.vim/backups//,. " https://stackoverflow.com/questions/607435/why-does-vim-save-files-with-a-extension
+"set directory=/Users/will/.vim/backups//,.
 set showcmd         " display incomplete commands
 let g:is_posix = 1  " for bin/sh, assume a POSIX-compatible shell for syntax highlighting purposes.
+let g:python_host_prog = '/Users/will/.pyenv/versions/vim2/bin/python'
+let g:python3_host_prog = '/Users/will/.pyenv/versions/vim3/bin/python'
 set hidden          " when we switch buffers, don 't warn about save
-
+set clipboard=unnamed   " Sync with system clipboard on MacOS
 set list listchars=tab:»·,trail:·,nbsp:·    " Display extra whitespace
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
 
-nnoremap <c-p> :Files<cr>                   " Map Ctrl + p to open fuzzy find (FZF)
-nnoremap <F5> :buffers<CR>:buffer<Space>    " Add F5 as quick buffer switcher
+" Case insensitive searching when all lowercase by default
+set ignorecase
+" if mixed case is used in the search, it will be case-sensitive
+set smartcase
 
+" set rtp+=/usr/local/opt/fzf
+" nnoremap <c-p> :Files<cr>                   " Map Ctrl + p to open fuzzy find (FZF)
+" " Add F5 as quick buffer switcher
+nnoremap <F5> :buffers<CR>:buffer<Space>
 " ======
 " Syntax
 " ======
@@ -28,26 +38,38 @@ set tabstop=4           " number of visual spaces per TAB
 set shiftwidth=4        " insert 4 spaces with tab
 set softtabstop=4       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
+set linebreak
+" Fix cpp indents
 filetype plugin indent on
 autocmd Filetype cpp setlocal ts=4 sw=4 expandtab
+" Use YAML syntax highlighting for ybe
+au BufRead,BufNewFile *.ybe set filetype=yaml
+autocmd FileType ybe setlocal ts=2 sts=2 sw=2 expandtab
+" Enable spellcheck for yaml and therefore ybe
+autocmd FileType yaml setlocal spell spelllang=en_gb
+autocmd FileType markdown setlocal spell spelllang=en_gb
+autocmd FileType asciidoc setlocal spell spelllang=en_gb
 
 " ======
 " Visual
 " ======
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 set t_Co=256
+set termguicolors
 set number                  " show line numbers
 set laststatus=2            " force bottom status bar
 set wildmenu                " visual autocomplete for command menu
 set showmatch               " highlight matching [{()}]
 set number relativenumber   " hybrid line numbers
+let g:markdown_folding = 1
+au FileType markdown setlocal foldlevel=99
 
-augroup numbertoggle    " sets and unsets relative number as the buffer loses focus
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" augroup numbertoggle    " sets and unsets relative number as the buffer loses focus
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
 
 " =========
 " Searching
@@ -90,4 +112,7 @@ set statusline+=\
 " ============
 map <C-K> :py3f /usr/local/Cellar/llvm/10.0.0_3/share/clang/clang-format.py<cr>
 imap <C-K> <c-o>:py3f /usr/local/Cellar/llvm/10.0.0_3/share/clang/clang-format.py<cr>
+
+" Fuzzy Finder
+set rtp+=/usr/local/opt/fzf
 
