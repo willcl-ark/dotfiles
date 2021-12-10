@@ -2,23 +2,70 @@
 	email = will8clark@gmail.com
 	name = willcl-ark
 	signingkey = 099BAD163C70FBFA
+
 [credential]
-	helper = osxkeychain
+	helper = store
+
 [alias]
-	pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-	spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+	# pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	# pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	# spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+	# rbc = rebase
+	ds = diff --staged
+
 [commit]
 	gpgsign = true
+	template = ~/.config/git/gitmessage
+
 [core]
-	excludesfile = /Users/will/.config/git/gitignore_global
-	pager = delta --dark
+	excludesfile = /home/will/.config/git/gitignore_global
+
 [http]
 	postBuffer = 5242880
-[mergetool "gitblade"]
-	cmd = \"/Applications/GitBlade.app/Contents/MacOS/GitBlade\" -c \"\"
-	trustExitCode = true
+
 [pull]
 	ff = only
+
 [diff]
 	colorMoved = dimmed-zebra
+
+[grep]
+	lineNumber = true
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = line-numbers decorations
+    syntax-theme = gruvbox-dark
+    zero-style = dim syntax
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[remote "upstream"]
+	gh-resolved = base
+[branch "202111_test_blocksonly_eviction"]
+	remote = https://github.com/mzumsande/bitcoin.git
+	pushRemote = https://github.com/mzumsande/bitcoin.git
+	merge = refs/heads/202111_test_blocksonly_eviction

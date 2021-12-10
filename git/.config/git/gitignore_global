@@ -70,7 +70,7 @@ secring.*
 .Python
 [Bb]in
 [Ii]nclude
-[Ll]ib
+# [Ll]ib
 [Ll]ib64
 [Ll]ocal
 [Ss]cripts
@@ -96,3 +96,5 @@ Sessionx.vim
 tags
 [._]*.un~
 
+pyrightconfig.json
+.python-version
