@@ -19,6 +19,7 @@
 
 [core]
 	excludesfile = /home/will/.config/git/gitignore_global
+    editor = nvim
 
 [http]
 	postBuffer = 5242880
@@ -69,3 +70,7 @@
 	remote = https://github.com/mzumsande/bitcoin.git
 	pushRemote = https://github.com/mzumsande/bitcoin.git
 	merge = refs/heads/202111_test_blocksonly_eviction
+[branch "release_use_gcc_10"]
+	remote = upstream
+	pushRemote = upstream
+	merge = refs/pull/23778/head

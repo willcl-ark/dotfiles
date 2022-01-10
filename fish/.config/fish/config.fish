@@ -5,11 +5,11 @@ status is-interactive; and pyenv init --path | source
 set -x PIP_REQUIRE_VIRTUALENV 0
 
 # Fish git prompt
-# set __fish_git_prompt_showuntrackedfiles 'yes'
-# set __fish_git_prompt_showdirtystate 'yes'
-# set __fish_git_prompt_showstashstate ''
-# set __fish_git_prompt_showupstream 'auto'
-# set -g fish_prompt_pwd_dir_length 3
+#set __fish_git_prompt_showuntrackedfiles 'yes'
+#set __fish_git_prompt_showdirtystate 'yes'
+#set __fish_git_prompt_showstashstate ''
+#set __fish_git_prompt_showupstream 'auto'
+#set -g fish_prompt_pwd_dir_length 3
 
 # Coloured man output
 # from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
@@ -36,7 +36,9 @@ function fish_prompt
 	printf '%s ' (__fish_git_prompt)
 	set_color red
 	echo -n '| '
-	set_color normal
+	set_color f2a900
+    echo -n '₿ '
+    set color normal
 end
 
 function fish_greeting
@@ -87,14 +89,13 @@ function fish_greeting
 
 end
 
-# if status --is-interactive
-# 	source $HOME/.config/base16-shell/profile_helper.fish
-# end
-
 # Use vim keybindings in fish editor
-# fish_vi_key_bindings
+#fish_vi_key_bindings
 
 # FZF
 fzf_configure_bindings --directory=\u0111 --git_log=\u0142 --git_status=\u00DF --history=\u0127 --variables=\u201C
 set fzf_preview_dir_cmd exa -al --color=always
 set fzf_fd_opts --hidden --exclude=.git
+
+# NPM / NVM
+nvm use node > /dev/null
