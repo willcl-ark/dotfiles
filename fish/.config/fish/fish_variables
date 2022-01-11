@@ -14,7 +14,7 @@ SETUVAR --export NVM_DIR:/home/will/\x2envm
 SETUVAR --export PIP_REQUIRE_VIRTUALENV:0
 SETUVAR --export SIGNER:will8clark
 SETUVAR VIRTUALFISH_DEFAULT_PYTHON:/usr/local/bin/python3
-SETUVAR --export VISUAL:vim
+SETUVAR --export VISUAL:nvim
 SETUVAR --export XDG_CONFIG_HOME:/home/will/\x2econfig
 SETUVAR __fish_classic_git_prompt_initialized:\x1d
 SETUVAR __fish_init_2_39_8:\x1d
