@@ -1,0 +1,34 @@
+schemes:
+  darkplus: &darkplus
+    # Default colors
+    primary:
+      background: '#1E1E1E'
+      foreground: '#D4D4D4'
+
+    cursor:
+      text: '#515052'
+      cursor: '#AEAFAD'
+
+    # Normal colors
+    normal:
+      black:   '#222222'
+      red:     '#F44747'
+      green:   '#6A9955'
+      yellow:  '#DCDCAA'
+      blue:    '#569CD6'
+      magenta: '#D16D9E'
+      cyan:    '#4EC9B0'
+      white:   '#D8DEE9'
+
+    # Bright colors
+    bright:
+      black:   '#2D2D30'
+      red:     '#D16969'
+      green:   '#B5CEA8'
+      yellow:  '#D7BA7D'
+      blue:    '#9CDCFE'
+      magenta: '#C586C0'
+      cyan:    '#00dfff'
+      white:   '#cccccc'
+
+colors: *darkplus
