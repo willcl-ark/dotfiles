@@ -41,9 +41,9 @@ SETUVAR _fish_abbr_lss:ls\x20\x2daFlhS
 SETUVAR _fish_abbr_mutt:pushd\x20/home/will/Downloads/\x3b\x20TERM\x3dscreen\x2d256color\x20neomutt\x3b\x20popd
 SETUVAR _fish_abbr_myip:curl\x20ifconfig\x2eme
 SETUVAR _fish_abbr_notify:say\x20finished
-SETUVAR _fish_abbr_ping:prettyping\x20\x2dc10
 SETUVAR _fish_abbr_print_2D_user_2D_path:echo\x20\x24fish_user_paths\x20\x7c\x20tr\x20\x22\x20\x22\x20\x22\x5cn\x22\x20\x7c\x20nl
 SETUVAR _fish_abbr_rcli:bitcoin\x2dcli\x20\x2dregtest
+SETUVAR _fish_abbr_rm:rm\x20\x2di
 SETUVAR _fish_abbr_speedtest_2D_curl:curl\x20\x2do\x20/dev/null\x20http\x3a//ipv4\x2edownload\x2ethinkbroadband\x2ecom/1GB\x2ezip
 SETUVAR _fish_abbr_tb:nc\x20termbin\x2ecom\x209999
 SETUVAR _fish_abbr_tcli:bitcoin\x2dcli\x20\x2dtestnet

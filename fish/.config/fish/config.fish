@@ -1,5 +1,3 @@
-set OS (uname)
-
 # pyenv
 status is-interactive; and pyenv init --path | source
 
@@ -48,7 +46,7 @@ function fish_greeting
 	echo -e (uname -r | awk '{print " \\\\e[1mOS: \\\\e[0;32m"$0"\\\\e[0m"}')
 	echo -e (uptime | sed 's/^up //' | awk '{print " \\\\e[1mUptime: \\\\e[0;32m"$0"\\\\e[0m"}')
 	echo -e (uname -n | awk '{print " \\\\e[1mHostname: \\\\e[0;32m"$0"\\\\e[0m"}')
-    if [ $OS = Linux ]
+    if [ (uname) = Linux ]
         echo -e " \\e[1mDisk usage:\\e[0m"
         echo
         echo -ne (\
@@ -101,6 +99,6 @@ set fzf_preview_dir_cmd exa -al --color=always
 set fzf_fd_opts --hidden --exclude=.git
 
 # NPM / NVM
-if [ $OS = Linux ]
+if [ (uname) = Linux ]
     nvm use node > /dev/null
 end
