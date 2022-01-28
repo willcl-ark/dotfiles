@@ -79,28 +79,13 @@ local opts = {
 }
 
 local mappings = {
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers", },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files", },
+  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live grep" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-
-  p = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
-  },
+  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["w"] = { "<cmd>w!<CR>", "Save" },
 
   g = {
     name = "Git",
@@ -112,54 +97,53 @@ local mappings = {
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      "Undo Stage Hunk",
-    },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    d = {
-      "<cmd>Gitsigns diffthis HEAD<cr>",
-      "Diff",
-    },
+    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
+    f = { "<cmd>Telescope git_files<cr>", "Search git ls-files" },
+    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
   },
 
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      "Document Diagnostics",
-    },
-    w = {
-      "<cmd>Telescope disagnostics<cr>",
-      "Workspace Diagnostics",
-    },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    j = {
-      "<cmd>lua vim.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-    k = {
-      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-      "Prev Diagnostic",
-    },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+    a = { "<cmd>Telescope lsp_code_actions<cr>", "Code actions" },
+    d = { "<cmd>Telescope lsp_definitions<cr>", "Definition" },
+    D = { "<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics", },
+    i = { "<cmd>Telescope lsp_implementations<cr>", "Implementation" },
+    r = { "<cmd>Telescope lsp_references<cr>", "References" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
+    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
+    t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definition" },
+    w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics", },
+    m = {
+      name = "More",
+      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+      f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+      i = { "<cmd>LspInfo<cr>", "Info" },
+      I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+      j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic", },
+      k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic", },
+      l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+      q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
+      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     },
   },
+
+  p = {
+    name = "Packer",
+    c = { "<cmd>PackerCompile<cr>", "Compile" },
+    i = { "<cmd>PackerInstall<cr>", "Install" },
+    s = { "<cmd>PackerSync<cr>", "Sync" },
+    S = { "<cmd>PackerStatus<cr>", "Status" },
+    u = { "<cmd>PackerUpdate<cr>", "Update" },
+  },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    f = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy search curr buf" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
