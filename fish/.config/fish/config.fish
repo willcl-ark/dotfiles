@@ -1,8 +1,7 @@
+source $HOME/.config/fish/paths.fish
+
 # pyenv
 status is-interactive; and pyenv init --path | source
-
-# Python/PIP
-set -x PIP_REQUIRE_VIRTUALENV 0
 
 # Fish git prompt
 #set __fish_git_prompt_showuntrackedfiles 'yes'
@@ -93,12 +92,8 @@ end
 # Use vim keybindings in fish editor
 #fish_vi_key_bindings
 
-# FZF
-fzf_configure_bindings --directory=\u0111 --git_log=\u0142 --git_status=\u00DF --history=\u0127 --variables=\u201C
-set fzf_preview_dir_cmd exa -al --color=always
-set fzf_fd_opts --hidden --exclude=.git
-
 # NPM / NVM
 if [ (uname) = Linux ]
     nvm use node > /dev/null
 end
+

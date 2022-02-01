@@ -11,6 +11,7 @@ function update-progs
         end
     end
 
+    # Start src installs
     set SRC "/home/will/src"
     pushd $SRC
 
@@ -40,6 +41,11 @@ function update-progs
     cd $SRC/neovim
     set ERR (compare-git-tip)
     if test $status = 0
+        # For some reason ninja generates log files owned by root which prevent us from re-running make in the future
+        # Take ownership of them
+        for file in (find . -name "*ninja*")
+            sudo chown -R will:will $file
+        end
         make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim" CMAKE_BUILD_TYPE=Release -j16
         sudo make install
     else
@@ -73,5 +79,6 @@ function update-progs
         set_color normal
     end
 
-    popd
+    popd    # end of src install
+
 end

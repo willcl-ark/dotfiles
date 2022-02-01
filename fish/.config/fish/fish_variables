@@ -1,93 +1,30 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export BASH:/usr/bin/bash
-SETUVAR --export BDB_PREFIX:/home/will/src/bitcoin/db4
-SETUVAR --export CHEAT_USE_FZF:true
-SETUVAR --export DETATCHED_SIGS_REPO:/home/will/src/bitcoin\x2ddetatched\x2dsigs
-SETUVAR --export EDITOR:nvim
-SETUVAR --export GIT_CONFIG:/home/will/\x2econfig/git/config
-SETUVAR --export --path GUIX_LOCPATH:/home/will/\x2eguix\x2dprofile/lib/locale
-SETUVAR --export GUIX_SIGS_REPO:/home/will/src/guix\x2esigs
-SETUVAR --export --path MANPATH:/home/will/\x2enpm\x2dpackages/share/man\x1e/usr/man\x1e/usr/share/man\x1e/usr/local/man\x1e/usr/local/share/man\x1e/usr/X11R6/man\x1e/opt/man\x1e/snap/man
-SETUVAR --export NPM_PACKAGES:/home/will/\x2enpm\x2dpackages
-SETUVAR --export NVM_DIR:/home/will/\x2envm
-SETUVAR --export PIP_REQUIRE_VIRTUALENV:0
-SETUVAR --export SIGNER:will8clark
-SETUVAR VIRTUALFISH_DEFAULT_PYTHON:/usr/local/bin/python3
-SETUVAR --export VISUAL:nvim
-SETUVAR --export XDG_CONFIG_HOME:/home/will/\x2econfig
-SETUVAR __fish_classic_git_prompt_initialized:\x1d
-SETUVAR __fish_init_2_39_8:\x1d
-SETUVAR __fish_init_2_3_0:\x1d
-SETUVAR __fish_init_3_x:\x1d
 SETUVAR __fish_initialized:3100
-SETUVAR _fish_abbr_add:llo\x20exa\x20\x2dal\x20\x2ds\x20oldest
-SETUVAR _fish_abbr_bcli:bitcoin\x2dcli
-SETUVAR _fish_abbr_check_2D_links:find\x20\x2e\x20\x2dname\x20\x5c\x2a\x2eadoc\x20\x2dexec\x20asciidoc\x2dlink\x2dcheck\x20\x2dp\x20\x7b\x7d\x20\x5c\x3b
-SETUVAR _fish_abbr_electrumtunnel:ssh\x20nucremote\x20\x2dL\x2050001\x3alocalhost\x3a50001\x20\x2dN
-SETUVAR _fish_abbr_genesis_2D_block:bitcoin\x2dcli\x20getblockhash\x200\x20\x7c\x20xargs\x20\x2dI\x20\x7b\x7d\x20bitcoin\x2dcli\x20getblock\x20\x7b\x7d\x200\x20\x7c\x20xxd\x20\x2dr\x20\x2dp\x20\x7c\x20hexdump\x20\x2dv\x20\x2dC
-SETUVAR _fish_abbr_gg:git\x20grep\x20\x2di
-SETUVAR _fish_abbr_grc:git\x20rebase\x20\x2d\x2dcontinue
-SETUVAR _fish_abbr_htop:TERM\x3dxterm\x2d256color\x20htop
-SETUVAR _fish_abbr_icdiff:icdiff\x20\x2d\x2dno\x2dbold
-SETUVAR _fish_abbr_imap:PYENV_VERSION\x3dofflineimap\x20offlineimap
-SETUVAR _fish_abbr_lcli:lightning\x2dcli
-SETUVAR _fish_abbr_ll:exa\x20\x2dal
-SETUVAR _fish_abbr_lld:exa\x20\x2ds\x20modified\x20\x2drl
-SETUVAR _fish_abbr_llo:exa\x20\x2dal\x20\x2ds\x20oldest
-SETUVAR _fish_abbr_ls:exa
-SETUVAR _fish_abbr_lslm:ls\x20\x2daFlhpt
-SETUVAR _fish_abbr_lss:ls\x20\x2daFlhS
-SETUVAR _fish_abbr_mutt:pushd\x20/home/will/Downloads/\x3b\x20TERM\x3dscreen\x2d256color\x20neomutt\x3b\x20popd
-SETUVAR _fish_abbr_myip:curl\x20ifconfig\x2eme
-SETUVAR _fish_abbr_notify:say\x20finished
-SETUVAR _fish_abbr_print_2D_user_2D_path:echo\x20\x24fish_user_paths\x20\x7c\x20tr\x20\x22\x20\x22\x20\x22\x5cn\x22\x20\x7c\x20nl
-SETUVAR _fish_abbr_rcli:bitcoin\x2dcli\x20\x2dregtest
-SETUVAR _fish_abbr_rm:rm\x20\x2di
-SETUVAR _fish_abbr_speedtest_2D_curl:curl\x20\x2do\x20/dev/null\x20http\x3a//ipv4\x2edownload\x2ethinkbroadband\x2ecom/1GB\x2ezip
-SETUVAR _fish_abbr_tb:nc\x20termbin\x2ecom\x209999
-SETUVAR _fish_abbr_tcli:bitcoin\x2dcli\x20\x2dtestnet
-SETUVAR _fish_abbr_update_2D_ytdl:sudo\x20curl\x20\x2dL\x20https\x3a//yt\x2ddl\x2eorg/downloads/latest/youtube\x2ddl\x20\x2do\x20/usr/local/bin/youtube\x2ddl\x0asudo\x20chmod\x20a\x2brx\x20/usr/local/bin/youtube\x2ddl
-SETUVAR _fish_abbr_vim:nvim
-SETUVAR _fish_abbr_wasabitunnel:ssh\x20nucremote\x20\x2dL\x208333\x3alocalhost\x3a8333\x20\x2dN
-SETUVAR _fish_abbr_weather:curl\x20wttr\x2ein/Frome\x5c\x3fformat\x3dv2\x20\x26\x26\x20curl\x20wttr\x2ein/Frome
-SETUVAR _fish_abbr_which:command\x20\x2dv
-SETUVAR _fish_abbr_youtube_2D_dl_2D_best:youtube\x2ddl\x20\x2df\x20bestvideo\x2bbestaudio\x20\x2d\x2dmerge\x2doutput\x2dformat\x20mkv
-SETUVAR _fish_abbr_ytdl_2D_audio:youtube\x2ddl\x20\x2dx\x20\x2d\x2daudio\x2dformat\x20best
-SETUVAR _fish_abbr_ytdl_2D_list:youtube\x2ddl\x20\x2dF
-SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/home/will/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e/home/will/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e/home/will/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e/home/will/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/home/will/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
-SETUVAR _fisher_edc_2F_bass_files:/home/will/\x2econfig/fish/functions/__bass\x2epy\x1e/home/will/\x2econfig/fish/functions/bass\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/will/\x2econfig/fish/functions/fisher\x2efish\x1e/home/will/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ePatrickF1/fzf\x2efish\x1eedc/bass
-SETUVAR fish_color_autosuggestion:586e75
+SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
-SETUVAR fish_color_command:93a1a1
-SETUVAR fish_color_comment:586e75
+SETUVAR fish_color_command:005fd7
+SETUVAR fish_color_comment:990000
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_end:268bd2
-SETUVAR fish_color_error:dc322f
+SETUVAR fish_color_end:009900
+SETUVAR fish_color_error:ff0000
 SETUVAR fish_color_escape:00a6b2
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
 SETUVAR fish_color_host_remote:yellow
-SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
 SETUVAR fish_color_normal:normal
 SETUVAR fish_color_operator:00a6b2
-SETUVAR fish_color_param:839496
-SETUVAR fish_color_quote:657b83
-SETUVAR fish_color_redirection:6c71c4
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dblack
+SETUVAR fish_color_param:00afff
+SETUVAR fish_color_quote:999900
+SETUVAR fish_color_redirection:00afff
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell
-SETUVAR fish_key_bindings:fish_vi_key_bindings
-SETUVAR fish_pager_color_completion:B3A06D
-SETUVAR fish_pager_color_description:B3A06D
-SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dunderline
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:\x1d
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_prompt_pwd_dir_length:3
-SETUVAR fish_user_abbreviations:ytdl\x2daudio\x20youtube\x2ddl\x20\x2dx\x20\x2d\x2daudio\x2dformat\x20best\x1eytdl\x2dlist\x20youtube\x2ddl\x20\x2dF\x1espeedtest\x2dcurl\x20curl\x20\x2do\x20/dev/null\x20http\x3a//ipv4\x2edownload\x2ethinkbroadband\x2ecom/1GB\x2ezip\x1esshnuc\x20/Users/will/scripts/\x2e/ssh_nuc\x2esh\x1ediff\x20icdiff\x20\x2d\x2dno\x2dbold\x20\x2dN\x1eping\x20prettyping\x20\x2dc10\x1ecdsrc\x20cd\x20\x7e/Documents/src/\x1ell\x20ls\x20\x2dlap\x1egotop\x20gotop\x20\x2dc\x20solarized
-SETUVAR fish_user_paths:/home/will/neovim/bin\x1e/home/will/\x2enpm\x2dpackages/bin\x1e/home/will/\x2elocal/bin\x1e/home/will/go/bin\x1e/usr/local/go/bin\x1e/home/will/\x2epyenv/bin\x1e/home/will/\x2ecargo/bin\x1e/home/linuxbrew/\x2elinuxbrew/bin\x1e/home/will/\x2efzf/bin
