@@ -191,3 +191,7 @@ scriptpubkeyman
 PostInit
 ScriptPubkeyMans
 LegacyScriptPubKeyMan
+SetupDescriptorScriptPubKeyMans
+SPK
+upgradability
+SPKMs

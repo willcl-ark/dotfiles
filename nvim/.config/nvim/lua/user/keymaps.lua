@@ -47,3 +47,7 @@ keymap("n", "<C-l>", ":nohlsearch<Bar>:echo<CR>", opts)
 
 -- Bring up a nice buffer switcher with F5
 keymap("n", "<F5>", ":buffers<CR>:buffer<Space>", opts)
+
+-- Direct LSP shortcuts
+keymap("n", "gd", "Telescope lsp_definitions<cr>", opts) -- jump to definition
+keymap("n", "gr", "Telescope lsp_references<cr>", opts) -- list references
