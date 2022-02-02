@@ -79,6 +79,17 @@ function update-progs
         set_color normal
     end
 
+    # fzf
+    _updating-name fzf
+    cd $HOME/.fzf
+    set ERR (compare-git-tip)
+    if test $status = 0
+        # Build
+        ./install --key-bindings --completion --no-update-rc --no-bash --no-zsh
+    else 
+        _print-err $ERR
+    end
+
     popd    # end of src install
 
 end
