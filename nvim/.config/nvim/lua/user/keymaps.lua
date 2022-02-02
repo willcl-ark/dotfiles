@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+local buffer_0_opts = { noremap = true, silent = true, buffer = 0 }
 
 local term_opts = { silent = true }
 
@@ -51,3 +52,4 @@ keymap("n", "<F5>", ":buffers<CR>:buffer<Space>", opts)
 -- Direct LSP shortcuts
 keymap("n", "gd", "Telescope lsp_definitions<cr>", opts) -- jump to definition
 keymap("n", "gr", "Telescope lsp_references<cr>", opts) -- list references
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 }) -- show function signature
