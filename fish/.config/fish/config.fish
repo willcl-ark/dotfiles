@@ -3,13 +3,6 @@ source $HOME/.config/fish/paths.fish
 # pyenv
 status is-interactive; and pyenv init --path | source
 
-# Fish git prompt
-#set __fish_git_prompt_showuntrackedfiles 'yes'
-#set __fish_git_prompt_showdirtystate 'yes'
-#set __fish_git_prompt_showstashstate ''
-#set __fish_git_prompt_showupstream 'auto'
-#set -g fish_prompt_pwd_dir_length 3
-
 # Coloured man output
 # from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
 setenv LESS_TERMCAP_mb \e'[01;31m'       # begin blinking

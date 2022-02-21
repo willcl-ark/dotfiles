@@ -1,5 +1,7 @@
 set -gx BASH (command -v bash)
 set -gx BDB_PREFIX $HOME/src/bitcoin/db4
+set -gx CC (command -v clang)
+set -gx CXX (command -v clang++)
 set -gx CHEAT_USE_FZF true
 set -gx DETATCHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
