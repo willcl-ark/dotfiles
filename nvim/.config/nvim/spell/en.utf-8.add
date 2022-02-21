@@ -254,3 +254,8 @@ filetype
 unbroadcast
 LoadMempool
 reindex
+TXIDs
+SipHash
+libbitcoinkernel
+libbitcoinconsensus
+mempool's

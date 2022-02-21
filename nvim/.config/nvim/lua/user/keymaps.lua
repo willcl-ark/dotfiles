@@ -1,5 +1,5 @@
 local opts = { noremap = true, silent = true }
-local buffer_0_opts = { noremap = true, silent = true, buffer = 0 }
+local cur_buf_opts = { noremap = true, silent = true, buffer = 0 }
 
 local term_opts = { silent = true }
 
@@ -49,7 +49,23 @@ keymap("n", "<C-l>", ":nohlsearch<Bar>:echo<CR>", opts)
 -- Bring up a nice buffer switcher with F5
 keymap("n", "<F5>", ":buffers<CR>:buffer<Space>", opts)
 
--- Direct LSP shortcuts
-keymap("n", "gd", "Telescope lsp_definitions<cr>", opts) -- jump to definition
-keymap("n", "gr", "Telescope lsp_references<cr>", opts) -- list references
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 }) -- show function signature
+-- LSP shortcuts
+keymap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
+keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
+keymap("n", "gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, cur_buf_opts ) -- show function signature
+
+-- Telescope
+keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", opts)
+keymap("n", "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+keymap("n", "<leader>lg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+
+keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<leader>to", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
+keymap("n", "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>", opts)
+keymap("n", "<leader>sh", "<cmd>lua require('telescope.builtin').search_history()<cr>", opts)
+keymap("n", "<leader>th", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+keymap("n", "<leader>tr", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
+keymap("n", "<leader>tp", "<cmd>lua require('telescope.builtin').builtin()<cr>", opts) -- show all pickers
+
