@@ -50,9 +50,9 @@ keymap("n", "<C-l>", ":nohlsearch<Bar>:echo<CR>", opts)
 keymap("n", "<F5>", ":buffers<CR>:buffer<Space>", opts)
 
 -- LSP shortcuts
-keymap("n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
-keymap("n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)
-keymap("n", "gi", "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)
+keymap("n", "<leader>ld", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)  -- lsp definitions
+keymap("n", "<leader>lr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)   -- lsp references
+keymap("n", "<leader>li", "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)  -- lsp implmentations
 vim.keymap.set("n", "K", vim.lsp.buf.hover, cur_buf_opts ) -- show function signature
 
 -- Telescope
@@ -60,8 +60,9 @@ keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr
 keymap("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", opts)
 keymap("n", "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
 keymap("n", "<leader>lg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>", opts)
 
-keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 keymap("n", "<leader>to", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
 keymap("n", "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>", opts)
 keymap("n", "<leader>sh", "<cmd>lua require('telescope.builtin').search_history()<cr>", opts)
