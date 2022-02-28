@@ -83,7 +83,7 @@ function fish_greeting
 end
 
 # Use vim keybindings in fish editor
-#fish_vi_key_bindings
+fish_vi_key_bindings
 
 # NPM / NVM
 if [ (uname) = Linux ]
