@@ -15,3 +15,6 @@ fish_add_path $HOME/.pyenv/bin
 fish_add_path $HOME/.cargo/bin 
 fish_add_path $HOME/neovim/bin 
 fish_add_path /usr/lib/ccache
+if [ (uname) = Darwin ]
+    fish_add_path /usr/local/bin
+end
