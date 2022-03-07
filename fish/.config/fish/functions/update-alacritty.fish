@@ -1,10 +1,10 @@
 function update-alacritty
-   # Build & install
+    # Build & install
     cargo build --release && \
-    # copy to a temp location
-    sudo cp target/release/alacritty /usr/local/bin/alacritty-new && \
-    # use `rename` to atomically rename the file: https://man7.org/linux/man-pages/man2/rename.2.html
-    sudo rename /usr/local/bin/alacritty-new /usr/local/bin/alacritty && \
+    # To update running binary, remove inode link and link new binary inode to old location
+    # UPdate will fulfill when application next restarted
+    sudo rm /usr/local/bin/alacritty && \
+    sudo cp target/release/alacritty /usr/local/bin/alacritty && \
     # Terminfo
     sudo tic -xe alacritty,alacritty-direct extra/alacritty.info && \
     # Desktop Entry (Ubuntu)
