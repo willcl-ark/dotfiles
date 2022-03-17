@@ -1,10 +1,11 @@
 local opts = { noremap = true, silent = true }
-local cur_buf_opts = { noremap = true, silent = true, buffer = 0 }
+--local cur_buf_opts = { noremap = true, silent = true, buffer = 0 }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
--- Shorten function name
+-- Shorten function names
 local keymap = vim.api.nvim_set_keymap
+local buffer_keymap = vim.api.nvim_buf_set_keymap
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -49,11 +50,7 @@ keymap("n", "<C-l>", ":nohlsearch<Bar>:echo<CR>", opts)
 -- Bring up a nice buffer switcher with F5
 keymap("n", "<F5>", ":buffers<CR>:buffer<Space>", opts)
 
--- LSP shortcuts
-keymap("n", "<leader>ld", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)  -- lsp definitions
-keymap("n", "<leader>lr", "<cmd>lua require('telescope.builtin').lsp_references()<cr>", opts)   -- lsp references
-keymap("n", "<leader>li", "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>", opts)  -- lsp implmentations
-vim.keymap.set("n", "K", vim.lsp.buf.hover, cur_buf_opts ) -- show function signature
+-- LSP shortcuts found in lsp/handlers.lua
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
@@ -66,7 +63,9 @@ keymap("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", 
 keymap("n", "<leader>to", "<cmd>lua require('telescope.builtin').oldfiles()<cr>", opts)
 keymap("n", "<leader>ch", "<cmd>lua require('telescope.builtin').command_history()<cr>", opts)
 keymap("n", "<leader>sh", "<cmd>lua require('telescope.builtin').search_history()<cr>", opts)
-keymap("n", "<leader>th", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-keymap("n", "<leader>tr", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
-keymap("n", "<leader>tp", "<cmd>lua require('telescope.builtin').builtin()<cr>", opts) -- show all pickers
+keymap("n", "<leader>ht", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+keymap("n", "<leader>r", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
+keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').builtin()<cr>", opts) -- show all pickers
 
+keymap("n", "<leader>lws", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>", opts)  -- lsp workspace symbols
+keymap("n", "<leader>lca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<cr>", opts)  -- lsp code actions

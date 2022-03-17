@@ -1,44 +1,85 @@
-vim.cmd [[
-  augroup _general_settings
-    autocmd!
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
-    autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200}) 
-    autocmd BufWinEnter * :set formatoptions-=cro
-    autocmd FileType qf set nobuflisted
-    autocmd BufRead *.orig set readonly
-    autocmd BufRead *.pacnew set readonly
-    autocmd InsertLeave * set nopaste
-    au BufReadPost * if expand('%:p') !~# '\m/\.git' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-  augroup end
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
-  augroup _git
-    autocmd!
-    autocmd FileType gitcommit setlocal textwidth=72 colorcolumn=72 colorcolumn+=50
-    autocmd FileType gitcommit setlocal wrap
-  augroup end
+local asciidoctor = augroup("asciidoctor", { clear = true })
+autocmd("FileType", {
+    pattern = "asciidoctor",
+    command = "setlocal spell spelllang=en_gb",
+    group = asciidoctor,
+})
 
-  augroup _markdown
-    autocmd!
-    autocmd BufRead *.md set filetype=markdown
-    autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell spelllang=en_gb
-  augroup end
+-- Autoresize
+local autoresize = augroup("autoresize", { clear = true })
+autocmd("VimResized", {
+    pattern = "*",
+    command = "tabdo wincmd =",
+    group = autoresize,
+})
 
-  augroup _mail
-    autocmd BufRead,BufNewFile /tmp/mutt* setfiletype mail
-    autocmd FileType mail lua require('cmp').setup.buffer { enabled = false }
-    autocmd FileType mail setlocal spell spelllang=en_gb textwidth=72
-    autocmd FileType mail setlocal fo+=w
-  augroup end
+-- General
+local general = augroup("general", { clear = true })
+autocmd("FileType", {
+    pattern = "help,man,lspinfo",
+    command = "nnoremap <silent> <buffer> q :close<CR>",
+    group = general,
+})
+autocmd("TextYankPost", {
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({ higroup = 'Search', timeout = 200 })
+    end,
+    group = general,
+})
+autocmd("BufWinEnter", {
+    pattern = "*",
+    command = "set formatoptions-=cro",
+    group = general,
+})
 
-  augroup _auto_resize
-    autocmd!
-    autocmd VimResized * tabdo wincmd = 
-  augroup end
+-- Git
+local git = augroup("git", {clear = true })
+autocmd("FileType", {
+    pattern = "gitcommit",
+    command = "setlocal textwidth=72 colorcolumn=72 colorcolumn+=50 wrap",
+    group = git,
+})
+-- Command taken from `:h last-position-jump`
+-- Stops git commits from returning to previous position
+autocmd("BufRead", {
+    pattern = "*",
+    command = [[if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif]],
+    group = git,
+    once = true,
+})
+autocmd("BufRead", {
+    pattern = "*.orig",
+    command = "setlocal readonly",
+    group = git,
+})
 
-  augroup _asciidoctor
-    autocmd!
-    autocmd BufRead *.adoc set filetype=asciidoc
-    autocmd FileType asciidoc setlocal spell spelllang=en_gb
-]]
+-- Mail
+local mail = augroup("mail", { clear = true })
+autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "/tmp/mutt/*",
+    command = "setfiletype mail",
+    group = mail,
+})
+autocmd("FileType", {
+    pattern = "mail",
+    command = "setlocal spell spelllang=en_gb textwidth=72 fo+=w",
+    group = mail,
+})
+
+-- Markdown
+local markdown = augroup("markdown", { clear = true })
+autocmd("BufRead", {
+    pattern = "*.md",
+    command = "setlocal filetype markdown",
+    group = markdown,
+})
+autocmd("FileType", {
+    pattern = "markdown",
+    command = "setlocal wrap spell spelllang=en_gb",
+    group = markdown,
+})
 
