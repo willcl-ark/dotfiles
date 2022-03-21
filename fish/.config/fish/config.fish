@@ -1,7 +1,9 @@
 source $HOME/.config/fish/paths.fish
 
 # pyenv
-status is-interactive; and pyenv init --path | source
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init - | source
+
 
 # Coloured man output
 # from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
