@@ -13,7 +13,7 @@ local sources = {
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
     formatting.eslint_d,
-    formatting.clang_format,
+    -- formatting.clang_format,
     formatting.fish_indent,
     formatting.rustfmt,
     diagnostics.flake8,
