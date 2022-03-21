@@ -5,7 +5,7 @@ set -gx CXX (command -v clang++)
 set -gx CHEAT_USE_FZF true
 set -gx DETATCHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
-set -gx GEM_HOME $HOME/.local/share/gem/ruby/2.7.0
+set -gx GEM_HOME $HOME/.gems
 set -gx GEM_BIN $GEM_HOME/bin
 set -gx GIT_CONFIG $HOME/.config/git/config
 set -gx GUIX_LOCPATH $HOME/.guixprofile/lib/locale
