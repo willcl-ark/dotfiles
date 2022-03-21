@@ -92,7 +92,7 @@ lualine.setup({
         -- lualine_b = { branch, diagnostics },
         lualine_b = { branch },
         lualine_c = { filename },
-        lualine_x = { diff, spaces, "encoding", filetype },
+        lualine_x = { diff, spaces, "encoding", filetype, progress },
         -- lualine_y = { progress },
         lualine_y = { diagnostics },
         lualine_z = { location },
