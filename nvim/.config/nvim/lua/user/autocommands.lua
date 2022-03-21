@@ -72,11 +72,6 @@ autocmd("FileType", {
 
 -- Markdown
 local markdown = augroup("markdown", { clear = true })
-autocmd("BufRead", {
-    pattern = "*.md",
-    command = "setlocal filetype markdown",
-    group = markdown,
-})
 autocmd("FileType", {
     pattern = "markdown",
     command = "setlocal wrap spell spelllang=en_gb",
