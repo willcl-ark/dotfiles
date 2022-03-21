@@ -48,7 +48,7 @@ cursor:
 live_config_reload: true
 
 shell:
-  program: /usr/bin/fish
+  program: /usr/local/bin/fish
 
 # Send ESC (\x1b) before characters when alt is pressed.
 alt_send_esc: false
