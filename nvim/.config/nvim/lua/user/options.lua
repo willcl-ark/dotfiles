@@ -20,6 +20,7 @@ local options = {
   cursorline = true,                        -- highlight the current line
   guifont = "monospace:h17",                -- the font used in graphical neovim applications
   linebreak = true,                         -- when wrapping text, don't break within a word
+  list = true,
   number = true,                            -- set numbered lines
   numberwidth = 4,                          -- set number column width to 4
   pumheight = 10,                           -- pop up menu height
