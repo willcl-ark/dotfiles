@@ -19,6 +19,7 @@ local options = {
   conceallevel = 0,                         -- so that `` is visible in markdown files
   cursorline = true,                        -- highlight the current line
   guifont = "monospace:h17",                -- the font used in graphical neovim applications
+  laststatus = 3,                           -- global status line, maybe add `:highlight Winseparator guibg=None` if colours bad
   linebreak = true,                         -- when wrapping text, don't break within a word
   list = true,
   number = true,                            -- set numbered lines
