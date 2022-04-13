@@ -7,9 +7,10 @@ local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
-    layout_strategy = 'horizontal',
+    layout_strategy = 'flex',
     layout_config = {
-      height = 0.95,
+      height = 0.99,
+      width = 0.99,
       prompt_position = 'bottom',
     },
 
