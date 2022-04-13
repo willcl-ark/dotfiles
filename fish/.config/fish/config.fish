@@ -1,4 +1,5 @@
 source $HOME/.config/fish/paths.fish
+source $HOME/.config/fish/variables.fish
 
 # pyenv
 status is-login; and pyenv init --path | source
