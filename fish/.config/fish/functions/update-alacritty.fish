@@ -2,7 +2,7 @@ function update-alacritty
     # Build & install
     cargo build --release && \
     # To update running binary, remove inode link and link new binary inode to old location
-    # UPdate will fulfill when application next restarted
+    # Update will fulfill when application next restarted
     sudo rm /usr/local/bin/alacritty && \
     sudo cp target/release/alacritty /usr/local/bin/alacritty && \
     # Terminfo
