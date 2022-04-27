@@ -77,9 +77,9 @@ function update-progs
                     echo $ERR
             end
 
-            # youtube-dl
-            _updating-name youtube-dl
-            update-ytdl
+            # yt-dlp
+            _udpating-name yt-dlp
+            update-yt-dlp
 
             # fzf
             _updating-name fzf
