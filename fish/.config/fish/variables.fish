@@ -3,7 +3,7 @@ set -gx BDB_PREFIX $HOME/src/bitcoin/db4
 set -gx CC (command -v clang)
 set -gx CXX (command -v clang++)
 set -gx CHEAT_USE_FZF true
-set -gx DETATCHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
+set -gx DETACHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
 set -gx GEM_HOME $HOME/.gems
 set -gx GEM_BIN $GEM_HOME/bin
