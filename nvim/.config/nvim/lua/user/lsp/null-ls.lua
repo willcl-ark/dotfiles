@@ -16,7 +16,7 @@ local sources = {
     -- formatting.clang_format,
     formatting.fish_indent,
     formatting.rustfmt,
-    diagnostics.flake8,
+    -- diagnostics.flake8,
     diagnostics.gitlint,
     diagnostics.shellcheck,
     diagnostics.eslint_d,
