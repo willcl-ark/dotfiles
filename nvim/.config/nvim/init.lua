@@ -16,3 +16,7 @@ require "user.autocommands"
 require "user.fidget"
 require "user.asciidoctor"
 require "user.filetype"
+require "user.markdown-preview"
+vim.g.markdown_fenced_languages = {
+  "mermaid=mermaid"
+}

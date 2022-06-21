@@ -54,12 +54,21 @@ return packer.startup(function(use)
   -- use "folke/which-key.nvim"
   use "habamax/vim-asciidoctor"
 
+  -- Syntax
+  use "mracos/mermaid.vim"
+
+  -- markdown-preview
+  -- install without yarn or npm
+  use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, })
+  -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
   -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   -- use 'olimorris/onedarkpro.nvim'
   use 'navarasu/onedark.nvim'
   -- use "projekt0n/github-nvim-theme"
+  use 'shaunsingh/solarized.nvim'
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
