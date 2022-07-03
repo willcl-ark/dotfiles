@@ -54,6 +54,7 @@ keymap("n", "<F5>", ":buffers<CR>:buffer<Space>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>fa", ":cd<cmd>lua require('telescope.builtin').find_files()<cr>", opts) -- fuzzy finder open any file in home dir
 keymap("n", "<leader>gf", "<cmd>lua require('telescope.builtin').git_files()<cr>", opts)
 keymap("n", "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
 keymap("n", "<leader>lg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
