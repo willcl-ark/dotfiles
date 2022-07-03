@@ -12,6 +12,7 @@
 	# spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
 	# rbc = rebase
 	ds = diff --staged
+    last = log -1 HEAD
 
 [commit]
 	gpgsign = true
@@ -20,6 +21,9 @@
 [core]
 	excludesfile = /home/will/.config/git/gitignore_global
     editor = nvim
+
+[safe]
+	directory = /home/will/src/neovim
 
 [http]
 	postBuffer = 5242880

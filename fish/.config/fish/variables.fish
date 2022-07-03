@@ -8,7 +8,6 @@ set -gx DETACHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
 set -gx GEM_HOME $HOME/.gems
 set -gx GEM_BIN $GEM_HOME/bin
-set -gx GIT_CONFIG $HOME/.config/git/config
 set -gx GUIX_LOCPATH $HOME/.guixprofile/lib/locale
 set -gx GUIX_SIGS_REPO $HOME/src/guix.sigs
 set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/share/man /usr/man /usr/share/man /usr/local/man /usr/local/share/man /usr/X11R6/man /opt/man /snap/man
