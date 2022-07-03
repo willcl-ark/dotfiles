@@ -13,7 +13,7 @@ local options = {
   ----------------------
   -- DISPLAY
   ----------------------
-  cmdheight = 2,                            -- more space in the neovim command line for displaying messages
+  cmdheight = 0,                            -- only display cmd bar in command mode
   colorcolumn = "80",                       -- show a coloured column
   completeopt = { "menuone", "noselect" },  -- mostly just for cmp
   conceallevel = 0,                         -- so that `` is visible in markdown files
