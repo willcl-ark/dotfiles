@@ -43,14 +43,6 @@ autocmd("FileType", {
     command = "setlocal textwidth=72 colorcolumn=72 colorcolumn+=50 wrap",
     group = git,
 })
--- Command taken from `:h last-position-jump`
--- Stops git commits from returning to previous position
-autocmd("BufRead", {
-    pattern = "*",
-    command = [[if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif]],
-    group = git,
-    once = true,
-})
 autocmd("BufRead", {
     pattern = "*.orig",
     command = "setlocal readonly",

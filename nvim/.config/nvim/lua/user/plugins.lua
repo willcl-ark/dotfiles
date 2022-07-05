@@ -46,20 +46,20 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use "kyazdani42/nvim-web-devicons"
-  use "moll/vim-bbye"
+  -- use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   -- use "folke/which-key.nvim"
-  use "habamax/vim-asciidoctor"
 
   -- Syntax
+  use "habamax/vim-asciidoctor"
   use "mracos/mermaid.vim"
 
   -- markdown-preview
   -- install without yarn or npm
-  use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, })
+  -- use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, })
   -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   -- Colorschemes
@@ -99,6 +99,9 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  -- other
+  use 'ethanholz/nvim-lastplace'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
