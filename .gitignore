@@ -21,3 +21,9 @@ Icon
 
 # Cloned repos and other junk
 vim/.vim/pack/git-plugins/
+fish/.config/fish/completions/alacritty.fish
+fish/.config/fish/fish_variables
+nvim/.config/nvim/plugin/
+xinitrc/
+nvim/.config/nvim/spell/
+gh/.config/gh/hosts.yml
