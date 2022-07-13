@@ -16,7 +16,11 @@ vim.g.markdown_fenced_languages = {
 }
 require "user.nvim-lastplace"
 require "user.nvim-surround"
-require "user.onedark"
+if os.getenv("DARK") == "0" then
+    require('solarized').set()
+else
+    require "user.onedark"
+end
 require "user.options"
 require "user.plugins"
 require "user.telescope"

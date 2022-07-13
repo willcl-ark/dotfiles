@@ -4,6 +4,7 @@ set -gx CC (command -v clang)
 set -gx CCACHE_DIR $HOME/.ccache
 set -gx CXX (command -v clang++)
 set -gx CHEAT_USE_FZF true
+set -gx DARK 1
 set -gx DETACHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
 set -gx GEM_HOME $HOME/.gems
