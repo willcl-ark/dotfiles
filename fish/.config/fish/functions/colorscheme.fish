@@ -7,7 +7,7 @@ function colorscheme
         case Linux:
             cat $alacritty/base.yml > $alacritty/alacritty.yml
         case Darwin
-            cat ~/dotfiles/alacritty/.config/alacritty/base.yml | sed 's/style: Regular/style: Text/' > alacritty.yml
+            cat ~/dotfiles/alacritty/.config/alacritty/base.yml | sed 's/style: Regular/style: Text/' | sed 's/size: 11.0/size: 16.0/'> $alacritty/alacritty.yml
         case *
             echo "uname returned unknown value"
     end
