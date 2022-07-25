@@ -14,45 +14,58 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
+  --local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>lD",   "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>ld",   "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"K",            "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>li",   "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>sh",   "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>rn",   "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>lr",   "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>lca",  "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"[d",           "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>h",    "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"]d",           "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader>q",    "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader><leader>f",   "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr,	"n",	"<leader><leader>ff",   "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-require('lspconfig')['sumneko_lua'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
-}
-require('lspconfig')['clangd'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
-require('lspconfig')['python-lsp-server'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+
+-- Setup a default handler for all installed servers
+require("mason-lspconfig").setup_handlers({
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {
+            on_attach = on_attach,
+            flags = lsp_flags,
+        }
+    end,
+    -- Next, you can provide targeted overrides for specific servers.
+    ["rust_analyzer"] = function ()
+        require("rust-tools").setup {
+        }
+    end,
+    ["sumneko_lua"] = function ()
+        require("lspconfig").sumneko_lua.setup {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" }
+                    }
+                }
+            }
+        }
+    end,
+})
+
+-- Add cmp_nvim_lsp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+require("cmp_nvim_lsp").update_capabilities(capabilities)
