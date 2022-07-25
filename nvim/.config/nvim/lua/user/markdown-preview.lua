@@ -72,7 +72,7 @@ vim.g.mkdp_preview_options = {
     --content_editable = v:false,
     disable_filename = 0,
     toc = {}
-    }
+}
 
 -- use a custom markdown style must be absolute path
 -- like '/Users/username/markdown.css' or expand('~/markdown.css')
@@ -91,7 +91,7 @@ vim.g.mkdp_preview_options = {
 
 -- recognized filetypes
 -- these filetypes will have MarkdownPreview... commands
-vim.g.mkdp_filetypes = {'markdown'}
+vim.g.mkdp_filetypes = { 'markdown' }
 
 -- set default theme (dark or light)
 -- By default the theme is define according to the preferences of the system

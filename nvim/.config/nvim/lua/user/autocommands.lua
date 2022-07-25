@@ -37,7 +37,7 @@ autocmd("BufWinEnter", {
 })
 
 -- Git
-local git = augroup("git", {clear = true })
+local git = augroup("git", { clear = true })
 autocmd("FileType", {
     pattern = "gitcommit",
     command = "setlocal textwidth=72 colorcolumn=72 colorcolumn+=50 wrap",
@@ -69,4 +69,3 @@ autocmd("FileType", {
     command = "setlocal wrap spell spelllang=en_gb",
     group = markdown,
 })
-

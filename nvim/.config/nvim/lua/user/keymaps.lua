@@ -69,5 +69,5 @@ keymap("n", "<leader>r", "<cmd>lua require('telescope.builtin').resume()<cr>", o
 keymap("n", "<leader>tb", "<cmd>lua require('telescope.builtin').builtin()<cr>", opts) -- show all pickers
 keymap("n", "<leader>=", "<cmd>lua require('telescope.builtin').spell_suggest()<cr>", opts)
 
-keymap("n", "<leader><leader>s", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>", opts)  -- lsp workspace symbols
-keymap("n", "<leader>lca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<cr>", opts)  -- lsp code actions
+keymap("n", "<leader><leader>s", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>", opts) -- lsp workspace symbols
+keymap("n", "<leader>lca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<cr>", opts) -- lsp code actions
