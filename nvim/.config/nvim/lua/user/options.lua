@@ -30,7 +30,7 @@ local options = {
   showmode = false,                         -- we don't need to see things like -- INSERT -- anymore
   sidescrolloff = 2,
   signcolumn = "yes",                       -- always show the sign column, otherwise it would shift the text each time
-  wrap = true,                              -- display lines as one long line
+  wrap = false,                             -- display lines as one long line
   ----------------------
   -- MISC
   ----------------------
