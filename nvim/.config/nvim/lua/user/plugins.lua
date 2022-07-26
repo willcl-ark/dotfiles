@@ -45,8 +45,10 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-    use "kyazdani42/nvim-web-devicons"
-    use "nvim-lualine/lualine.nvim"
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use "lewis6991/impatient.nvim"
     use "lukas-reineke/indent-blankline.nvim" -- add indentation markers
     use "kylechui/nvim-surround"
@@ -79,12 +81,15 @@ return packer.startup(function(use)
     use "williamboman/mason.nvim" -- simple to use language server installer
     use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
     use "j-hui/fidget.nvim" -- show nvim-lsp progress
     use "simrat39/rust-tools.nvim" -- Extra functionality over rust analyzer.
 
     -- Telescope
-    use "nvim-telescope/telescope.nvim"
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Treesitter
