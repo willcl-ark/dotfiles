@@ -2,7 +2,7 @@
 complete --command colorscheme --no-files
 
 # Set available themes
-set --local themes onedark darkplus solarized_light
+set --local themes onedark darkplus solarized_light synthwave
 
 # Offer themes
 complete \

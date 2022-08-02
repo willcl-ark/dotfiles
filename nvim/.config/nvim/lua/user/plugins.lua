@@ -64,6 +64,8 @@ return packer.startup(function(use)
     use "lunarvim/darkplus.nvim"
     use 'navarasu/onedark.nvim'
     use 'shaunsingh/solarized.nvim'
+    use 'norcalli/nvim-colorizer.lua'
+    use 'lunarvim/synthwave84.nvim'
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
