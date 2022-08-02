@@ -71,3 +71,8 @@ keymap("n", "<leader>=", "<cmd>lua require('telescope.builtin').spell_suggest()<
 
 keymap("n", "<leader><leader>s", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>", opts) -- lsp workspace symbols
 keymap("n", "<leader>lca", "<cmd>lua require('telescope.builtin').lsp_code_actions()<cr>", opts) -- lsp code actions
+
+-- Copy/Paste
+keymap("v", "<leader>y", "\"+y", opts)
+keymap("n", "<leader>p", "\"+p", opts)
+keymap("i", "<C-V>", "<ESC>+pa", opts)
