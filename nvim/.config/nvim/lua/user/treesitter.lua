@@ -3,6 +3,7 @@ require 'nvim-treesitter.install'.compilers = { 'clang' }
 
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
+    vim.notify("treesitter failed to load")
     return
 end
 

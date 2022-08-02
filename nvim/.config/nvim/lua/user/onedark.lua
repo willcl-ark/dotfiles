@@ -1,5 +1,6 @@
 local status_ok, onedark = pcall(require, "onedark")
 if not status_ok then
+    vim.notify("onedark failed to load")
     return
 end
 onedark.setup {
