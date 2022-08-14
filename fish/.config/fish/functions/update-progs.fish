@@ -78,7 +78,7 @@ function update-progs
             end
 
             # yt-dlp
-            _udpating-name yt-dlp
+            _updating-name yt-dlp
             update-yt-dlp
 
             # fzf
