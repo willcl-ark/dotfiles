@@ -1,0 +1,19 @@
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=300
+--max-columns-preview
+
+# Add my 'adoc' type.
+--type-add
+adoc:*.{adoc,asciidoc,asc}*
+
+# Set the colors.
+--colors=line:fg:green
+--colors=line:style:nobold
+--colors=path:fg:magenta
+--colors=path:style:bold
+--colors=match:fg:black
+--colors=match:bg:yellow
+--colors=match:style:nobold
+
+# Because who cares about case!?
+--smart-case
