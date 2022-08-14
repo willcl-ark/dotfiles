@@ -24,7 +24,7 @@ local options = {
     list = true,
     number = true, -- set numbered lines
     numberwidth = 4, -- set number column width to 4
-    pumheight = 10, -- pop up menu height
+    --pumheight = 10, -- pop up menu height
     relativenumber = true, -- set relative numbered lines
     scrolloff = 2, -- How many lines to keep visible
     showmode = false, -- we don't need to see things like -- INSERT -- anymore
@@ -72,3 +72,9 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+-- Netrw
+vim.g.netrw_keepdir = 0
+vim.g.netrw_winsize = 25
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3

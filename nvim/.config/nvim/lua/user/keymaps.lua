@@ -76,3 +76,9 @@ keymap("n", "<leader>lca", "<cmd>lua require('telescope.builtin').lsp_code_actio
 keymap("v", "<leader>y", "\"+y", opts)
 keymap("n", "<leader>p", "\"+p", opts)
 keymap("i", "<C-V>", "<ESC>+pa", opts)
+
+-- Netrw
+keymap("n", "<leader>da", ":silent Lexplore %:p:h <CR>", opts)
+keymap("n", "<leader>dd", ":silent Lexplore <CR>", opts)
+--nnoremap <leader>dd :Lexplore %:p:h<CR>
+--nnoremap <Leader>da :Lexplore<CR>
