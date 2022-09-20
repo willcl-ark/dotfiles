@@ -4,6 +4,7 @@ require "user.plugins"
 -- Speedup plugin loading
 require "user.impatient"
 
+require "user.options"
 -- Load remaining plugins
 require "user.asciidoctor"
 require "user.autocommands"
