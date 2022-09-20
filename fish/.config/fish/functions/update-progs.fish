@@ -58,8 +58,8 @@ function update-progs
 
     # Only run these if we invoke with --all
     switch $_flag_all
-        # Bear
         case --all
+            # Bear
             _updating-name Bear
             cd $SRC/Bear/build
             set ERR (compare-git-tip)
@@ -76,6 +76,10 @@ function update-progs
                 case 2
                     echo $ERR
             end
+
+            # Cargo-installed applications
+            _updating-name Cargo-apps
+            cargo install-update -a
 
             # yt-dlp
             _updating-name yt-dlp
