@@ -102,6 +102,13 @@ function update-progs
                 case 2
                     echo $ERR
             end
+
+            # rust-analyzer
+            # TODO: update this to use source repo
+            _updating-name rust-analyzer
+            cd $HOME
+            update-rust-analyzer
+
         case '*'
     end
     popd    # end of src install
