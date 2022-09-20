@@ -11,7 +11,13 @@ require "user.autocommands"
 require "user.autopairs"
 require "user.cmp"
 require "user.comment"
-require "user.colorscheme"
+
+-- Load a default color scheme if none exists
+local ok, _ = pcall(require, "user.colorscheme")
+if not ok then
+    require "user.onedark"
+end
+
 require "user.fidget"
 require "user.gitsigns"
 require "user.indentline"
