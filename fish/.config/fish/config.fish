@@ -16,25 +16,25 @@ setenv LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
 setenv LESS_TERMCAP_ue \e'[0m'           # end underline
 setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
-function fish_prompt
-	set_color yellow
-	echo -n "["(date "+%H:%M")"] "
-	set_color blue
-	echo -n (hostname)
-	if [ $PWD != $HOME ]
-		set_color brblack
-		echo -n ':'
-		set_color yellow
-		echo -n (basename $PWD)
-	end
-	set_color green
-	printf '%s ' (__fish_git_prompt)
-	set_color red
-	echo -n '| '
-	set_color f2a900
-    echo -n '₿ '
-    set color normal
-end
+#function fish_prompt
+#	set_color yellow
+#	echo -n "["(date "+%H:%M")"] "
+#	set_color blue
+#	echo -n (hostname)
+#	if [ $PWD != $HOME ]
+#		set_color brblack
+#		echo -n ':'
+#		set_color yellow
+#		echo -n (basename $PWD)
+#	end
+#	set_color green
+#	printf '%s ' (__fish_git_prompt)
+#	set_color red
+#	echo -n '| '
+#	set_color f2a900
+#    echo -n '₿ '
+#    set color normal
+#end
 
 function fish_greeting
 	echo
@@ -92,4 +92,6 @@ fish_vi_key_bindings
 if [ (uname) = Linux ]
     nvm use node > /dev/null
 end
+
+starship init fish | source
 
