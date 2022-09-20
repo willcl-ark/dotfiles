@@ -27,6 +27,7 @@ require "user.lualine"
 require "user.nvim-colorizer"
 require "user.nvim-lastplace"
 require "user.nvim-surround"
-require "user.options"
 require "user.telescope"
 require "user.treesitter"
+
+require "user.build"
