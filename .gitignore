@@ -27,3 +27,4 @@ nvim/.config/nvim/plugin/
 xinitrc/
 nvim/.config/nvim/spell/
 gh/.config/gh/hosts.yml
+alacritty/.config/alacritty/alacritty.yml
