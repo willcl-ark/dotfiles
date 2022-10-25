@@ -49,7 +49,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -197,15 +197,17 @@ exec_always --no-startup-id BLUE="#8ABEB7" $HOME/.config/polybar/launch.sh
 workspace_auto_back_and_forth yes
 
 # Audio Sink switcher
-bindsym Control+Shift+XF86Launch6 exec /home/will/scripts/switch_audio_output.fish
+bindsym Control+Shift+XF86Launch6 exec --no-startup-id /home/will/scripts/switch_audio_output.fish
 
 # Control media players with media keys
 exec --no-startup-id playerctld daemon
-bindcode 171 exec playerctl next
-bindcode 172 exec playerctl play-pause
-bindcode 173 exec playerctl previous
-bindcode 174 exec playerctl stop
+bindcode 171 exec --no-startup-id playerctl next
+bindcode 172 exec --no-startup-id playerctl play-pause
+bindcode 173 exec --no-startup-id playerctl previous
+bindcode 174 exec --no-startup-id playerctl stop
 
 # Lock and turn off screen
 bindsym $mod+x exec --no-startup-id i3lock -c 1f2329 && sleep 20 && xset dpms force off
 
+# Polkit for authentication
+exec --no-startup-id lxpolkit
