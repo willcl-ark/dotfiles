@@ -26,12 +26,9 @@ new_float pixel 1
 # Hide borders
 hide_edge_borders none
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/transfer-sleep-i3lock.sh --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -207,7 +204,7 @@ bindcode 173 exec --no-startup-id playerctl previous
 bindcode 174 exec --no-startup-id playerctl stop
 
 # Lock and turn off screen
-bindsym $mod+x exec --no-startup-id i3lock -c 1f2329 && sleep 20 && xset dpms force off
+bindsym $mod+x exec --no-startup-id ~/.config/i3/transfer-sleep-i3lock.sh
 
 # Polkit for authentication
 exec --no-startup-id lxpolkit
