@@ -9,5 +9,5 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "sumneko_lua", "rust_analyzer", "clangd", "jedi-language-server" }
+    ensure_installed = { "sumneko_lua", "rust_analyzer", "clangd", "jedi_language_server" }
 })
