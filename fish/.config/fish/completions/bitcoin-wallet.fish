@@ -2,14 +2,34 @@
 complete --command bitcoin-wallet --no-files
 
 # Extract options
-set --local options (bitcoin-wallet -help | sed -e '/^  -/ p' -e d | sed -e 's/=.*/=/' | sed -n '/\?$/!p')
+function __fish_bitcoin_wallet_get_options
+    set --local cmd (commandline -opc)[1]
+    for option in ($cmd -help 2>&1 | string match -r '^  -.*' | string replace -r '  -' '-' | string replace -r '=.*' '=')
+        echo $option
+    end
+end
 
-# Extract commands 
-set --local commands (bitcoin-wallet -help | sed -e '1,/Commands:/d' -e 's/=.*/=/' -e 's/(=/=/' -e '/^  [a-z]/ p' -e d)
+# Extract commands
+function __fish_bitcoin_wallet_get_commands
+    set --local cmd (commandline -opc)[1]
+    for command in ($cmd -help | sed -e '1,/Commands:/d' -e 's/=/=\t/' -e 's/(=/=/' -e '/^  [a-z]/ p' -e d | string replace -r '\ \ ' '')
+        echo $command
+    end
+end
 
-# Offer options without descriptions
-complete --command bitcoin-wallet --condition "not __fish_seen_subcommand_from $commands" --arguments "$options"
-# Offer commands with descriptions
-complete --command bitcoin-wallet --condition "not __fish_seen_subcommand_from $commands" --arguments "(bitcoin-wallet -help | sed -e '1,/Commands:/d' -e 's/=/=\t/' -e 's/(=/=/' -e 's/N)/(N)/' -e '/^  [a-z]/ p' -e 'd' | sed 's/^ *//')"
+# Add options
+complete \
+    --command bitcoin-wallet \
+    --condition "not __fish_seen_subcommand_from (__fish_bitcoin_wallet_get_commands)" \
+    --arguments "(__fish_bitcoin_wallet_get_options)"
 
+# Add commands
+complete \
+    --command bitcoin-wallet \
+    --condition "not __fish_seen_subcommand_from (__fish_bitcoin_wallet_get_commands)" \
+    --arguments "(__fish_bitcoin_wallet_get_commands)"
 
+# Add file completions for load and set commands
+complete --command bitcoin-wallet \
+    --condition "string match -r -- '(dumpfile|datadir)*=' (commandline -pt)" \
+    --force-files
