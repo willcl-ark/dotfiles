@@ -18,6 +18,7 @@ set -gx NVM_DIR $HOME/.nvm
 set -gx PIP_REQUIRE_VIRTUALENV 0
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 set -gx SIGNER will8clark
+set -gx SSH_AUTH_SOCK /run/user/1000/gnupg/S.gpg-agent.ssh
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
