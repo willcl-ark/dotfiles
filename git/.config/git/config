@@ -1,7 +1,8 @@
 [user]
-	email = will8clark@gmail.com
+	email = will@256k1.dev
 	name = willcl-ark
-	signingkey = 099BAD163C70FBFA
+    #signingkey = 099BAD163C70FBFA!
+    signingkey = 0xCE6EC49945C17EA6
 
 [credential]
 	helper = store
@@ -68,3 +69,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[gpg]
+	program = gpg2
