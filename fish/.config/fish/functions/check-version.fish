@@ -3,7 +3,7 @@ function check-version
     # Works for most programs
 
     # Checkout the most recent non-nightly tag
-    set --local TAG (git describe --tags --exclude "nightly" --abbrev=0 (git rev-list --tags --max-count=1))
+    set --local TAG (git describe --tags --exclude "nightly" --exclude "rc" --abbrev=0 (git rev-list --tags --max-count=1))
     git checkout $TAG
 
     echo "$argv[1] git at $TAG"
