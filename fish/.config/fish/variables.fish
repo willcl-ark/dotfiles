@@ -2,8 +2,9 @@ set -gx BASH (command -v bash)
 set -gx BDB_PREFIX $HOME/src/bitcoin/db4
 set -gx CC (command -v clang)
 set -gx CCACHE_DIR $HOME/.ccache
-set -gx CXX (command -v clang++)
 set -gx CHEAT_USE_FZF true
+set -gx CXX (command -v clang++)
+set -gx CXXFLAGS "-Wno-suggest-override"
 set -gx DARK 1
 set -gx DETACHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
