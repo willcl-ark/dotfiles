@@ -23,17 +23,20 @@ autocmd("FileType", {
     command = "nnoremap <silent> <buffer> q :close<CR>",
     group = general,
 })
+autocmd("BufWinEnter", {
+    pattern = "*",
+    command = "set formatoptions-=cro",
+    group = general,
+})
+
+-- Highlight
+local highlight = augroup("TextYankPost", { clear = true })
 autocmd("TextYankPost", {
     pattern = "*",
     callback = function()
         vim.highlight.on_yank({ higroup = 'Search', timeout = 500 })
     end,
-    group = general,
-})
-autocmd("BufWinEnter", {
-    pattern = "*",
-    command = "set formatoptions-=cro",
-    group = general,
+    group = highlight,
 })
 
 -- Git
