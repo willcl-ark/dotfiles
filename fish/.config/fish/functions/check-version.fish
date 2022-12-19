@@ -7,15 +7,20 @@ function check-version
     git checkout $TAG
 
     echo "$argv[1] git at $TAG"
-    set ver_installed ($argv[1] --version)
+    # Match on version numbers of digit form xxx.xxx.xxxx
+    # Version numbers with letters will fail
+    # https://regex101.com/r/t6kNLi/1
+    set ver_installed ($argv[1] --version | string match -r "\d{1,3}\.\d{1,3}\.\d{1,4}")
     echo "$argv[1] installed at $ver_installed"
-    string match "*$TAG*" $ver_installed
+    # Remove leading "v" from tags for better matching
+    set --local VTAG (string replace --regex "^v" "" $TAG)
+    string match "*$VTAG*" $ver_installed
     switch $status
         case 0
             echo "$argv[1]: installed version matches latest tag"
             return 0
         case 1
-            echo "$argv[1]: installed version behind latest tag"
+            echo "$argv[1]: installed version does not match latest tag"
             return 1
     end
 end
