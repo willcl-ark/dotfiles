@@ -44,8 +44,8 @@
 	colorMoved = dimmed-zebra
 #	external = difft
 
-[grep]
-	lineNumber = true
+#[grep]
+#	lineNumber = true
 
 [pager]
     diff = delta
