@@ -84,6 +84,9 @@ packer.startup(function(use)
   -- Open files in last edited place
   use 'ethanholz/nvim-lastplace'
 
+  -- Highlight selected portions of code
+  use 'folke/twilight.nvim'
+
   -- Add custom plugins to packer from /nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
