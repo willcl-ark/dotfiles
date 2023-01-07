@@ -87,6 +87,8 @@ packer.startup(function(use)
   -- Highlight selected portions of code
   use 'folke/twilight.nvim'
 
+  use { "catppuccin/nvim", as = "catppuccin" }
+
   -- Add custom plugins to packer from /nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -111,10 +113,11 @@ if is_bootstrap then
   return
 end
 
--- Automatically source and re-compile packer whenever you save this init.lua
+-- Automatically source and re-compile packer whenever you save this file
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
+  command = 'source <afile> | PackerSync',
   group = packer_group,
-  pattern = vim.fn.expand '$XDG_CONFIG_HOME' .. '/nvim/lua/user/plugins.lua',
+  pattern = vim.fn.expand('$XDG_CONFIG_HOME' .. '/nvim/lua/user/plugins.lua'),
 })
+

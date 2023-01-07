@@ -208,3 +208,9 @@ bindsym $mod+x exec --no-startup-id ~/.config/i3/transfer-sleep-i3lock.sh
 
 # Polkit for authentication
 exec --no-startup-id lxpolkit
+
+# Use shutter for screenshots
+# selection
+bindsym XF86Tools exec --no-startup-id shutter -s
+# active window
+bindsym Shift+XF86Tools exec --no-startup-id shutter -a

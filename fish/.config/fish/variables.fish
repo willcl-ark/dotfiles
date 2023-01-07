@@ -16,6 +16,8 @@ set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/
 set -gx NPM_PACKAGES $HOME/.npm-packages
 set -gx NVM_DIR $HOME/.nvm
 set -gx PIP_REQUIRE_VIRTUALENV 0
+# Hack for poetry: https://github.com/python-poetry/poetry/issues/1917#issuecomment-1235998997
+set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 set -gx SIGNER will8clark
 set -gx SSH_AUTH_SOCK /run/user/1000/gnupg/S.gpg-agent.ssh

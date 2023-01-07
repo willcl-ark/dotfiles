@@ -23,3 +23,6 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 -- Move highlighted lines
 vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
+
+-- Sync OBC to server
+--vim.keymap.set('n', '<leader><leader>s', 'lua: io.popen('./sync'))

@@ -48,7 +48,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme catppuccin]]
 
 -- Add a color column
 vim.o.colorcolumn = "80"
