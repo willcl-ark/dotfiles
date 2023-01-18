@@ -25,4 +25,5 @@ vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
 
 -- Sync OBC to server
---vim.keymap.set('n', '<leader><leader>s', 'lua: io.popen('./sync'))
+vim.keymap.set('n', '<leader><leader>s', ':!./sync<CR>')
+vim.keymap.set('n', '<leader><leader>a', ':!asciidoctor -r asciidoctor-diagram --verbose --trace index.adoc<CR>')
