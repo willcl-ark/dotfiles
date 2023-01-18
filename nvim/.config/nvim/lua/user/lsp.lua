@@ -63,7 +63,7 @@ mason.setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua', 'gopls', 'cmake' }
 
 -- Ensure the servers above are installed
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
