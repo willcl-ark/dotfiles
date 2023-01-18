@@ -1,8 +1,8 @@
 [user]
 	email = will@256k1.dev
 	name = willcl-ark
-    #signingkey = 099BAD163C70FBFA!
-    signingkey = 0xCE6EC49945C17EA6
+	#signingkey = 099BAD163C70FBFA!
+	signingkey = 0xCE6EC49945C17EA6
 
 [credential]
 	helper = store
@@ -13,7 +13,8 @@
 	# spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
 	# rbc = rebase
 	ds = diff --staged
-    last = log -1 HEAD
+	last = log -1 HEAD
+	files = "!f() { git diff-tree --no-commit-id --name-only -r HEAD | xargs nvim; }; f"
 
 [commit]
 	gpgsign = true
@@ -21,7 +22,7 @@
 
 [core]
 	excludesfile = /home/will/.config/git/gitignore_global
-    editor = nvim
+	editor = nvim
 
 [safe]
 	directory = /home/will/src/neovim
@@ -48,30 +49,30 @@
 #	lineNumber = true
 
 [pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+	diffFilter = delta --color-only --features=interactive
 
 [delta]
-    features = line-numbers decorations
-    syntax-theme = gruvbox-dark
-    zero-style = dim syntax
+	features = line-numbers decorations
+	syntax-theme = gruvbox-dark
+	zero-style = dim syntax
 
 [delta "interactive"]
-    keep-plus-minus-markers = false
+	keep-plus-minus-markers = false
 
 [delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#067a00"
+	hunk-header-style = file line-number syntax
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
