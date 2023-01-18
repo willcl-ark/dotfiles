@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup
 local asciidoctor = augroup("asciidoctor", { clear = true })
 autocmd("FileType", {
     pattern = "asciidoctor",
-    command = "setlocal spell spelllang=en_gb wrap colorcolumn=",
+    command = "setlocal spell spelllang=en_gb wrap colorcolumn= linebreak",
     group = asciidoctor,
 })
 
