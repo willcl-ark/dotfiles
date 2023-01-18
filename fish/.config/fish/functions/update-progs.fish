@@ -21,39 +21,21 @@ function update-progs
     # Alacritty
     _updating-name Alacritty
     cd $SRC/alacritty
-    set ERR (compare-git-tip)
+    check-version alacritty
     switch $status
-        case 0
-            check-version alacritty
-            switch $status
-                case 1
-                    update-alacritty
-                case '*'
-            end
         case 1
             update-alacritty
-        case 2
-            # Some error
-            echo $ERR
+        case '*'
     end
 
     # neovim
     _updating-name neovim
     cd $SRC/neovim
-    set ERR (compare-git-tip)
+    check-version nvim
     switch $status
-        case 0
-            check-version nvim
-            switch $status
-                case 1
-                    update-neovim
-                case '*'
-            end
         case 1
             update-neovim
-        case 2
-            # Some error
-            echo $ERR
+        case '*'
     end
 
     # Only run these if we invoke with --all
@@ -62,19 +44,11 @@ function update-progs
             # Bear
             _updating-name Bear
             cd $SRC/Bear/build
-            set ERR (compare-git-tip)
+            check-version bear
             switch $status
-                case 0
-                    check-version bear
-                    switch $status
-                        case 1
-                            update-bear
-                        case '*'
-                    end
                 case 1
                     update-bear
-                case 2
-                    echo $ERR
+                case '*'
             end
 
             # Cargo-installed applications
@@ -88,19 +62,11 @@ function update-progs
             # fzf
             _updating-name fzf
             cd $HOME/.fzf
-            set ERR (compare-git-tip)
+            check-version fzf
             switch $status
-                case 0
-                    check-version fzf
-                    switch $status
-                        case 1
-                            update-fzf
-                        case '*'
-                    end
                 case 1
                     update-fzf
-                case 2
-                    echo $ERR
+                case '*'
             end
 
             # rust-analyzer

@@ -1,10 +1,10 @@
 function check-version
     # Returns 0 if it finds git tip in version string
     # Works for most programs
+    git fetch --all --tags --force --prune
 
     # Checkout the most recent non-nightly tag
     set --local TAG (git describe --tags --exclude "nightly" --exclude "rc" --abbrev=0 (git rev-list --tags --max-count=1))
-    git checkout $TAG
 
     echo "$argv[1] git at $TAG"
     # Match on version numbers of digit form xxx.xxx.xxxx
@@ -20,7 +20,8 @@ function check-version
             echo "$argv[1]: installed version matches latest tag"
             return 0
         case 1
-            echo "$argv[1]: installed version does not match latest tag"
+            echo "$argv[1]: installed version does not match latest tag, checkout out $TAG"
+            git checkout $TAG &> /dev/null
             return 1
     end
 end
