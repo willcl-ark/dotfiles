@@ -1,0 +1,22 @@
+gpg-path=/usr/bin/gpg2
+tmp-dir=/home/will/pius/tmp
+use-agent
+
+#will8clark
+#signer=0x099BAD163C70FBFA
+#mail=will8clark@gmail.com
+#display-name=Will Clark
+#mail-user=will8clark@gmail.com
+#mail-host=smtp.gmail.com
+#mail-port=587
+
+#will@256k1.dev
+signer=0x3B8F814A784218F8
+0x3B8F814A784218F8
+#signer=0xCE6EC49945C17EA6
+mail=will@256k1.dev
+display-name=Will Clark
+mail-user=will@256k1.dev
+mail-host=smtp.mailbox.org
+mail-port=587
+
