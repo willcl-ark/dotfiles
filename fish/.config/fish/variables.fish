@@ -1,5 +1,7 @@
 set -gx BASH (command -v bash)
 set -gx BDB_PREFIX $HOME/src/bitcoin/db4
+set -gx BDB_LIBS "-L$BDB_PREFIX/lib -ldb_cxx-4.8"
+set -gx BDB_CFLAGS "-I$BDB_PREFIX/include"
 set -gx CC (command -v clang)
 set -gx CCACHE_DIR $HOME/.ccache
 set -gx CHEAT_USE_FZF true
