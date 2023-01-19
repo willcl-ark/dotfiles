@@ -1,7 +1,10 @@
 abbr -a -g -- add 'llo exa -al -s oldest'
 abbr -a -g -- bcli bitcoin-cli
+abbr -a -g -- cheat cht.sh
 abbr -a -g -- check-links find\ .\ -name\ \\\*.adoc\ -exec\ asciidoc-link-check\ -p\ \{\}\ \\\;
 abbr -a -g -- electrumtunnel 'ssh nucremote -L 50001:localhost:50001 -N'
+abbr -a -g -- fetch-master 'git checkout master; and git fetch --all --tags --prune; and git merge upstream/master'
+abbr -a -g -- fd 'fd -uu'
 abbr -a -g -- genesis-block 'bitcoin-cli getblockhash 0 | xargs -I {} bitcoin-cli getblock {} 0 | xxd -r -p | hexdump -v -C'
 abbr -a -g -- gg 'git grep -i'
 abbr -a -g -- grc 'git rebase --continue'
@@ -15,6 +18,11 @@ abbr -a -g -- llo 'exa -al -s oldest'
 abbr -a -g -- ls exa
 abbr -a -g -- lslm 'ls -aFlhpt'
 abbr -a -g -- lss 'ls -aFlhS'
+abbr -a -g -- make-check 'bear -- make -j16 && make -j16 check'
+abbr -a -g -- make-check-lint 'bear -- make -j16 && make -j16 check && ./test/lint/all-lint.py'
+abbr -a -g -- make-check-lint-test 'bear -- make -j16 && make -j16 check && ./test/lint/all-lint.py; test/functional/test_runner.py --jobs=32 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp'
+abbr -a -g -- mvc 'mullvad connect'
+abbr -a -g -- mvd 'mullvad disconnect'
 abbr -a -g -- mutt 'pushd $HOME/Downloads/; TERM=screen-256color neomutt; popd'
 abbr -a -g -- myip 'curl ifconfig.me'
 abbr -a -g -- notify 'say finished'
@@ -24,6 +32,9 @@ abbr -a -g -- rm 'rm -i'
 abbr -a -g -- speedtest-curl 'curl -o /dev/null http://ipv4.download.thinkbroadband.com/1GB.zip'
 abbr -a -g -- tb 'nc termbin.com 9999'
 abbr -a -g -- tcli 'bitcoin-cli -testnet'
+abbr -a -g -- tbcli $HOME/src/bitcoin/src/bitcoin-cli
+abbr -a -g -- tbitcoin-qt /home/will/src/bitcoin/src/qt/bitcoin-qt
+abbr -a -g -- tbitcoind $HOME/src/bitcoin/src/bitcoind
 abbr -a -g -- update-ytdl sudo\ curl\ -L\ https://yt-dl.org/downloads/latest/youtube-dl\ -o\ /usr/local/bin/youtube-dl\nsudo\ chmod\ a+rx\ /usr/local/bin/youtube-dl
 abbr -a -g -- vim nvim
 abbr -a -g -- wasabitunnel 'ssh nucremote -L 8333:localhost:8333 -N'
@@ -32,3 +43,4 @@ abbr -a -g -- which 'command -v'
 abbr -a -g -- youtube-dl-best 'youtube-dl -f bestvideo+bestaudio --merge-output-format mkv'
 abbr -a -g -- ytdl-audio 'youtube-dl -x --audio-format best'
 abbr -a -g -- ytdl-list 'youtube-dl -F'
+abbr -a -g -- xsel 'xsel -b'
