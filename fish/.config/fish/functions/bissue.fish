@@ -11,7 +11,7 @@ function bissue
     read --local --prompt-str "> " edit
 
     switch $edit
-        case 1
+        case 1 Y y
             nvim $datadir/bitcoin.conf
         case '*'
     end
