@@ -26,3 +26,9 @@ set -gx SSH_AUTH_SOCK /run/user/1000/gnupg/S.gpg-agent.ssh
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
+
+# This fixed my flatpak firefox install on Ubuntu
+if [ (uname) = Linux ]
+    set -gx DXG_DATA_DIRS /usr/share/ubuntu:/home/will/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+end
+
