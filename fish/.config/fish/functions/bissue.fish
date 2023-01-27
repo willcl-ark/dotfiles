@@ -6,7 +6,8 @@ function bissue
 
     set --local datadir "/tmp/bitcoin_$argv[1]"
     mkdir -p $datadir
-    touch $datadir/bitcoin.conf
+    touch $datadir/bitcoin.conf; and echo "regtest=1" >> $datadir/bitcoin.conf
+    echo "Set `regtest=1`"
     echo "Do you want to edit bitcoin.conf? Yes [1] No [2]"
     read --local --prompt-str "> " edit
 
