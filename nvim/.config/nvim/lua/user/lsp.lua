@@ -120,7 +120,9 @@ lspconfig.sumneko_lua.setup {
       diagnostics = {
         globals = { 'vim' },
       },
-      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      workspace = { library = vim.api.nvim_get_runtime_file('', true),
+        checkThirdParty = false
+      },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },
     },
