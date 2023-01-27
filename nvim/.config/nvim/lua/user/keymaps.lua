@@ -21,9 +21,9 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- Move highlighted lines
-vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' } )
+vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv", { desc = 'Move hightligted lines up' } )
 
 -- Sync OBC to server
-vim.keymap.set('n', '<leader><leader>s', ':!./sync<CR>')
-vim.keymap.set('n', '<leader><leader>a', ':!asciidoctor -r asciidoctor-diagram --verbose --trace index.adoc<CR>')
+vim.keymap.set('n', '<leader>so', ':!./sync<CR>', { desc = '[S]ync [O]BC' } )
+vim.keymap.set('n', '<leader>ga', ':!asciidoctor -r asciidoctor-diagram --verbose --trace index.adoc<CR>', { desc = '[M]ake [A]sciidoctor' } )
