@@ -63,7 +63,7 @@ mason.setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'sumneko_lua', 'gopls', 'cmake' }
+local servers = { 'pyright', 'sumneko_lua', 'gopls', 'cmake' }
 
 -- Ensure the servers above are installed
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
@@ -106,6 +106,7 @@ if not lspconfig_ok then
   vim.notify("lspconfig failed to load")
   return
 end
+
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -129,6 +130,17 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu" },
+}
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "rust-analyzer" },
+}
 -- Null-ls
 local null_ls_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_ok then
@@ -137,15 +149,19 @@ if not null_ls_ok then
 end
 
 local sources = {
-  -- formatting
+  null_ls.builtins.code_actions.shellcheck,
+  null_ls.builtins.diagnostics.flake8,
   null_ls.builtins.formatting.black.with({
-    extra_args = { "--line-length=120" }
+    extra_args = { "--line-length=120" },
   }),
-  null_ls.builtins.formatting.isort,
-  null_ls.builtins.formatting.stylua,
   null_ls.builtins.formatting.clang_format,
-  -- diagnostics
-  null_ls.builtins.diagnostics.eslint_d,
+  null_ls.builtins.formatting.fish_indent,
+  null_ls.builtins.formatting.isort,
+  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.formatting.shfmt.with({
+    extra_filetypes = { "bash" },
+  }),
+  null_ls.builtins.formatting.stylua,
 }
 
 null_ls.setup({ sources = sources })
