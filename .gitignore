@@ -23,7 +23,9 @@ Icon
 vim/.vim/pack/git-plugins/
 fish/.config/fish/completions/alacritty.fish
 fish/.config/fish/fish_variables
+fish/.config/fish/functions/br.fish
 nvim/.config/nvim/plugin/
+fish/.config/fish/functions/_nvm*.fish
 xinitrc/
 nvim/.config/nvim/spell/
 gh/.config/gh/hosts.yml
