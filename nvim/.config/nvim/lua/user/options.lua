@@ -68,3 +68,7 @@ vim.g.python3_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/pyt
 
 -- Use system clipboard
 vim.o.clipboard = "unnamedplus"
+
+-- Show trailing whitespace
+vim.o.listchars = "trail:~,tab:>-,nbsp:␣"
+vim.o.list = true
