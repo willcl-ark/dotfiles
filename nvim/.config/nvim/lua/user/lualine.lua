@@ -8,10 +8,13 @@ end
 -- See `:help lualine.txt`
 lualine.setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'catppuccin',
     component_separators = '|',
     section_separators = '',
+    'filename',
+    file_status = true,
+    path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
   },
 }
 
