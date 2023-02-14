@@ -4,13 +4,14 @@ function check-version
     git fetch --all --tags --force --prune
 
     # Checkout the most recent non-nightly tag
-    set --local TAG (git describe --tags --exclude "nightly" --exclude "rc" --abbrev=0 (git rev-list --tags --max-count=1))
+    set --local TAG (git tag --sort=taggerdate | rg --invert-match "nightly|.*rc.*" | tail -n 1)
+
 
     echo "$argv[1] git at $TAG"
     # Match on version numbers of digit form xxx.xxx.xxxx
     # Version numbers with letters will fail
     # https://regex101.com/r/t6kNLi/1
-    set ver_installed ($argv[1] --version | string match -r "\d{1,3}\.\d{1,3}\.\d{1,4}")
+    set ver_installed ($argv[1] --version | string match -r "\d{1,3}\.\d{1,3}\.\d{1,4}" | head -n 1)
     echo "$argv[1] installed at $ver_installed"
     # Remove leading "v" from tags for better matching
     set --local VTAG (string replace --regex "^v" "" $TAG)
