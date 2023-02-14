@@ -14,6 +14,7 @@ fish_add_path $HOME/go/bin
 fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.pyenv/bin
 fish_add_path $HOME/.cargo/bin
+fish_add_path (rustup which rust-analyzer | rev | cut -d "/" -f2- | rev)
 if [ (uname) = Linux ]
     fish_add_path /usr/lib/ccache
 end
@@ -23,4 +24,3 @@ if [ (uname) = Darwin ]
     fish_add_path /usr/local/opt/llvm/bin
     fish_add_path /usr/local/opt/ccache/libexec
 end
-fish_add_path $HOME/neovim/bin
