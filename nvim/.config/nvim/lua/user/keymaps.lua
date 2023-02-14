@@ -27,3 +27,6 @@ vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv", { desc = 'Move hightligted line
 -- Sync OBC to server
 vim.keymap.set('n', '<leader>so', ':!./sync<CR>', { desc = '[S]ync [O]BC' } )
 vim.keymap.set('n', '<leader>ga', ':!asciidoctor -r asciidoctor-diagram --verbose --trace index.adoc<CR>', { desc = '[M]ake [A]sciidoctor' } )
+
+-- Format via LSP
+vim.keymap.set('n', '<leader>df', 'lua vim.lsp.buf.format()<CR>', { desc = '[D]o [F]ormat' } )
