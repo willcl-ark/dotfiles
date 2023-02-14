@@ -3,8 +3,6 @@ source $HOME/.config/fish/variables.fish
 source $HOME/.config/fish/abbreviations.fish
 
 # pyenv
-#status is-login; and pyenv init --path | source
-#status is-interactive; and pyenv init - fish | source
 # speeded up by
 # https://posts.michaelks.org/instant-pyenv-rbenv-startup-times-with-tmux/
 if status is-login
