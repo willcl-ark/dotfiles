@@ -30,3 +30,6 @@ vim.keymap.set('n', '<leader>ga', ':!asciidoctor -r asciidoctor-diagram --verbos
 
 -- Format via LSP
 vim.keymap.set('n', '<leader>df', 'lua vim.lsp.buf.format()<CR>', { desc = '[D]o [F]ormat' } )
+
+-- Cellular Automaton
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")

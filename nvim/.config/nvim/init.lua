@@ -1,22 +1,18 @@
--- Install + manage plugins
-require('user.plugins')
+-- Bootstrap Lazy
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Setup user options + keymaps
-require('user.options')
-require('user.keymaps') -- NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-
--- Setup plugins
-require('user.lualine')
-require('Comment').setup()
-require('user.blankline')
-require('user.gitsigns')
-require('nvim-surround').setup()
-require('user.lastplace')
-require('user.telescope')
-require('user.treesitter')
-require('user.lsp')
-require('user.cmp')
-require('user.autocommands')
-require('user.asciidoctor')
-require('user.twilight')
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+require("core.keymaps") --  Load keymaps before plugins otherwise wrong leader will be used
+require("lazy").setup("plugins")
+require("core.options")
+require("core.autocommands")
