@@ -63,7 +63,7 @@ mason.setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'pyright', 'sumneko_lua', 'gopls', 'cmake' }
+local servers = { 'pyright', 'lua_ls', 'gopls', 'cmake' }
 
 -- Ensure the servers above are installed
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
@@ -107,7 +107,7 @@ if not lspconfig_ok then
   return
 end
 
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
