@@ -11,7 +11,7 @@ vim.wo.relativenumber = true
 vim.wo.scrolloff = 8
 
 -- Always show sign column to avoid text shifting
-vim.o.signcolumn = "yes"
+vim.wo.signcolumn = "yes"
 
 -- Don't wrap unless we call :wrap
 vim.o.wrap = false
@@ -44,14 +44,10 @@ vim.o.smartcase = true
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
 vim.cmd [[colorscheme catppuccin]]
-
--- Add a color column
-vim.o.colorcolumn = "80"
 
 -- Show `` in markdown files
 vim.o.conceallevel = 0
