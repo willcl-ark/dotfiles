@@ -64,22 +64,6 @@ return {
       end, { desc = "Format current buffer with LSP" })
     end
 
-    -- Open diagnostics in hover window
-    vim.api.nvim_create_autocmd("CursorHold", {
-      buffer = 0,
-      callback = function()
-        local opts = {
-          focusable = false,
-          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-          border = "rounded",
-          source = "always",
-          prefix = " ",
-          scope = "cursor",
-        }
-        vim.diagnostic.open_float(nil, opts)
-      end,
-    })
-
     -- Setup mason so it can manage external tooling
     local mason_ok, mason = pcall(require, "mason")
     if not mason_ok then
