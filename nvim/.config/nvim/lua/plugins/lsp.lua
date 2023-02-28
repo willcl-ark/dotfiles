@@ -22,11 +22,7 @@ return {
     -- LSP settings.
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
-      -- NOTE: Remember that lua is a real programming language, and as such it is possible
-      -- to define small helper and utility functions so you don't have to repeat yourself
-      -- many times.
-      --
-      -- In this case, we create a function that lets us more easily define mappings specific
+      -- Create a function that lets us more easily define mappings specific
       -- for LSP related items. It sets the mode, buffer and description for us each time.
       local nmap = function(keys, func, desc)
         if desc then
@@ -39,10 +35,10 @@ return {
       nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-      nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+      nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinitions")
       nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-      nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-      nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+      nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementations")
+      nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinitions")
       nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
       nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
@@ -68,6 +64,22 @@ return {
       end, { desc = "Format current buffer with LSP" })
     end
 
+    -- Open diagnostics in hover window
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = 0,
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = "rounded",
+          source = "always",
+          prefix = " ",
+          scope = "cursor",
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end,
+    })
+
     -- Setup mason so it can manage external tooling
     local mason_ok, mason = pcall(require, "mason")
     if not mason_ok then
@@ -77,7 +89,6 @@ return {
     mason.setup()
 
     -- Enable the following language servers
-    -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
     local servers = { "pyright", "lua_ls", "gopls", "cmake" }
 
     -- Ensure the servers above are installed
@@ -109,8 +120,6 @@ return {
     end
     fidget.setup()
 
-    -- Example custom configuration for lua
-    --
     -- Make runtime files discoverable to the server
     local runtime_path = vim.split(package.path, ";")
     table.insert(runtime_path, "lua/?.lua")
@@ -167,7 +176,9 @@ return {
       null_ls.builtins.formatting.black.with({
         extra_args = { "--line-length=120" },
       }),
-      null_ls.builtins.formatting.clang_format,
+      null_ls.builtins.formatting.clang_format.with({
+        filetypes = { "cpp", "hpp", "c", "h" },
+      }),
       null_ls.builtins.formatting.fish_indent,
       null_ls.builtins.formatting.isort,
       null_ls.builtins.formatting.prettier,
