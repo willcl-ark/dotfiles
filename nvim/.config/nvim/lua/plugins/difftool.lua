@@ -5,7 +5,11 @@ return {
   },
   event = "VeryLazy",
   config = function()
-    require("diffview").setup()
+    require("diffview").setup({
+      file_panel = {
+        listing_style = "list",
+      },
+    })
   end,
   vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<CR>", { desc = "[D]iff [O]pen" }),
   vim.keymap.set("n", "<leader>df", "<cmd>DiffviewFileHistory<CR>", { desc = "[D]iff [F]ile history" }),

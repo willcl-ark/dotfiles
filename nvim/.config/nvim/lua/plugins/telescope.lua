@@ -1,19 +1,55 @@
 return {
   {
-    -- Fuzzy Finder (files, lsp, etc)
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local actions = require("telescope.actions")
       local actions_state = require("telescope.actions.state")
+
+      local diffview_open = function()
+        -- Open in diffview
+        local selected_entry = actions_state.get_selected_entry()
+        local value = selected_entry.value
+        -- close Telescope window properly prior to switching windows
+        vim.api.nvim_win_close(0, true)
+        vim.cmd("stopinsert")
+        vim.schedule(function()
+          vim.cmd(("DiffviewOpen %s^!"):format(value))
+        end)
+      end
+
       require("telescope").setup({
+        pickers = {
+          git_commits = {
+            mappings = {
+              n = {
+                ["<C-o>"] = actions.select_default,
+                ["<CR>"] = diffview_open,
+              },
+              i = {
+                ["<C-o>"] = actions.select_default,
+                ["<CR>"] = diffview_open,
+              },
+            },
+          },
+        },
         defaults = {
-          layout_strategy = "flex",
+          layout_strategy = "flex", -- Horizontal if enough room, otherwise vertical
           layout_config = {
             height = 0.99,
             width = 0.99,
             prompt_position = "bottom",
+          },
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--trim", -- add this value
           },
 
           prompt_prefix = " ",
@@ -36,7 +72,8 @@ return {
               ["<C-j>"] = actions.move_selection_next,
               ["<C-k>"] = actions.move_selection_previous,
 
-              ["<C-c>"] = actions.close,
+              ["<esc>"] = actions.close,
+              -- ["<C-d>"] = actions.delete_buffer + actions.move_to_top,
 
               ["<Down>"] = actions.move_selection_next,
               ["<Up>"] = actions.move_selection_previous,
@@ -52,26 +89,12 @@ return {
               ["<PageUp>"] = actions.results_scrolling_up,
               ["<PageDown>"] = actions.results_scrolling_down,
 
-              ["<Tab>"] = actions.toggle_selection
-                + actions.move_selection_worse,
-              ["<S-Tab>"] = actions.toggle_selection
-                + actions.move_selection_better,
+              ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+              ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
               ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-              ["<M-q>"] = actions.send_selected_to_qflist
-                + actions.open_qflist,
+              ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-l>"] = actions.complete_tag,
               ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-              ["<C-o>"] = function()
-                -- Open in diffview
-                local selected_entry = actions_state.get_selected_entry()
-                local value = selected_entry.value
-                -- close Telescope window properly prior to switching windows
-                vim.api.nvim_win_close(0, true)
-                vim.cmd("stopinsert")
-                vim.schedule(function()
-                  vim.cmd(("DiffviewOpen %s^!"):format(value))
-                end)
-              end,
             },
 
             n = {
@@ -81,13 +104,10 @@ return {
               ["<C-v>"] = actions.select_vertical,
               ["<C-t>"] = actions.select_tab,
 
-              ["<Tab>"] = actions.toggle_selection
-                + actions.move_selection_worse,
-              ["<S-Tab>"] = actions.toggle_selection
-                + actions.move_selection_better,
+              ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+              ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
               ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-              ["<M-q>"] = actions.send_selected_to_qflist
-                + actions.open_qflist,
+              ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
               ["j"] = actions.move_selection_next,
               ["k"] = actions.move_selection_previous,
