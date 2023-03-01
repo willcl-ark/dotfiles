@@ -26,7 +26,7 @@ return {
         "help",
       },
       highlight = { enable = true },
-      indent = { enable = true },
+      -- indent = { enable = true }, Seems to break auto indentation for now?
       incremental_selection = {
         enable = true,
         keymaps = {
