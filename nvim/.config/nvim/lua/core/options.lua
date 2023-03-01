@@ -68,3 +68,6 @@ vim.o.clipboard = "unnamedplus"
 -- Show trailing whitespace
 vim.o.listchars = "trail:~,tab:>-,nbsp:␣"
 vim.o.list = true
+
+-- use bear to Make
+vim.o.makeprg="bear -- make -j16"
