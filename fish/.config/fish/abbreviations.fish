@@ -19,6 +19,7 @@ abbr -a -g -- ls exa
 abbr -a -g -- lslm 'ls -aFlhpt'
 abbr -a -g -- lss 'ls -aFlhS'
 abbr -a -g -- make-check 'bear -- make -j16; and make -j16 check'
+abbr -a -g -- make-clean 'make clean; and rm compile_commands.json; and bear -- make -j16'
 abbr -a -g -- make-lint 'bear -- make -j16; and and ./test/lint/all-lint.py'
 abbr -a -g -- make-lint-check 'bear -- make -j16; and ./test/lint/all-lint.py; and make -j16 check'
 abbr -a -g -- make-lint-check-test 'bear -- make -j16; and ./test/lint/all-lint.py; and make -j16 check; test/functional/test_runner.py --jobs=32 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp'
