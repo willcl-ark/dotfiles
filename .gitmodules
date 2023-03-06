@@ -1,3 +1,6 @@
 [submodule "/home/will/dotfiles/alacritty/.config/alacritty/catppuccin"]
 	path = /home/will/dotfiles/alacritty/.config/alacritty/catppuccin
 	url = https://github.com/catppuccin/alacritty.git
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = https://github.com/willcl-ark/neovim.git
