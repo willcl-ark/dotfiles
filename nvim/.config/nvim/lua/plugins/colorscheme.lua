@@ -4,6 +4,18 @@ return {
     as = "catppuccin",
     lazy = true,
     priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        integrations = {
+          telescope = true,
+          leap = true,
+          harpoon = true,
+          mason = true,
+          cmp = true,
+          treesitter = true,
+        },
+      })
+    end,
   },
   {
     "navarasu/onedark.nvim", -- Theme inspired by Atom
@@ -15,10 +27,6 @@ return {
   },
   {
     "lunarvim/synthwave84.nvim",
-    lazy = true,
-  },
-  {
-    "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
     lazy = true,
   },
 }

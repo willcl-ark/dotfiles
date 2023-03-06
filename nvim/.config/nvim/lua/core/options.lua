@@ -1,73 +1,77 @@
--- See `:help vim.o`
+return {
+  setup = function()
+    -- See `:help vim.o`
 
--- Set highlight on search
-vim.o.hlsearch = false
+    -- Set highlight on search
+    vim.o.hlsearch = false
 
--- Make line numbers default
-vim.wo.number = true
--- Use relative numbers
-vim.wo.relativenumber = true
--- Don't show less than 8 lines of context
-vim.wo.scrolloff = 8
+    -- Make line numbers default
+    vim.wo.number = true
+    -- Use relative numbers
+    vim.wo.relativenumber = true
+    -- Don't show less than 8 lines of context
+    vim.wo.scrolloff = 8
 
--- Always show sign column to avoid text shifting
-vim.wo.signcolumn = "yes"
+    -- Always show sign column to avoid text shifting
+    vim.wo.signcolumn = "yes"
 
--- Don't wrap unless we call :wrap
-vim.o.wrap = false
+    -- Don't wrap unless we call :wrap
+    vim.o.wrap = false
 
--- Split in sane ways
-vim.o.splitbelow = true
-vim.o.splitright = true
+    -- Split in sane ways
+    vim.o.splitbelow = true
+    vim.o.splitright = true
 
--- Tab settings
-vim.o.expandtab = true
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
+    -- Tab settings
+    vim.o.expandtab = true
+    vim.o.shiftwidth = 4
+    vim.o.tabstop = 4
+    vim.o.softtabstop = 4
 
--- Use bash as shell instead of fish
-vim.o.shell = os.getenv("BASH")
+    -- Use bash as shell instead of fish
+    vim.o.shell = os.getenv("BASH")
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+    -- Enable mouse mode
+    vim.o.mouse = "a"
 
--- Enable break indent
-vim.o.breakindent = true
+    -- Enable break indent
+    vim.o.breakindent = true
 
--- Save undo history
-vim.o.undofile = true
+    -- Save undo history
+    vim.o.undofile = true
 
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+    -- Case insensitive searching UNLESS /C or capital in search
+    vim.o.ignorecase = true
+    vim.o.smartcase = true
 
--- Decrease update time
-vim.o.updatetime = 250
+    -- Decrease update time
+    vim.o.updatetime = 250
 
--- Set colorscheme
-vim.o.termguicolors = true
-vim.cmd [[colorscheme catppuccin]]
+    -- Set colorscheme
+    vim.o.termguicolors = true
+    vim.cmd([[colorscheme catppuccin]])
 
--- Show `` in markdown files
-vim.o.conceallevel = 0
+    -- Show `` in markdown files
+    vim.o.conceallevel = 0
 
--- Highlight current line
-vim.o.cursorline = true
+    -- Highlight current line
+    vim.o.cursorline = true
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+    -- Set completeopt to have a better completion experience
+    vim.o.completeopt = "menuone,noselect"
 
--- Python venv
-vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim2/bin/python"
-vim.g.python3_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/python"
+    -- Python venv
+    vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim2/bin/python"
+    vim.g.python3_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/python"
 
--- Use system clipboard
-vim.o.clipboard = "unnamedplus"
+    -- Use system clipboard
+    vim.o.clipboard = "unnamedplus"
 
--- Show trailing whitespace
-vim.o.listchars = "trail:~,tab:>-,nbsp:␣"
-vim.o.list = true
+    -- Show trailing whitespace
+    vim.o.listchars = "trail:~,tab:>-,nbsp:␣"
+    vim.o.list = true
 
--- use bear to Make
-vim.o.makeprg="bear -- make -j16"
+    -- use bear to Make
+    vim.o.makeprg = "bear -- make -j16"
+  end,
+}
