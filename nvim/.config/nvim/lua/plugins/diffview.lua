@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  event = "BufRead, BufNewFile",
+  event = { "BufRead", "BufNewFile" },
   config = function()
     require("diffview").setup({
       file_panel = {
