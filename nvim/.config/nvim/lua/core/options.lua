@@ -1,77 +1,84 @@
 return {
   setup = function()
     -- See `:help vim.o`
+    local opt = vim.opt
 
     -- Set highlight on search
-    vim.o.hlsearch = false
+    opt.hlsearch = false
 
     -- Make line numbers default
-    vim.wo.number = true
+    vim.opt.number = true
     -- Use relative numbers
-    vim.wo.relativenumber = true
+    vim.opt.relativenumber = true
     -- Don't show less than 8 lines of context
-    vim.wo.scrolloff = 8
+    vim.opt.scrolloff = 8
 
     -- Always show sign column to avoid text shifting
-    vim.wo.signcolumn = "yes"
+    vim.opt.signcolumn = "yes"
 
     -- Don't wrap unless we call :wrap
-    vim.o.wrap = false
+    opt.wrap = false
 
     -- Split in sane ways
-    vim.o.splitbelow = true
-    vim.o.splitright = true
+    opt.splitbelow = true
+    opt.splitright = true
 
     -- Tab settings
-    vim.o.expandtab = true
-    vim.o.shiftwidth = 4
-    vim.o.tabstop = 4
-    vim.o.softtabstop = 4
+    opt.expandtab = true
+    opt.shiftwidth = 4
+    opt.tabstop = 4
+    opt.softtabstop = 4
 
     -- Use bash as shell instead of fish
-    vim.o.shell = os.getenv("BASH")
+    opt.shell = os.getenv("BASH")
 
     -- Enable mouse mode
-    vim.o.mouse = "a"
+    opt.mouse = "a"
 
     -- Enable break indent
-    vim.o.breakindent = true
+    opt.breakindent = true
 
     -- Save undo history
-    vim.o.undofile = true
+    opt.undofile = true
 
     -- Case insensitive searching UNLESS /C or capital in search
-    vim.o.ignorecase = true
-    vim.o.smartcase = true
+    opt.ignorecase = true
+    opt.smartcase = true
 
     -- Decrease update time
-    vim.o.updatetime = 250
+    opt.updatetime = 250
 
     -- Set colorscheme
-    vim.o.termguicolors = true
+    opt.termguicolors = true
     vim.cmd([[colorscheme catppuccin]])
 
     -- Show `` in markdown files
-    vim.o.conceallevel = 0
+    opt.conceallevel = 0
 
     -- Highlight current line
-    vim.o.cursorline = true
+    opt.cursorline = true
 
     -- Set completeopt to have a better completion experience
-    vim.o.completeopt = "menuone,noselect"
+    opt.completeopt = "menuone,noselect"
 
     -- Python venv
     vim.g.python_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim2/bin/python"
     vim.g.python3_host_prog = os.getenv("HOME") .. "/.pyenv/versions/neovim3/bin/python"
 
     -- Use system clipboard
-    vim.o.clipboard = "unnamedplus"
+    opt.clipboard = "unnamedplus"
 
     -- Show trailing whitespace
-    vim.o.listchars = "trail:~,tab:>-,nbsp:␣"
-    vim.o.list = true
+    opt.listchars = "trail:~,tab:>-,nbsp:␣"
+    opt.list = true
+
+    -- Unified status bar for all splits
+    opt.laststatus = 3
+
+    -- Don't show mode as we use status line
+    opt.showmode = false
 
     -- use bear to Make
-    vim.o.makeprg = "bear -- make -j16"
+    opt.makeprg = "bear -- make -j16"
   end,
 }
