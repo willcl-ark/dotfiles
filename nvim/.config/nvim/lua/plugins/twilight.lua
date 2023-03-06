@@ -23,6 +23,6 @@ return {
       exclude = {}, -- exclude these filetypes
     })
   end,
-  event = "VeryLazy",
+  event = "BufRead",
   vim.keymap.set("n", "<leader>t", ":Twilight<CR>", { desc = "Toggle [T]wilight" }),
 }

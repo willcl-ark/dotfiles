@@ -9,4 +9,5 @@ return {
       limit_to_line = false,
     })
   end,
+  event = "BufRead, BufNewFile",
 }

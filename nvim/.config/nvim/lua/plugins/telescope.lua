@@ -2,7 +2,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-fzf-native.nvim" },
     config = function()
       local actions = require("telescope.actions")
       local actions_state = require("telescope.actions.state")
@@ -171,10 +171,13 @@ return {
       vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
       vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
     end,
+    event = "VeryLazy",
   },
   {
     -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
     --use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    event = "VeryLazy",
   },
 }

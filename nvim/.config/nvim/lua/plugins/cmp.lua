@@ -1,53 +1,77 @@
 return {
-  -- Autocompletion
-  "hrsh7th/nvim-cmp",
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+
+  {
     "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-path",
-    "rafamadriz/friendly-snippets",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+    },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+    },
+        -- stylua: ignore
+        keys = {
+            {
+                "<tab>",
+                function()
+                    return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+                end,
+                expr = true, silent = true, mode = "i",
+            },
+            { "<tab>",   function() require("luasnip").jump(1) end,   mode = "s" },
+            { "<s-tab>", function() require("luasnip").jump( -1) end, mode = { "i", "s" } },
+        },
   },
-  event = "InsertEnter",
-  config = function()
-    require("cmp").setup({
-      snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
-      },
-      mapping = require("cmp").mapping.preset.insert({
-        ["<C-d>"] = require("cmp").mapping.scroll_docs(-4),
-        ["<C-f>"] = require("cmp").mapping.scroll_docs(4),
-        ["<C-Space>"] = require("cmp").mapping.complete(),
-        ["<CR>"] = require("cmp").mapping.confirm({
-          behavior = require("cmp").ConfirmBehavior.Replace,
-          select = true,
+
+  {
+    "hrsh7th/nvim-cmp",
+    version = false, -- last release is way too old
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+    },
+    opts = function()
+      local cmp = require("cmp")
+      return {
+        completion = {
+          completeopt = "menu,menuone,noinsert",
+        },
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+          ["<C-f>"] = cmp.mapping.scroll_docs(4),
+          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-e>"] = cmp.mapping.abort(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<S-CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
-        ["<Tab>"] = require("cmp").mapping(function(fallback)
-          if require("cmp").visible() then
-            require("cmp").select_next_item()
-          elseif require("luasnip").expand_or_jumpable() then
-            require("luasnip").expand_or_jump()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = require("cmp").mapping(function(fallback)
-          if require("cmp").visible() then
-            require("cmp").select_prev_item()
-          elseif require("luasnip").jumpable(-1) then
-            require("luasnip").jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      }),
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-      },
-    })
-  end,
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
+        }),
+        experimental = {
+          ghost_text = {
+            hl_group = "LspCodeLens",
+          },
+        },
+      }
+    end,
+  },
 }

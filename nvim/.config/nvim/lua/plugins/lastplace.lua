@@ -1,6 +1,7 @@
 return {
   -- Open files in last edited place
   "ethanholz/nvim-lastplace",
+  event = "BufRead",
   config = function()
     require("nvim-lastplace").setup({
       lastplace_ignore_buftype = { "quickfix", "nofile", "help" },

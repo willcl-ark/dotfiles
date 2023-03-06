@@ -1,12 +1,16 @@
 return {
   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  event = "VeryLazy",
+  event = "BufRead, BufNewFile",
   config = function()
     require("lsp_lines").setup({
-      vim.diagnostic.config({
-        virtual_text = false,
-      }),
+      vim.diagnostic.config({ virtual_text = true }),
+      vim.diagnostic.config({ virtual_lines = false }),
     })
-    vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "[L]sp_lines toggle" })
+    function ToggleLspLines()
+      vim.diagnostic.config({ virtual_text = not vim.diagnostic.config()["virtual_text"] })
+      vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config()["virtual_lines"] })
+    end
+
+    vim.keymap.set("", "<Leader>l", ToggleLspLines, { desc = "[L]sp_lines toggle" })
   end,
 }
