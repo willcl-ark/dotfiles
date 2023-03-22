@@ -32,10 +32,6 @@
 	directory = /home/will/src/bcc/libbpf-tools/blazesym
 	directory = /home/will/src/bcc/src/cc/libbpf
 	directory = /home/will/src/bcc/libbpf-tools/bpftool
-	directory = /home/will/src/bcc
-	directory = /home/will/src/bcc/libbpf-tools/blazesym
-	directory = /home/will/src/bcc/src/cc/libbpf
-	directory = /home/will/src/bcc/libbpf-tools/bpftool
 
 [http]
 	postBuffer = 5242880
@@ -45,6 +41,7 @@
 
 [diff]
 	colorMoved = dimmed-zebra
+	tool = delta
 #	external = difft
 
 #[grep]
