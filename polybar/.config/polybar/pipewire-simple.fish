@@ -22,5 +22,5 @@ switch argv[1]
     case --mute
         pactl set-sink-mute @DEFAULT_SINK@ toggle
     case '*'
-        echo "%{F#cba6f7}Source%{F-} $SOURCE | %{F#eba0ac}Sink%{F-} $VOLUME $SINK"
+        echo "%{F#89b482}Source%{F-} $SOURCE | %{F#ea6962}Sink%{F-} $VOLUME $SINK"
 end
