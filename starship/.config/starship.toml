@@ -37,3 +37,8 @@ truncate_to_repo = false
 success_symbol = '[₿](bitcoin)'
 error_symbol = '[✗](bold red)'
 
+[python]
+format = 'via [${symbol}(${version} )(\($virtualenv\) )]($style)'
+version_format = 'v${raw}'
+pyenv_version_name = true
+
