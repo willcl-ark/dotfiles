@@ -1,29 +1,27 @@
-# Leave a blank line for cat
-
-colors:
+scheme:
+  synthwave: &synthwave
   # Default colors
   primary:
     background: '#262335'
     foreground: '#ffffff'
-
   # Normal colors
   normal:
-    black:   '#403E41'
-    red:     '#fe4450'
-    green:   '#72f1b8'
-    yellow:  '#fede5d'
-    blue:    '#03edf9'
+    black: '#403E41'
+    red: '#fe4450'
+    green: '#72f1b8'
+    yellow: '#fede5d'
+    blue: '#03edf9'
     magenta: '#ff7edb'
-    cyan:    '#03edf9'
-    white:   '#fcfcfc'
-
+    cyan: '#03edf9'
+    white: '#fcfcfc'
   # Bright colors
   bright:
-    black:   '#727072'
-    red:     '#fe4450'
-    green:   '#72f1b8'
-    yellow:  '#fede5d'
-    blue:    '#03edf9'
+    black: '#727072'
+    red: '#fe4450'
+    green: '#72f1b8'
+    yellow: '#fede5d'
+    blue: '#03edf9'
     magenta: '#ff7edb'
-    cyan:    '#03edf9'
-    white:   '#fcfcfc'
+    cyan: '#03edf9'
+    white: '#fcfcfc'
+colors: *synthwave

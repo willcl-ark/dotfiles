@@ -1,10 +1,8 @@
 window:
   decorations: none
   startup_mode: Maximized
-
 scrolling:
   history: 0
-
 font:
   normal:
     family: "BlexMono Nerd Font"
@@ -16,14 +14,12 @@ font:
   bold_italic:
     style: Bold Italic
   size: 11.0
-
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
-   x: 1
-   y: 1
-
+    x: 1
+    y: 1
 cursor:
   style:
     # Values for `shape`:
@@ -31,22 +27,17 @@ cursor:
     #   - _ Underline
     #   - | Beam
     shape: Block
-
     # Values for `blinking`:
     #   - Never: Prevent the cursor from ever blinking
     #   - Off: Disable blinking by default
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
     blinking: Off
-
 # Live config reload (changes require restart)
 live_config_reload: true
-
 shell:
   program: /usr/local/bin/fish
-
 # Send ESC (\x1b) before characters when alt is pressed.
 alt_send_esc: false
-
 mouse:
   hide_when_typing: true

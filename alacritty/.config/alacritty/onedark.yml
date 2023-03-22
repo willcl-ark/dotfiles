@@ -1,22 +1,20 @@
-# Leave a blank line for cat
-
-colors:
-  # Default colors
-  primary:
-    background: '#1f2329'
-    foreground: '#a0a8b7'
-
-  cursor:
-    text: '#515052'
-    cursor: '#7a818e'
-
-  # Normal colors
-  normal:
-    black:   '#0e1013'
-    red:     '#e55561'
-    green:   '#8ebd6b'
-    yellow:  '#e2b86b'
-    blue:    '#4fa6ed'
-    magenta: '#bf68d9'
-    cyan:    '#48b0bd'
-    white:   '#535965'
+schemes:
+  onedark: &onedark
+    # Default colors
+    primary:
+      background: '#1f2329'
+      foreground: '#a0a8b7'
+    cursor:
+      text: '#515052'
+      cursor: '#7a818e'
+    # Normal colors
+    normal:
+      black: '#0e1013'
+      red: '#e55561'
+      green: '#8ebd6b'
+      yellow: '#e2b86b'
+      blue: '#4fa6ed'
+      magenta: '#bf68d9'
+      cyan: '#48b0bd'
+      white: '#535965'
+colors: *onedark
