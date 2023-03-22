@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set x window background color
-exec --no-startup-id xsetroot -solid "#1e1e2e"
+exec --no-startup-id xsetroot -solid "#282828"
 
 set $mod Mod4
 
@@ -90,7 +90,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+h split h 
+bindsym $mod+m split h
 # split in vertical orientation
 bindsym $mod+v split v
 
