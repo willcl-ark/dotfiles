@@ -35,7 +35,7 @@ abbr -a -g -- speedtest-curl 'curl -o /dev/null http://ipv4.download.thinkbroadb
 abbr -a -g -- tb 'nc termbin.com 9999'
 abbr -a -g -- tcli 'bitcoin-cli -testnet'
 abbr -a -g -- tbcli $HOME/src/bitcoin/src/bitcoin-cli
-abbr -a -g -- tbitcoin-qt /home/will/src/bitcoin/src/qt/bitcoin-qt
+abbr -a -g -- tbitcoin-qt $HOME/src/bitcoin/src/qt/bitcoin-qt
 abbr -a -g -- tbitcoind $HOME/src/bitcoin/src/bitcoind
 abbr -a -g -- update-ytdl sudo\ curl\ -L\ https://yt-dl.org/downloads/latest/youtube-dl\ -o\ /usr/local/bin/youtube-dl\nsudo\ chmod\ a+rx\ /usr/local/bin/youtube-dl
 abbr -a -g -- vim nvim
