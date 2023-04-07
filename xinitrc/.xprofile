@@ -1,0 +1,4 @@
+# Disable Caps Lock and remap it to Escape
+setxkbmap -option caps:none
+setxkbmap -option caps:escape
+
