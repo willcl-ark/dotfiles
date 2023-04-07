@@ -17,6 +17,7 @@ set -gx DETACHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
 set -gx GEM_HOME $HOME/.gems
 set -gx GEM_BIN $GEM_HOME/bin
+set -gx GPG_TTY (tty)
 set -gx GUIX_LOCPATH $HOME/.guixprofile/lib/locale
 set -gx GUIX_SIGS_REPO $HOME/src/guix.sigs
 set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/share/man /usr/man /usr/share/man /usr/local/man /usr/local/share/man /usr/X11R6/man /opt/man /snap/man
@@ -29,7 +30,7 @@ set -gx PIP_REQUIRE_VIRTUALENV 0
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 set -gx SIGNER will8clark
-set -gx SSH_AUTH_SOCK /run/user/1000/gnupg/S.gpg-agent.ssh
+set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
