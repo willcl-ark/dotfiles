@@ -17,6 +17,8 @@ set -gx GUIX_SIGS_REPO $HOME/src/guix.sigs
 set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/share/man /usr/man /usr/share/man /usr/local/man /usr/local/share/man /usr/X11R6/man /opt/man /snap/man
 set -gx NPM_PACKAGES $HOME/.npm-packages
 set -gx NVM_DIR $HOME/.nvm
+set -gx NVIM_PYTHON $HOME/.pyenv/versions/neovim2/bin/python
+set -gx NVIM_PYTHON3 $HOME/.pyenv/versions/neovim3/bin/python
 set -gx PIP_REQUIRE_VIRTUALENV 0
 # Hack for poetry: https://github.com/python-poetry/poetry/issues/1917#issuecomment-1235998997
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
