@@ -1,5 +1,9 @@
 set -gx BASH (command -v bash)
-set -gx BDB_PREFIX $HOME/src/bitcoin/db4
+if [ (uname) = Darwin ]
+    set -gx BDB_PREFIX /Users/will/src/bitcoin/depends/x86_64-apple-darwin22.2.0
+else if [ (uname) = Linux ]
+    set -gx BDB_PREFIX $HOME/src/bitcoin/db4
+end
 set -gx BDB_LIBS "-L$BDB_PREFIX/lib -ldb_cxx-4.8"
 set -gx BDB_CFLAGS "-I$BDB_PREFIX/include"
 set -gx CC (command -v clang)
