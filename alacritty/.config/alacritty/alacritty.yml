@@ -6,13 +6,16 @@ scrolling:
   history: 0
 font:
   normal:
-    family: "BlexMono Nerd Font"
+    family: monospace
     style: Normal
   bold:
+    family: monospace
     style: Bold
   italic:
+    family: monospace
     style: Italic
   bold_italic:
+    family: monospace
     style: Bold Italic
   size: 8.0
   # Offset is the extra space around each character. `offset.y` can be thought
@@ -21,25 +24,18 @@ font:
   offset:
     x: 1
     y: 1
+  glyph_offset:
+    x: 1
+    y: 1
+
 cursor:
   style:
-    # Values for `shape`:
-    #   - ▇ Block
-    #   - _ Underline
-    #   - | Beam
     shape: Block
-    # Values for `blinking`:
-    #   - Never: Prevent the cursor from ever blinking
-    #   - Off: Disable blinking by default
-    #   - On: Enable blinking by default
-    #   - Always: Force the cursor to always blink
     blinking: Off
 # Live config reload (changes require restart)
 live_config_reload: true
 shell:
   program: /usr/local/bin/fish
-# Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: false
 mouse:
   hide_when_typing: true
 # Set color scheme by choosing import
