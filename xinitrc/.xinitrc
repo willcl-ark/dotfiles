@@ -7,4 +7,5 @@
 # invoke global X session script
 . /etc/X11/Xsession
 xmodmap /home/will/.Xmodmap &
+xrdb -merge ~/.Xresources
 exec i3
