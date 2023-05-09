@@ -38,7 +38,13 @@ success_symbol = '[₿](bitcoin)'
 error_symbol = '[✗](bold red)'
 
 [python]
-format = 'via [${symbol}(${version} )(\($virtualenv\) )]($style)'
+format = ': [${symbol}(${version} )(\($virtualenv\) )]($style)'
 version_format = 'v${raw}'
 pyenv_version_name = true
 
+[c]
+detect_extensions = [ 'c', 'cpp', 'h']
+detect_files = [ 'libbitcoinconsensus.pc.in' ]
+commands = [ [ 'clang', '--version' ] ]
+version_format = 'v${raw}'
+format = ': [$symbol($version(-$name) )]($style)'
