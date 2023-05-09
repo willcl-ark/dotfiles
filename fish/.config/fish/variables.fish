@@ -4,14 +4,11 @@ if [ (uname) = Darwin ]
 else if [ (uname) = Linux ]
     set -gx BDB_PREFIX $HOME/src/bitcoin/db4
 end
-set -gx BDB_LIBS "-L$BDB_PREFIX/lib -ldb_cxx-4.8"
-set -gx BDB_CFLAGS "-I$BDB_PREFIX/include"
 set -gx CC (command -v clang)
 set -gx CCACHE_DIR $HOME/.ccache
 set -gx CMAKE_EXPORT_COMPILE_COMMANDS 1
 set -gx CHEAT_USE_FZF true
 set -gx CXX (command -v clang++)
-set -gx CXXFLAGS "-Wno-suggest-override"
 set -gx DARK 1
 set -gx DETACHED_SIGS_REPO $HOME/src/bitcoin-detached-sigs
 set -gx EDITOR nvim
@@ -34,6 +31,8 @@ set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_STATE_HOME $HOME/.local/state
 
 # This fixed my flatpak firefox install on Ubuntu
 if [ (uname) = Linux ]

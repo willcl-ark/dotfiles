@@ -1,3 +1,4 @@
+.envrc
 .idea
 cmake-build-*/
 .idea/**/mongoSettings.xml
