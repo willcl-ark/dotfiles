@@ -4,3 +4,4 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = https://github.com/willcl-ark/neovim.git
+	branch = master
