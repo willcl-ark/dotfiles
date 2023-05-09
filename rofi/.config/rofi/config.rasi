@@ -1,6 +1,7 @@
 configuration{
     modi: "run,drun,window";
     icon-theme: "Oranchelo";
+    font: "BlexMono Nerd Font Mono 12";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
