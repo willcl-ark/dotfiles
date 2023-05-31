@@ -18,6 +18,6 @@ function build-min
     end
 
     set num_procs (nproc)
-    bear -- make -j$num_procs src/bitcoind src/bitcoin-cli
+    bear -- make -j$num_procs -C src bitcoind bitcoin-cli
 
 end
