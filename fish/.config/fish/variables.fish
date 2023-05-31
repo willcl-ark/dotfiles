@@ -15,7 +15,7 @@ set -gx EDITOR nvim
 set -gx GEM_HOME $HOME/.gems
 set -gx GEM_BIN $GEM_HOME/bin
 set -gx GPG_TTY (tty)
-set -gx GUIX_LOCPATH $HOME/.guixprofile/lib/locale
+set -gx GUIX_LOCPATH $HOME/.guix-profile/lib/locale
 set -gx GUIX_SIGS_REPO $HOME/src/guix.sigs
 set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/share/man /usr/man /usr/share/man /usr/local/man /usr/local/share/man /usr/X11R6/man /opt/man /snap/man
 set -gx NPM_PACKAGES $HOME/.npm-packages
@@ -26,7 +26,7 @@ set -gx PIP_REQUIRE_VIRTUALENV 0
 # Hack for poetry: https://github.com/python-poetry/poetry/issues/1917#issuecomment-1235998997
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
-set -gx SIGNER will8clark
+set -gx SIGNER 0xCE6EC49945C17EA6=willcl-ark
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
