@@ -19,7 +19,11 @@
 	# pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
 	# pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	# spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
-	# rbc = rebase
+    rebase-branch = "!f() { git rebase -i $(git merge-base HEAD upstream/master); }; f"
+    rebase-branch-format-check = "!f() { \
+        git rebase -i $(git merge-base HEAD upstream/master) -x \"git show -U0 | ./contrib/devtools/clang-format-diff.py -p1 -i -v; if git diff --quiet; then true; else echo 'Formatting check failed for commit' && false; fi\"; \
+    }; f"
+	show-pr = "!f() { git log --merges --ancestry-path --oneline $1..HEAD | tail -n 1; }; f"
 
 [commit]
 	gpgsign = true
