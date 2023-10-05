@@ -17,6 +17,7 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path (rustup which rust-analyzer | rev | cut -d "/" -f2- | rev)
 if [ (uname) = Linux ]
     fish_add_path /usr/lib/ccache
+    fish_add_path $HOME/src/FlameGraph
 end
 # homebrew and brew bins
 if [ (uname) = Darwin ]
