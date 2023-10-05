@@ -15,7 +15,7 @@ function fmake-lint-check-test
         return
     end
 
-    test/functional/test_runner.py --jobs=32 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp; or begin
+    test/functional/test_runner.py --jobs=16 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp; or begin
         notify-send "test/functional/test_runner.py failed"
         return
     end
