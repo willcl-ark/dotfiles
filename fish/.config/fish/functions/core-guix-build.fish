@@ -1,10 +1,5 @@
 function core-guix-build
-    argparse 'c/codesigned' 'n/non-codesigned' 'a/all' -- $argv
-
-    if set -q _flag_all
-        set _flag_non-codesigned
-        set _flag_codesigned
-    end
+    argparse 'c/codesigned' 'n/non-codesigned' 'v/verify' 'a/all' -- $argv
 
     set --local required_vars SIGNER GUIX_SIGS_REPO DETACHED_SIGS_REPO VERSION
     set --local verr
@@ -21,11 +16,27 @@ function core-guix-build
     # Set name by splitting SIGNER
     set --local SIGNER_NAME (string split "=" $SIGNER)[2]
 
+    if set -q _flag_verify
+        # Verify sigs
+        # only do after merge on main branch, otherwise won't find manifests
+        pushd $GUIX_SIGS_REPO
+        git switch main
+        git pull
+        popd
+        SIGNER=$SIGNER_NAME ./contrib/guix/guix-verify
+        return 0
+    end
+
+    if set -q _flag_all
+        set _flag_non_codesigned
+        set _flag_codesigned
+    end
+
     # Prepare repo
     git fetch upstream --tags
     git checkout v$VERSION
 
-    if set -q _flag_non-codesigned
+    if set -q _flag_non_codesigned
 
         # Build
         ./contrib/guix/guix-build
@@ -35,11 +46,12 @@ function core-guix-build
         pushd $GUIX_SIGS_REPO
         git switch main
         git pull
-        git checkout -b {$VERSION}-non-codesigned
+        git switch -c "$VERSION-non-codesigned"
         git add $VERSION
         git commit -m "Add attestations by $SIGNER_NAME for $VERSION non-codesigned"
-        git push --set-upstream origin $VERSION-non-codesigned
+        git push --set-upstream origin "$VERSION-non-codesigned"
         popd
+        SIGNER=$SIGNER_NAME ./contrib/guix/guix-verify
     end
 
     if set -q _flag_codesigned
@@ -56,19 +68,13 @@ function core-guix-build
         pushd $GUIX_SIGS_REPO
         git switch main
         git pull
-        git checkout -b {$VERSION}-codesigned
+        git switch -c "$VERSION-codesigned"
         git add $VERSION
         git commit -m "Add attestations by $SIGNER_NAME for $VERSION codesigned"
-        git push --set-upstream origin $VERSION-codesigned
+        git push --set-upstream origin "$VERSION-codesigned"
         popd
+        SIGNER=$SIGNER_NAME ./contrib/guix/guix-verify
         xdg-open https://github.com/bitcoin-core/guix.sigs
     end
-
-    # Verify sigs
-    pushd $GUIX_SIGS_REPO
-    git switch main
-    git pull
-    popd
-    SIGNER=$SIGNER_NAME ./contrib/guix/guix-verify
 
 end
