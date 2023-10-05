@@ -1,7 +1,7 @@
 function build-min
 
     set config_file "config.log"
-    set lines_to_match "USE_BDB_FALSE=''" "USE_NATPMP_FALSE=''" "USE_UPNP_FALSE=''" "ENABLE_BENCH_FALSE=''" "ENABLE_QT_FALSE=''" "DEBUG_CPPFLAGS=' -DDEBUG"
+    set lines_to_match "USE_BDB_TRUE=''" "USE_NATPMP_FALSE=''" "USE_UPNP_FALSE=''" "ENABLE_BENCH_FALSE=''" "ENABLE_QT_FALSE=''" "DEBUG_CPPFLAGS=' -DDEBUG"
 
     set matches 0
 
@@ -14,7 +14,7 @@ function build-min
     end
 
     if test $matches -ne (count $lines_to_match)
-        bear -- ./configure --without-bdb --without-miniupnpc --without-natpmp --disable-bench --without-gui --enable-debug
+        bear -- ./configure --with-incompatible-bdb --without-miniupnpc --without-natpmp --disable-bench --without-gui --enable-debug $argv
     end
 
     set num_procs (nproc)
