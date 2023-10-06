@@ -1,0 +1,72 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "debug",
+      "description": "Debug configuration with verbose output.",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_VERBOSE_MAKEFILE": "ON"
+      }
+    },
+    {
+      "name": "debug-ninja",
+      "description": "Debug configuration with ninja.",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_VERBOSE_MAKEFILE": "ON"
+      },
+      "generator": "Ninja"
+    },
+    {
+      "name": "release",
+      "description": "Release configuration.",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "description": "Build using the debug configuration."
+    },
+    {
+      "name": "debug-ninja",
+      "configurePreset": "debug-ninja",
+      "description": "Build the debug configuration using ninja."
+    },
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "description": "Build using the release configuration."
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "all",
+      "description": "Run all tests.",
+      "configurePreset": "debug"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "debug-ninja",
+      "description": "Configure and build all in debug mode using ninja (auto nproc).",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "debug-ninja"
+        },
+        {
+          "type": "build",
+          "name": "debug-ninja"
+        }
+      ]
+    }
+  ]
+}

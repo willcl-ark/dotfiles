@@ -1,0 +1,11 @@
+{
+    "include": ["test"],
+    "exclude": ["**/__pycache__"],
+    "venv": "3.8.17",
+    "venvPath": "/home/will/.pyenv/versions",
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+    "pythonVersion": "3.8.17",
+    "pythonPlatform": "Linux"
+}
+

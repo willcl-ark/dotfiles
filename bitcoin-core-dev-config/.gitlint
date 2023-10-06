@@ -1,0 +1,14 @@
+[general]
+# Ignore certain rules (comma-separated list), you can reference them by
+# their id or by their full name
+#ignore=body-is-missing,T3
+contrib=contrib-title-conventional-commits
+
+[title-max-length]
+line-length=50
+
+[body-max-line-length]
+line-length=80
+
+[contrib-title-conventional-commits]
+types = consensus,doc,qt,gui,log,debug,mining,net,p2p,refactor,rpc,rest,zmq,script,test,qa,ci,util,lib,wallet,build,guix,contrib,init

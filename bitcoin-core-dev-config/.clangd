@@ -1,0 +1,4 @@
+CompileFlags:
+  # From https://github.com/clangd/clangd/issues/662
+  Add: -Wno-unknown-warning-option
+  Remove: [-m*, -f*]
