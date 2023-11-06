@@ -1,7 +1,7 @@
 function build-normal
 
     set config_file "config.log"
-    set lines_to_match "USE_BDB_TRUE=''" "USE_NATPMP_FALSE=''" "USE_UPNP_FALSE=''" "ENABLE_BENCH_FALSE=''" "ENABLE_QT_TRUE=''"
+    set lines_to_match "USE_BDB_TRUE=''" "ENABLE_QT_TRUE=''"
 
     set matches 0
 
@@ -14,7 +14,7 @@ function build-normal
     end
 
     if test $matches -ne (count $lines_to_match)
-        bear -- ./configure --with-bdb --without-miniupnpc --without-natpmp --disable-bench
+        bear -- ./configure --with-incompatible-bdb --enable-debug
     end
 
     set num_procs (nproc)
