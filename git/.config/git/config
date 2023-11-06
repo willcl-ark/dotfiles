@@ -1,90 +1,98 @@
+[include]
+    path = /home/will/.config/delta/themes.gitconfig
+
 [user]
-	email = will@256k1.dev
-	name = willcl-ark
-	#signingkey = 099BAD163C70FBFA!
-	signingkey = 0xCE6EC49945C17EA6
+    email = will@256k1.dev
+    name = willcl-ark
+    #signingkey = 099BAD163C70FBFA!
+    signingkey = 0xCE6EC49945C17EA6
 
 [credential]
-	helper = store
+    helper = store
 
 [alias]
-	ds = diff --staged
-	last = log -1 HEAD
-	files = "!f() { git diff-tree --no-commit-id --name-only -r HEAD; }; f"
-	review = "!f() { git -c sequence.editor='sed -i s/pick/edit/' rebase -i $(git merge-base master HEAD); }; f"
-	ack = "!f() { git rev-parse --short HEAD | tr -d '[:space:]' | xsel -b; }; f"
-	branches-by-date = branch --sort=-committerdate
-	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+    ds = diff --staged
+    last = log -1 HEAD
+    files = "!f() { git diff-tree --no-commit-id --name-only -r HEAD; }; f"
+    review = "!f() { git -c sequence.editor='sed -i s/pick/edit/' rebase -i $(git merge-base master HEAD); }; f"
+    ack = "!f() { git rev-parse HEAD | tr -d '[:space:]' | xsel -b; }; f"
+    branches-by-date = branch --sort=-committerdate
+    fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
     tags = "!sh -c 'git for-each-ref --sort=-taggerdate --format=\"%(refname:lstrip=2)\" refs/tags | fzf | xargs git checkout'"
-	# pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-	# pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-	# spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+    # pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    # pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+    # spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
     rebase-branch = "!f() { git rebase -i $(git merge-base HEAD upstream/master); }; f"
     rebase-branch-format-check = "!f() { \
         git rebase -i $(git merge-base HEAD upstream/master) -x \"git show -U0 | ./contrib/devtools/clang-format-diff.py -p1 -i -v; if git diff --quiet; then true; else echo 'Formatting check failed for commit' && false; fi\"; \
     }; f"
-	show-pr = "!f() { git log --merges --ancestry-path --oneline $1..HEAD | tail -n 1; }; f"
+    rebase-branch-build-check = "!f() { \
+        git rebase -i $(git merge-base HEAD upstream/master) -x \"bear -- make -j16; make -j16 check; test/functional/test_runner.py --jobs=20 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp\"; \
+    }; f"
+    show-pr = "!f() { git log --merges --ancestry-path --oneline $1..HEAD | tail -n 1; }; f"
 
 [commit]
-	gpgsign = true
-	template = ~/.config/git/gitmessage
+    gpgsign = true
+    template = ~/.config/git/gitmessage
 
 [core]
-	excludesfile = /home/will/.config/git/gitignore_global
-	editor = nvim
+    excludesfile = /home/will/.config/git/gitignore_global
+    editor = nvim
 
 [safe]
-	directory = /home/will/src/neovim
-	directory = /home/will/src/bcc
-	directory = /home/will/src/bcc/libbpf-tools/blazesym
-	directory = /home/will/src/bcc/src/cc/libbpf
-	directory = /home/will/src/bcc/libbpf-tools/bpftool
+    directory = /home/will/src/neovim
+    directory = /home/will/src/bcc
+    directory = /home/will/src/bcc/libbpf-tools/blazesym
+    directory = /home/will/src/bcc/src/cc/libbpf
+    directory = /home/will/src/bcc/libbpf-tools/bpftool
 
 [http]
-	postBuffer = 5242880
+    postBuffer = 5242880
 
 [pull]
-	ff = only
+    ff = only
 
 [diff]
-	colorMoved = dimmed-zebra
-	tool = delta
-#	external = difft
+    colorMoved = dimmed-zebra
+    tool = delta
+#   external = difft
 
 #[grep]
-#	lineNumber = true
+#   lineNumber = true
 
 [pager]
-	diff = delta
-	log = delta
-	reflog = delta
-	show = delta
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
 
 [interactive]
-	diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only --features=interactive
 
 [delta]
-	features = line-numbers decorations
-	syntax-theme = gruvbox-dark
-	zero-style = dim syntax
+    features = line-numbers decorations mellow-barbet
+    syntax-theme = gruvbox-dark
+    zero-style = dim syntax
 
 [delta "interactive"]
-	keep-plus-minus-markers = false
+    keep-plus-minus-markers = false
+    features = decorations mellow-barbet
+    syntax-theme = gruvbox-dark
 
 [delta "decorations"]
-	commit-decoration-style = blue ol
-	commit-style = raw
-	file-style = omit
-	hunk-header-decoration-style = blue box
-	hunk-header-file-style = red
-	hunk-header-line-number-style = "#067a00"
-	hunk-header-style = file line-number syntax
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
-[gpg]
-	program = gpg2
+#[gpg]
+#   program = gpg2
