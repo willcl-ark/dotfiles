@@ -10,7 +10,7 @@ function parse_default
     end
 end
 
-set --local VOLUME (pactl get-sink-volume @DEFAULT_SINK@ | awk '$1=="Volume:" {print $5}')
+set --local VOLUME (pactl get-sink-volume @DEFAULT_SINK@ | awk '$1=="Volume:" {print $5}' | string pad --width 5)
 set --local SINK (parse_default (pactl get-default-sink))
 set --local SOURCE (parse_default (pactl get-default-source))
 
