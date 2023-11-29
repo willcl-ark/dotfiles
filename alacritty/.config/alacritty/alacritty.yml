@@ -6,18 +6,18 @@ scrolling:
   history: 0
 font:
   normal:
-    family: monospace
-    style: Normal
+    family: "BlexMono Nerd Font"
+    style: Text
   bold:
-    family: monospace
+    family: "BlexMono Nerd Font"
     style: Bold
   italic:
-    family: monospace
+    family: "BlexMono Nerd Font"
     style: Italic
   bold_italic:
-    family: monospace
+    family: "BlexMono Nerd Font"
     style: Bold Italic
-  size: 8.0
+  size: 14.0
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
