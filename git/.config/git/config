@@ -4,8 +4,8 @@
 [user]
     email = will@256k1.dev
     name = willcl-ark
-    #signingkey = 099BAD163C70FBFA!
-    signingkey = 0xCE6EC49945C17EA6
+    signingkey = 099BAD163C70FBFA
+    #signingkey = 0xCE6EC49945C17EA6
 
 [credential]
     helper = store
@@ -57,7 +57,7 @@
     tags     = "!sh -c 'git for-each-ref --sort=-taggerdate --format=\"%(refname:lstrip=2)\" refs/tags | fzf | xargs git checkout'"
 
 [commit]
-    gpgsign = true
+    gpgsign = false
     template = ~/.config/git/gitmessage
 
 [core]
