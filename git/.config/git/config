@@ -102,3 +102,7 @@
 
 [maintenance]
     repo = /home/will/src/bitcoin
+
+[rerere]
+    enabled = true
+    autoUpdate = true
