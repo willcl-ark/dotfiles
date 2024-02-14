@@ -33,3 +33,4 @@ ccache/*
 !ccache/.ccache/
 ccache/.ccache/*
 !ccache/.ccache/ccache.conf
+fish/.config/fish/functions/_fzf_*
