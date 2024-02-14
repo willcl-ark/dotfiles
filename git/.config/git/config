@@ -99,3 +99,6 @@
 
 #[gpg]
 #   program = gpg2
+
+[maintenance]
+    repo = /home/will/src/bitcoin
