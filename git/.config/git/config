@@ -43,6 +43,9 @@
     directory = /home/will/src/bcc/src/cc/libbpf
     directory = /home/will/src/bcc/libbpf-tools/bpftool
 
+[column]
+    ui = auto
+
 [http]
     postBuffer = 5242880
 
