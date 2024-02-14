@@ -13,6 +13,7 @@
 [alias]
     ds = diff --staged
     last = log -1 HEAD
+    lo = log --oneline -n 20
     files = "!f() { git diff-tree --no-commit-id --name-only -r HEAD; }; f"
     review = "!f() { git -c sequence.editor='sed -i s/pick/edit/' rebase -i $(git merge-base master HEAD); }; f"
     ack = "!f() { git rev-parse HEAD | tr -d '[:space:]' | xsel -b; }; f"
@@ -22,13 +23,12 @@
     # pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
     # pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
     # spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
-    rebase-branch = "!f() { git rebase -i $(git merge-base HEAD upstream/master); }; f"
-    rebase-branch-format-check = "!f() { \
-        git rebase -i $(git merge-base HEAD upstream/master) -x \"git show -U0 | ./contrib/devtools/clang-format-diff.py -p1 -i -v; if git diff --quiet; then true; else echo 'Formatting check failed for commit' && false; fi\"; \
-    }; f"
-    rebase-branch-build-check = "!f() { \
-        git rebase -i $(git merge-base HEAD upstream/master) -x \"bear -- make -j16; make -j16 check; test/functional/test_runner.py --jobs=20 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp\"; \
-    }; f"
+
+    # Rebase branch
+    rb = "!f() { default_branch=$(git symbolic-ref refs/remotes/upstream/HEAD | sed 's@^refs/remotes/upstream/@@'); git rebase -i $(git merge-base HEAD upstream/$default_branch); }; f"
+    # Rebase branch --autosqash
+    rba = "!f() { default_branch=$(git symbolic-ref refs/remotes/upstream/HEAD | sed 's@^refs/remotes/upstream/@@'); git rebase -i $(git merge-base HEAD upstream/$default_branch) --autosquash; }; f"
+
     show-pr = "!f() { git log --merges --ancestry-path --oneline $1..HEAD | tail -n 1; }; f"
 
 [commit]
@@ -65,6 +65,7 @@
     log = delta
     reflog = delta
     show = delta
+    blame = delta
 
 [interactive]
     diffFilter = delta --color-only --features=interactive
@@ -73,6 +74,8 @@
     features = line-numbers decorations mellow-barbet
     syntax-theme = gruvbox-dark
     zero-style = dim syntax
+    side-by-side = false
+    hyperlinks = true
 
 [delta "interactive"]
     keep-plus-minus-markers = false
