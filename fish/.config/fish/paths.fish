@@ -7,6 +7,7 @@ fish_add_path $HOME/.npm-packages/bin
 fish_add_path $HOME/.gems/bin
 if [ (uname) = Linux ]
     fish_add_path /home/linuxbrew/.linuxbrew/bin
+    fish_add_path /var/lib/flatpak/exports/bin
 end
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.fzf/bin
