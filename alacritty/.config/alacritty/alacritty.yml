@@ -45,6 +45,7 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
   # - ~/.config/alacritty/darkplus.yml
+  # - ~/.config/alacritty/flexoki.yml
   - ~/.config/alacritty/gruvbox.yml
   # - ~/.config/alacritty/monokai.yml
   # - ~/.config/alacritty/onedark.yml

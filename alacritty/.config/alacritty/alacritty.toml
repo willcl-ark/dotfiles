@@ -1,0 +1,50 @@
+import = ["/home/will/.config/alacritty/gruvbox.toml"]
+live_config_reload = true
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "alacritty-direct"
+
+[font]
+size = 8.0
+
+[font.bold]
+family = "monospace"
+style = "Bold"
+
+[font.bold_italic]
+family = "monospace"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 1
+y = 1
+
+[font.italic]
+family = "monospace"
+style = "Italic"
+
+[font.normal]
+family = "monospace"
+style = "Normal"
+
+[font.offset]
+x = 1
+y = 1
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 0
+
+[shell]
+program = "/usr/local/bin/fish"
+
+[window]
+decorations = "none"
+opacity = 1.0
+startup_mode = "Maximized"

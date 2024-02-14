@@ -1,0 +1,30 @@
+schemes:
+  flexoki: &flexoki
+    # Default colors
+    primary:
+      background: '#1C1B1A'
+      foreground: '#CECDC3'
+    cursor:
+      text: '#1C1B1A'
+      cursor: '#878580'
+    # Normal colors
+    normal:
+      black: '#100F0F'
+      red: '#D14D41'
+      green: '#879A39'
+      yellow: '#D0A215'
+      blue: '#4385BE'
+      magenta: '#CE5D97'
+      cyan: '#3AA99F'
+      white: '#DAD8CE'
+    # Bright colors
+    bright:
+      black: '#100F0F'
+      red: '#AF3029'
+      green: '#66800B'
+      yellow: '#AD8301'
+      blue: '#205EA6'
+      magenta: '#A02F6F'
+      cyan: '#24837B'
+      white: '#DAD8CE'
+colors: *flexoki
