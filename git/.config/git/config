@@ -12,6 +12,7 @@
 
 [alias]
     ds = diff --staged
+    fpush = push
     last = log -1 HEAD
     lo = log --oneline -n 20
     files = "!f() { git diff-tree --no-commit-id --name-only -r HEAD; }; f"
