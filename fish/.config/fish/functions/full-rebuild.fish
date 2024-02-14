@@ -1,9 +1,4 @@
-function fmake-lint-check-test
-
-    ./test/lint/all-lint.py; or begin
-        notify-send "./test/lint/all-lint.py failed"
-        return
-    end
+function full-rebuild
 
     if test -d test/lint/test_runner/
         pushd test/lint/test_runner/
@@ -11,7 +6,6 @@ function fmake-lint-check-test
         cargo clippy
         cargo run; or begin
             notify-send "Rust linter failed"
-            popd
             return
         end
         popd

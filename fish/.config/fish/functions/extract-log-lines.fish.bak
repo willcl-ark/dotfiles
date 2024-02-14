@@ -1,0 +1,26 @@
+function extract-log-lines
+    set log_file $argv[1]
+    set start_time $argv[2]
+    set end_time $argv[3]
+
+    # Convert timestamps to epoch for easier comparison
+    set start_epoch (date -u -d $start_time +%s)
+    set end_epoch (date -u -d $end_time +%s)
+
+    # Reading the log file
+    for line in (cat $log_file)
+        # Extract the timestamp using cut
+        set line_time (echo $line | cut -d ' ' -f 1)
+
+        # Attempt to convert the extracted timestamp to epoch, skipping invalid dates
+        set line_epoch (date -u -d $line_time +%s 2>/dev/null)
+        if test $status -ne 0
+            # Skip this line if the date conversion failed
+            continue
+        end
+
+        if test $line_epoch -ge $start_epoch -a $line_epoch -le $end_epoch
+            echo $line
+        end
+    end
+end

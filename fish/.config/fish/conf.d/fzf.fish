@@ -11,7 +11,7 @@ set --global _fzf_search_vars_command '_fzf_search_variables (set --show | psub)
 
 
 # Install the default bindings, which are mnemonic and minimally conflict with fish's preset bindings
-#fzf_configure_bindings
+fzf_configure_bindings
 
 # Doesn't erase autoloaded _fzf_* functions because they are not easily accessible once key bindings are erased
 function _fzf_uninstall --on-event fzf_uninstall
@@ -26,7 +26,3 @@ function _fzf_uninstall --on-event fzf_uninstall
     echo "You may need to manually remove fzf_configure_bindings from your config.fish if you were using custom key bindings."
     set_color normal
 end
-
-set fzf_preview_dir_cmd exa --all --color=always
-set fzf_fd_opts --hidden --exclude=.git
-fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\cs --history=\cr --variables=\cv

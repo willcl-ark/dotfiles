@@ -15,13 +15,13 @@ function debug
         case tail
             switch $arg
                 case main
-                    tail -n 50 -f $HOME/.bitcoin/debug.log
+                    tail -n 75 -f $HOME/.bitcoin/debug.log
                 case test
-                    tail -n 50 -f $HOME/.bitcoin/testnet3/debug.log
+                    tail -n 75 -f $HOME/.bitcoin/testnet3/debug.log
                 case signet
-                    tail -n 50 -f $HOME/.bitcoin/signet/debug.log
+                    tail -n 75 -f $HOME/.bitcoin/signet/debug.log
                 case regtest
-                    tail -n 50 -f $HOME/.bitcoin/regtest/debug.log
+                    tail -n 75 -f $HOME/.bitcoin/regtest/debug.log
                 case '*'
                     echo 'Invalid argument. Valid arguments after "tail": main, test, signet, regtest.'
                     exit 1
