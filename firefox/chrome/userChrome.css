@@ -1,91 +1,28 @@
-@-moz-document url(chrome://browser/content/browser.xhtml)
-{
-  /* tabs on bottom of window */
-  /* requires that you set
-   * toolkit.legacyUserProfileCustomizations.stylesheets = true
-   * in about:config
-   */
+/* Taken from : https://github.com/Arty2/userstyles/issues/1 */
+*|*:root[sizemode="normal"] #navigator-toolbox {
+    max-height: 100vh;
+    overflow: visible;
+    transition: none;
+}
 
-  /* Now moved to flexbox:
-   * https://groups.google.com/a/mozilla.org/g/firefox-dev/c/9sGpF1TNbLk/m/QpU3oTUuAgAJ
-   */
+*|*:root[sizemode="maximized"] #navigator-toolbox {
+    overflow: visible;
+}
 
-  #mainPopupSet ~ toolbox {
-    order: 2;
-  }
-  #titlebar {
-    order: 2;
-  }
-  #urlbar {
-    top: unset !important;
-    bottom: calc(
-      (var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2
-    ) !important;
-    box-shadow: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  #urlbar-input-container {
-    order: 2;
-  }
-  #urlbar > .urlbarView {
-    order: 1;
-    border-bottom: 1px solid #666;
-  }
-  #urlbar-results {
-    display: flex;
+#browser {
+    -moz-box-ordinal-group: 0 !important;
+    order: 0 !important;
+}
+
+#navigator-toolbox,
+#navigator-toolbox-background {
+    -moz-box-ordinal-group: 1 !important;
+    order: 1 !important;
+}
+
+#urlbar[open]{
     flex-direction: column-reverse;
-  }
-  /* need this to have the menu bar pop up from the bottom on Ubuntu! */
-  .panel-viewstack {
-    max-height: unset !important;
-  }
-  .search-one-offs {
-    display: none !important;
-  }
-  .tab-background {
-    border-top: none !important;
-  }
-  #navigator-toolbox::after {
-    border: none;
-  }
-  #TabsToolbar .tabbrowser-arrowscrollbox,
-  #tabbrowser-tabs,
-  .tab-stack {
-    min-height: 28px !important;
-  }
-  .tabbrowser-tab {
-    font-size: 80%;
-  }
-  .tab-content {
-    padding: 0 5px;
-  }
-  .tab-close-button .toolbarbutton-icon {
-    width: 12px !important;
-    height: 12px !important;
-  }
-  toolbox[inFullscreen="true"] {
-    display: none;
-  }
+    display: flex !important;
+    bottom: -2px !important;
+    top: auto !important;
 }
-
-/* START -- https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#full-auto-showhide-theme */
-/* Sidebar min and max width removal */
-#sidebar {
-  max-width: none !important;
-  min-width: 0px !important;
-}
-
-/* Hide splitter, when using Tree Style Tab. */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
-  + #sidebar-splitter {
-  display: none !important;
-}
-/* Hide sidebar header, when using Tree Style Tab. */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]
-  #sidebar-header {
-  visibility: collapse;
-}
-
-/* END */
-
