@@ -23,11 +23,22 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 8
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
-new_float pixel 1
+# new_window pixel 1
+# new_float pixel 1
+new_window pixel 2
+new_float pixel 2
 
 # Hide borders
 hide_edge_borders smart
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+
+# Seems like default_orientation is not working automagically properly...
+default_orientation horizontal
+workspace_layout default
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -217,3 +228,13 @@ exec --no-startup-id lxpolkit
 bindsym Shift+XF86Tools exec --no-startup-id shutter -s
 # active window
 bindsym XF86Tools exec --no-startup-id shutter -a
+
+# i3-auto-layout
+# https://github.com/chmln/i3-auto-layout
+exec_always --no-startup-id i3-auto-layout
+
+# Use picom to reduce tearing
+# https://wiki.archlinux.org/title/Picom
+exec_always --no-startup-id picom -b
+exec_always --no-startup-id nvidia-settings --load-config-only
+exec_always --no-startup-id hsetroot -solid '#282828'
