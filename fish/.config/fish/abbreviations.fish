@@ -12,10 +12,10 @@ abbr -a -g -- icdiff 'icdiff --no-bold'
 abbr -a -g -- imap 'PYENV_VERSION=offlineimap offlineimap'
 abbr -a -g -- k 'kubectl'
 abbr -a -g -- lcli lightning-cli
-abbr -a -g -- ll 'exa -al'
-abbr -a -g -- lld 'exa -s modified -rl'
-abbr -a -g -- llo 'exa -al -s newest'
-abbr -a -g -- ls exa
+abbr -a -g -- ll 'eza -al'
+abbr -a -g -- lld 'eza -s modified -rl'
+abbr -a -g -- llo 'eza -al -s newest'
+abbr -a -g -- ls eza
 abbr -a -g -- lslm 'ls -aFlhpt'
 abbr -a -g -- lss 'ls -aFlhS'
 abbr -a -g -- make-check 'bear -- make -j16; and make -j16 check'
