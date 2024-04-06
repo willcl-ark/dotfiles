@@ -1,10 +1,9 @@
 set -gx BASH (command -v bash)
 if [ (uname) = Darwin ]
-    set -gx BDB_PREFIX /Users/will/src/bitcoin/depends/x86_64-apple-darwin22.2.0
+    # set -gx BDB_PREFIX /Users/will/src/bitcoin/depends/x86_64-apple-darwin22.2.0
 else if [ (uname) = Linux ]
-    set -gx BDB_PREFIX $HOME/src/bitcoin/db4
     # Pick up system packages using linuxbrew pkg-config
-    set -gx PKG_CONFIG_PATH /usr/lib/x86_64-linux-gnu/pkgconfig/
+    set -gx PKG_CONFIG_PATH /usr/lib/x86_64-linux-gnu/pkgconfig/ /usr/local/lib/pkgconfig
 end
 set -gx BUILD_CMD "bear -- make"
 set -gx CC (command -v clang)
