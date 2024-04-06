@@ -29,14 +29,16 @@ abbr -a -g -- mutt 'pushd $HOME/Downloads/; TERM=alacritty-direct PYENV_VERSION=
 abbr -a -g -- myip 'curl ifconfig.me'
 abbr -a -g -- notify 'say finished'
 abbr -a -g -- print-user-path echo\ \$fish_user_paths\ \|\ tr\ \"\ \"\ \"\\n\"\ \|\ nl
+abbr -a -g -- rb bear -- make -j16
 abbr -a -g -- rcli 'bitcoin-cli -regtest'
 abbr -a -g -- rm 'rm -i'
 abbr -a -g -- speedtest-curl 'curl -o /dev/null http://ipv4.download.thinkbroadband.com/1GB.zip'
 abbr -a -g -- tb 'nc termbin.com 9999'
-abbr -a -g -- tcli 'bitcoin-cli -testnet'
 abbr -a -g -- tbcli $HOME/src/bitcoin/src/bitcoin-cli
 abbr -a -g -- tbitcoin-qt $HOME/src/bitcoin/src/qt/bitcoin-qt
 abbr -a -g -- tbitcoind $HOME/src/bitcoin/src/bitcoind
+abbr -a -g -- tbwallet $HOME/src/bitcoin/src/bitcoin-wallet
+abbr -a -g -- todo nvim ~/todo.txt
 abbr -a -g -- update-ytdl sudo\ curl\ -L\ https://yt-dl.org/downloads/latest/youtube-dl\ -o\ /usr/local/bin/youtube-dl\nsudo\ chmod\ a+rx\ /usr/local/bin/youtube-dl
 abbr -a -g -- vim nvim
 abbr -a -g -- wasabitunnel 'ssh nucremote -L 8333:localhost:8333 -N'
