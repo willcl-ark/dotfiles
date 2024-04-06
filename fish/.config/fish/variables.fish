@@ -24,6 +24,7 @@ set -gx GEM_BIN $GEM_HOME/bin
 set -gx GPG_TTY (tty)
 set -gx GUIX_LOCPATH $HOME/.guix-profile/lib/locale
 set -gx GUIX_SIGS_REPO $HOME/src/guix.sigs
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/share/man /usr/man /usr/share/man /usr/local/man /usr/local/share/man /usr/X11R6/man /opt/man /snap/man
 set -gx NPM_PACKAGES $HOME/.npm-packages
 set -gx NVM_DIR $HOME/.nvm
