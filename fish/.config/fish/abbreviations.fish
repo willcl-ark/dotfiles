@@ -10,6 +10,7 @@ abbr -a -g -- grc 'git rebase --continue'
 abbr -a -g -- htop 'TERM=xterm-256color htop'
 abbr -a -g -- icdiff 'icdiff --no-bold'
 abbr -a -g -- imap 'PYENV_VERSION=offlineimap offlineimap'
+abbr -a -g -- k 'kubectl'
 abbr -a -g -- lcli lightning-cli
 abbr -a -g -- ll 'exa -al'
 abbr -a -g -- lld 'exa -s modified -rl'
