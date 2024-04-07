@@ -16,25 +16,25 @@ bitcoin = '#fab387'
 style_user = "bold purple"
 style_root = "bold red"
 format = "[$user]($style)"
-disabled = false
-show_always = true
+disabled = true
+show_always = false
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = "@[$hostname](bold cyan) [$ssh_symbol](bold yellow)"
-trim_at = ".companyname.com"
+trim_at = "."
 disabled = false
 
 [directory]
 style = 'bold blue'
 read_only_style = 'bold red'
-format = "in [$path]($style)[$read_only]($read_only_style) "
+format = "[$path]($style)[$read_only]($read_only_style) "
 truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = false
 
 [character]
-success_symbol = '[₿](bitcoin)'
+success_symbol = '[\$](bitcoin)'
 error_symbol = '[✗](bold red)'
 
 [python]
@@ -48,3 +48,6 @@ detect_files = [ 'libbitcoinconsensus.pc.in' ]
 commands = [ [ 'clang', '--version' ] ]
 version_format = 'v${raw}'
 format = ': [$symbol($version(-$name) )]($style)'
+
+[gcloud]
+disabled = true
