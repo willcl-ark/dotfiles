@@ -1,4 +1,4 @@
-import = ["/home/will/.config/alacritty/gruvbox.toml"]
+import = ["/Users/will/.config/alacritty/gruvbox.toml"]
 live_config_reload = true
 
 [cursor.style]
@@ -9,14 +9,14 @@ shape = "Block"
 TERM = "alacritty-direct"
 
 [font]
-size = 8.0
+size = 14.0
 
 [font.bold]
-family = "monospace"
+family = "ComicCode Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "monospace"
+family = "ComicCode Nerd Font"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -24,12 +24,12 @@ x = 1
 y = 1
 
 [font.italic]
-family = "monospace"
+family = "ComicCode Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "monospace"
-style = "Normal"
+family = "ComicCode Nerd Font"
+style = "Regular"
 
 [font.offset]
 x = 1
