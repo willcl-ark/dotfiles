@@ -13,12 +13,12 @@ function ytdlp
     if test "$thumb" = "y" -o "$thumb" = "Y"
         yt-dlp -f $format $url \
             --embed-thumbnail \
-            --restrict-filenames \
-            --cookies-from-browser firefox:/home/will/snap/firefox/common/.mozilla/firefox/b2pboypq.default-release
+            --restrict-filenames
+            # --cookies-from-browser firefox:/home/will/snap/firefox/common/.mozilla/firefox/b2pboypq.default-release
     else
         yt-dlp -f $format $url \
-            --restrict-filenames \
-            --cookies-from-browser firefox:/home/will/snap/firefox/common/.mozilla/firefox/b2pboypq.default-release
+            --restrict-filenames
+            # --cookies-from-browser firefox:/home/will/snap/firefox/common/.mozilla/firefox/b2pboypq.default-release
     end
 
     # Remove the trap
