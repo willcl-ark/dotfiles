@@ -34,16 +34,17 @@ set -gx PIP_REQUIRE_VIRTUALENV 0
 # Hack for poetry: https://github.com/python-poetry/poetry/issues/1917#issuecomment-1235998997
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
+set -gx SHELL (which fish)
 set -gx SIGNER 0xCE6EC49945C17EA6=willcl-ark
-set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 
-# This fixed my flatpak firefox install on Ubuntu
 if [ (uname) = Linux ]
+    # This fixed my flatpak firefox install on Ubuntu
     set -gx DXG_DATA_DIRS /usr/share/ubuntu:/home/will/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+    set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 end
 
