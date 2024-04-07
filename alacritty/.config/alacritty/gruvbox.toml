@@ -22,7 +22,7 @@ yellow = "0xd8a657"
 background = "0x282828"
 foreground = "0xd4be98"
 
-# [gruvbox_material_hard_dark.bright]
+# [schemes.gruvbox_material_hard_dark.bright]
 # black = "0x32302f"
 # blue = "0x7daea3"
 # cyan = "0x89b482"
@@ -32,7 +32,7 @@ foreground = "0xd4be98"
 # white = "0xd4be98"
 # yellow = "0xd8a657"
 #
-# [gruvbox_material_hard_dark.normal]
+# [schemes.gruvbox_material_hard_dark.normal]
 # black = "0x32302f"
 # blue = "0x7daea3"
 # cyan = "0x89b482"
@@ -42,11 +42,11 @@ foreground = "0xd4be98"
 # white = "0xd4be98"
 # yellow = "0xd8a657"
 #
-# [gruvbox_material_hard_dark.primary]
+# [schemes.gruvbox_material_hard_dark.primary]
 # background = "0x1d2021"
 # foreground = "0xd4be98"
 #
-# [gruvbox_material_hard_light.bright]
+# [schemes.gruvbox_material_hard_light.bright]
 # black = "0x654735"
 # blue = "0x45707a"
 # cyan = "0x4c7a5d"
@@ -56,7 +56,6 @@ foreground = "0xd4be98"
 # white = "0xf2e5bc"
 # yellow = "0xb47109"
 #
-# [gruvbox_material_hard_light.normal]
 # black = "0x654735"
 # blue = "0x45707a"
 # cyan = "0x4c7a5d"
@@ -66,11 +65,11 @@ foreground = "0xd4be98"
 # white = "0xf2e5bc"
 # yellow = "0xb47109"
 #
-# [gruvbox_material_hard_light.primary]
+# [schemes.gruvbox_material_hard_light.primary]
 # background = "0xf9f5d7"
 # foreground = "0x654735"
 #
-# [gruvbox_material_medium_dark.bright]
+# [schemes.gruvbox_material_medium_dark.bright]
 # black = "0x3c3836"
 # blue = "0x7daea3"
 # cyan = "0x89b482"
@@ -80,7 +79,7 @@ foreground = "0xd4be98"
 # white = "0xd4be98"
 # yellow = "0xd8a657"
 #
-# [gruvbox_material_medium_dark.normal]
+# [schemes.gruvbox_material_medium_dark.normal]
 # black = "0x3c3836"
 # blue = "0x7daea3"
 # cyan = "0x89b482"
@@ -90,11 +89,11 @@ foreground = "0xd4be98"
 # white = "0xd4be98"
 # yellow = "0xd8a657"
 #
-# [gruvbox_material_medium_dark.primary]
+# [schemes.gruvbox_material_medium_dark.primary]
 # background = "0x282828"
 # foreground = "0xd4be98"
 #
-# [gruvbox_material_medium_light.bright]
+# [schemes.gruvbox_material_medium_light.bright]
 # black = "0x654735"
 # blue = "0x45707a"
 # cyan = "0x4c7a5d"
@@ -104,7 +103,7 @@ foreground = "0xd4be98"
 # white = "0xeee0b7"
 # yellow = "0xb47109"
 #
-# [gruvbox_material_medium_light.normal]
+# [schemes.gruvbox_material_medium_light.normal]
 # black = "0x654735"
 # blue = "0x45707a"
 # cyan = "0x4c7a5d"
@@ -114,11 +113,11 @@ foreground = "0xd4be98"
 # white = "0xeee0b7"
 # yellow = "0xb47109"
 #
-# [gruvbox_material_medium_light.primary]
+# [schemes.gruvbox_material_medium_light.primary]
 # background = "0xfbf1c7"
 # foreground = "0x654735"
 #
-# [gruvbox_material_soft_dark.bright]
+# [schemes.gruvbox_material_soft_dark.bright]
 # black = "0x45403d"
 # blue = "0x7daea3"
 # cyan = "0x89b482"
@@ -128,7 +127,7 @@ foreground = "0xd4be98"
 # white = "0xd4be98"
 # yellow = "0xd8a657"
 #
-# [gruvbox_material_soft_dark.normal]
+# [schemes.gruvbox_material_soft_dark.normal]
 # black = "0x45403d"
 # blue = "0x7daea3"
 # cyan = "0x89b482"
@@ -138,11 +137,11 @@ foreground = "0xd4be98"
 # white = "0xd4be98"
 # yellow = "0xd8a657"
 #
-# [gruvbox_material_soft_dark.primary]
+# [schemes.gruvbox_material_soft_dark.primary]
 # background = "0x32302f"
 # foreground = "0xd4be98"
 #
-# [gruvbox_material_soft_light.bright]
+# [schemes.gruvbox_material_soft_light.bright]
 # black = "0x654735"
 # blue = "0x45707a"
 # cyan = "0x4c7a5d"
@@ -152,7 +151,7 @@ foreground = "0xd4be98"
 # white = "0xe6d5ae"
 # yellow = "0xb47109"
 #
-# [gruvbox_material_soft_light.normal]
+# [schemes.gruvbox_material_soft_light.normal]
 # black = "0x654735"
 # blue = "0x45707a"
 # cyan = "0x4c7a5d"
@@ -162,6 +161,6 @@ foreground = "0xd4be98"
 # white = "0xe6d5ae"
 # yellow = "0xb47109"
 #
-# [gruvbox_material_soft_light.primary]
+# [schemes.gruvbox_material_soft_light.primary]
 # background = "0xf2e5bc"
 # foreground = "0x654735"
