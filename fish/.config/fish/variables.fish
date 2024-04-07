@@ -17,9 +17,18 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx MANPAGER "nvim +Man!"
 set -gx PIP_REQUIRE_VIRTUALENV 0
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
+set -gx SHELL (which fish)
 set -gx SIGNER 0xCE6EC49945C17EA6=willcl-ark
+set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx fzf_fd_opts --hidden --max-depth 5
+
+if [ (uname) = Linux ]
+    # This fixed my flatpak firefox install on Ubuntu
+    set -gx DXG_DATA_DIRS /usr/share/ubuntu:/home/will/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+    set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+end
