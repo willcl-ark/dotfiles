@@ -63,6 +63,8 @@
 [core]
     excludesfile = /home/will/.config/git/gitignore_global
     editor = nvim
+	pager = /usr/bin/less
+	pager = less
 
 [safe]
     directory = /home/will/src/neovim
