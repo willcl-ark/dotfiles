@@ -11,22 +11,50 @@
     helper = store
 
 [alias]
-    ds = diff --staged
-    fpush = push
-    last = log -1 HEAD
-    lo = log --oneline -n 20
-    files = "!f() { git diff-tree --no-commit-id --name-only -r HEAD; }; f"
-    review = "!f() { git -c sequence.editor='sed -i s/pick/edit/' rebase -i $(git merge-base master HEAD); }; f"
-    ack = "!f() { git rev-parse HEAD | tr -d '[:space:]' | xsel -b; }; f"
-    branches-by-date = branch --sort=-committerdate
-    fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
-    tags = "!sh -c 'git for-each-ref --sort=-taggerdate --format=\"%(refname:lstrip=2)\" refs/tags | fzf | xargs git checkout'"
-    # Rebase branch
-    rb = "!f() { default_branch=$(git symbolic-ref refs/remotes/upstream/HEAD | sed 's@^refs/remotes/upstream/@@'); git rebase -i $(git merge-base HEAD upstream/$default_branch); }; f"
-    # Rebase branch --autosqash
-    rba = "!f() { default_branch=$(git symbolic-ref refs/remotes/upstream/HEAD | sed 's@^refs/remotes/upstream/@@'); git rebase -i $(git merge-base HEAD upstream/$default_branch) --autosquash; }; f"
+    # Common commands
+    s        = status
+    b        = branch
+    a        = add .
+    ds       = diff --staged
+    d        = difftool
+    m        = mergetool
+    lo       = log --oneline -n 20
+    f        = fetch --all --prune
+    po       = push origin
+    pu       = push upstream
+    cp       = cherry-pick
+    cpcont   = cherry-pick --continue
+    rh       = reset --hard
+    r        = rebase
+    rcont    = rebase --continue
+    ra       = rebase --abort
+    rem      = remote
+    rd       = range-diff
+    pushf    = push --force-with-lease
 
-    show-pr = "!f() { git log --merges --ancestry-path --oneline $1..HEAD | tail -n 1; }; f"
+    #  File Management
+    un       = reset HEAD
+    co       = checkout
+    cob      = checkout -b              # Create new branch and switch
+
+    #  === Commit Commands ===
+    cm       = commit
+    com      = commit -m                # With inline message
+    amend    = commit --amend
+    fix      = commit --amend --no-edit
+
+    # Custom scripts
+    ack      = "!f() { git rev-parse HEAD | tr -d '[:space:]' | xsel -b; }; f"
+    files    = "!f() { git diff-tree --no-commit-id --name-only -r HEAD; }; f"
+    fixup    = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+    last     = log -1 HEAD
+    review   = "!f() { git -c sequence.editor='sed -i s/pick/edit/' rebase -i $(git merge-base master HEAD); }; f"
+    # Rebase branch
+    rb       = "!f() { default_branch=$(git symbolic-ref refs/remotes/upstream/HEAD | sed 's@^refs/remotes/upstream/@@'); git rebase -i $(git merge-base HEAD upstream/$default_branch); }; f"
+    # Rebase branch --autosqash
+    rba      = "!f() { default_branch=$(git symbolic-ref refs/remotes/upstream/HEAD | sed 's@^refs/remotes/upstream/@@'); git rebase -i $(git merge-base HEAD upstream/$default_branch) --autosquash; }; f"
+    show-pr  = "!f() { git log --merges --ancestry-path --oneline $1..HEAD | tail -n 1; }; f"
+    tags     = "!sh -c 'git for-each-ref --sort=-taggerdate --format=\"%(refname:lstrip=2)\" refs/tags | fzf | xargs git checkout'"
 
 [commit]
     gpgsign = true
