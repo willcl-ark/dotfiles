@@ -25,9 +25,12 @@ abbr -a -g -- make-lint-check 'bear -- make -j16; and ./test/lint/all-lint.py; a
 abbr -a -g -- make-lint-check-test 'bear -- make -j16; and ./test/lint/all-lint.py; and make -j16 check; test/functional/test_runner.py --jobs=32 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp'
 abbr -a -g -- mvc 'mullvad connect'
 abbr -a -g -- mvd 'mullvad disconnect'
-abbr -a -g -- mutt 'pushd $HOME/Downloads/; TERM=alacritty-direct PYENV_VERSION=3.11.1 neomutt; popd'
+abbr -a -g -- mutt 'pushd $HOME/Downloads/; source ~/.venv/bin/activate.fish; TERM=alacritty-direct  neomutt; popd; deactivate'
 abbr -a -g -- myip 'curl ifconfig.me'
 abbr -a -g -- notify 'say finished'
+abbr -a -g -- pa 'source .venv/bin/activate.fish'
+abbr -a -g -- pd 'deactivate'
+abbr -a -g -- pip 'uv pip'
 abbr -a -g -- print-user-path echo\ \$fish_user_paths\ \|\ tr\ \"\ \"\ \"\\n\"\ \|\ nl
 abbr -a -g -- rb bear -- make -j16
 abbr -a -g -- rcli 'bitcoin-cli -regtest'
