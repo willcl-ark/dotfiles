@@ -71,8 +71,8 @@
     directory = /home/will/src/bcc/src/cc/libbpf
     directory = /home/will/src/bcc/libbpf-tools/bpftool
 
-[column]
-    ui = auto
+; [column]
+    ; ui = auto
 
 [http]
     postBuffer = 5242880
@@ -125,8 +125,8 @@
     process = git-lfs filter-process
     required = true
 
-#[gpg]
-#   program = gpg2
+[gpg]
+   program = gpg
 
 [maintenance]
     repo = /home/will/src/bitcoin
@@ -137,3 +137,13 @@
 
 [branch]
     sort = -committerdate
+
+[merge]
+    tool = "nvim"
+
+[mergetool]
+    keepBackup = false
+    prompt = true
+
+[mergetool "nvim"]
+    cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
