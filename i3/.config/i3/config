@@ -223,11 +223,11 @@ bindsym $mod+x exec --no-startup-id ~/.config/i3/transfer-sleep-i3lock.sh
 # Polkit for authentication
 exec --no-startup-id lxpolkit
 
-# Use shutter for screenshots
+# Use ksnip for screenshots
 # selection
-bindsym Shift+XF86Tools exec --no-startup-id shutter -s
+bindsym Shift+XF86Tools exec --no-startup-id ksnip --rectarea
 # active window
-bindsym XF86Tools exec --no-startup-id shutter -a
+bindsym XF86Tools exec --no-startup-id ksnip --fullscreen
 
 # i3-auto-layout
 # https://github.com/chmln/i3-auto-layout
