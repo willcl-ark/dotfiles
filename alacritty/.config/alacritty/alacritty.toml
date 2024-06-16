@@ -9,7 +9,7 @@ shape = "Block"
 TERM = "alacritty-direct"
 
 [font]
-size = 14.0
+size = 16.0
 
 [font.bold]
 family = "ComicCode Nerd Font"
