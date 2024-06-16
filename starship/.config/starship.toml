@@ -51,3 +51,6 @@ format = ': [$symbol($version(-$name) )]($style)'
 
 [gcloud]
 disabled = true
+
+[docker_context]
+disabled = true
