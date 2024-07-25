@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {"major": 3, "minor": 21, "patch": 0},
+  "configurePresets": [
+    {
+      "name": "min",
+      "displayName": "Build minimal components with debug symbols",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "WERROR": "ON"
+      }
+    },
+    {
+      "name": "legacy",
+      "displayName": "Legacy default build including fuzz bin, bench, chainstate & GUI with debug symbols",
+      "cacheVariables": {
+        "BUILD_BENCH": "ON",
+        "BUILD_FUZZ_BINARY": "ON",
+        "BUILD_GUI": "ON",
+        "BUILD_UTIL_CHAINSTATE": "ON",
+        "WITH_SQLITE": "ON",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "WERROR": "ON"
+      }
+    }
+  ]
+}
