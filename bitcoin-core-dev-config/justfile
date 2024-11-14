@@ -60,7 +60,7 @@ alias t := test
 # # Override functional test command to include a cachedir and tmpdir
 # [group('test')]
 # test-func:
-#     build/test/functional/test_runner.py -j `nproc` --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp
+#     build/test/functional/test_runner.py -j {{ num_cpus() }} --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp
 # ```
 
 ################################################################################
@@ -69,18 +69,18 @@ alias t := test
 [group('build')]
 build *args: clean
     cmake -B build {{ args }}
-    cmake --build build -j `nproc`
+    cmake --build build -j {{ num_cpus() }}
 
 # Build with all optional modules
 [group('build')]
 build-dev *args: clean
     cmake -B build --preset dev-mode {{ args }}
-    cmake --build build -j `nproc`
+    cmake --build build -j {{ num_cpus() }}
 
 # Re-build current config
 [group('build')]
 rebuild:
-    cmake --build build -j `nproc`
+    cmake --build build -j {{ num_cpus() }}
 
 [private]
 check-build:
@@ -92,20 +92,20 @@ check-build:
         just build
     fi
 
-# Clean build dir
+# Clean build dir using git clean -dfx
 [group('build')]
 clean:
-    rm -Rf build
+    git clean -dfx
 
 # Run unit tests
 [group('test')]
 test-unit:
-    ctest --test-dir build -j `nproc`
+    ctest --test-dir build -j {{ num_cpus() }}
 
 # Run all functional tests
 [group('test')]
 test-func:
-    build/test/functional/test_runner.py -j `nproc`
+    build/test/functional/test_runner.py -j {{ num_cpus() }}
 
 # Run all unit and functional tests
 [group('test')]
@@ -137,7 +137,7 @@ format-diff:
 [no-exit-message]
 [private]
 tidy-commit:
-    git diff -U0 HEAD~1.. | ( cd ./src/ && clang-tidy-diff-17.py -p2 -j $(nproc) )
+    git diff -U0 HEAD~1.. | ( cd ./src/ && clang-tidy-diff-17.py -p2 -j {{ num_cpus() }} )
 
 # Run clang-tidy on the diff (must be configured with clang)
 [no-exit-message]
