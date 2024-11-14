@@ -19,6 +19,7 @@ set -gx FZF_DEFAULT_COMMAND 'fd --type file --color=always'
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS  --color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
   --color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54"
+set -gx fzf_fd_opts --hidden --max-depth 5
 set -gx GEM_HOME $HOME/.gems
 set -gx GEM_BIN $GEM_HOME/bin
 set -gx GPG_TTY (tty)
