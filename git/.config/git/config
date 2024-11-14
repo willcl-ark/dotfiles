@@ -102,7 +102,7 @@
     features = line-numbers decorations mellow-barbet
     syntax-theme = gruvbox-dark
     zero-style = dim syntax
-    side-by-side = false
+    side-by-side = true
     hyperlinks = true
 
 [delta "interactive"]
