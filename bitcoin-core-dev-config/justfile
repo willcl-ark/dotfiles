@@ -188,7 +188,7 @@ tidy-commit:
 [no-exit-message]
 [private]
 tidy-diff:
-    git diff | ( cd ./src/ && clang-tidy-diff-17.py -p2 -j $(nproc) )
+    git diff | ( cd ./src/ && clang-tidy-diff-17.py -p2 -j {{num_cpus()}} )
 
 # Run the linters
 [group('lint')]
