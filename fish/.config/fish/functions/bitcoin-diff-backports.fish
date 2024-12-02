@@ -18,6 +18,8 @@ function bitcoin-diff-backports
         return 1
     end
 
+    git fetch upstream --tags --prune
+
     # Capture the base branch from the flag
     set --local base_branch $_flag_base_branch
 
@@ -38,8 +40,23 @@ function bitcoin-diff-backports
             git show $commit_hash > $tmpdir/$commit_hash
             git show $rebased_from_hash > $tmpdir/$rebased_from_hash
 
-            # Diffa using delta
-            delta $tmpdir/$rebased_from_hash $tmpdir/$commit_hash
+            # Diff patches
+            difft $tmpdir/$rebased_from_hash $tmpdir/$commit_hash
+        else
+            git -c diff.external=difft show --ext-diff $commit_hash
+        end
+        while read --nchars 1 -l response --prompt-str="Next patch? (y/n)"
+              or return 1 # if the read was aborted with ctrl-c/ctrl-d
+            switch $response
+                case y Y
+                    echo Okay
+                    # We break out of the while and go on with the function
+                    break
+                case n N
+                    # We return from the function without printing
+                    echo Not showing
+                    return 1
+            end
         end
     end
 
