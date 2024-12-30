@@ -11,7 +11,7 @@
       }
     },
     {
-      "name": "legacy",
+      "name": "dev",
       "displayName": "Legacy default build including fuzz bin, bench, chainstate & GUI with debug symbols",
       "cacheVariables": {
         "BUILD_BENCH": "ON",
