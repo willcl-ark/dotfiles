@@ -1,6 +1,7 @@
 source $HOME/.config/fish/paths.fish
 source $HOME/.config/fish/variables.fish
 source $HOME/.config/fish/abbreviations.fish
+source $HOME/.config/fish/secret.fish
 
 # pyenv
 # speeded up by
@@ -19,3 +20,4 @@ zoxide init --cmd cd fish | source
 direnv hook fish | source
 
 fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\cs --history=\cr --variables=\cv
+fish_add_path /Users/will/google-cloud-sdk/bin
