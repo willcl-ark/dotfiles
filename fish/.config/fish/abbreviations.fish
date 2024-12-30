@@ -26,7 +26,7 @@ abbr -a -g -- make-lint-check-test 'bear -- make -j16; and ./test/lint/all-lint.
 abbr -a -g -- mvc 'mullvad connect'
 abbr -a -g -- mvd 'mullvad disconnect'
 # abbr -a -g -- mutt 'pushd $HOME/Downloads/; source ~/.venv/bin/activate.fish; TERM=alacritty-direct  neomutt; popd; deactivate'
-abbr -a -g -- mutt 'pushd $HOME/Downloads/; TERM=alacritty-direct PYENV_VERSION=offlineimap neomutt; popd'
+abbr -a -g -- mutt 'source ~/.mutt/.venv/bin/activate.fish; pushd $HOME/Downloads/; TERM=alacritty-direct neomutt; popd; deactivate'
 abbr -a -g -- myip 'curl ifconfig.me'
 abbr -a -g -- notify 'say finished'
 abbr -a -g -- pa 'source .venv/bin/activate.fish'
