@@ -1,11 +1,12 @@
 font-family = ComicCode Nerd Font
-font-size = 16
+font-size = 11
 
 cursor-style = block
 
 mouse-hide-while-typing = true
 
 theme = GruvboxDark
+
 window-padding-x = 4
 window-padding-y = 4
 
