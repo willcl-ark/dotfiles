@@ -40,10 +40,10 @@ abbr -a -g -- rcli 'bitcoin-cli -regtest'
 abbr -a -g -- rm 'rm -i'
 abbr -a -g -- speedtest-curl 'curl -o /dev/null http://ipv4.download.thinkbroadband.com/1GB.zip'
 abbr -a -g -- tb 'nc termbin.com 9999'
-abbr -a -g -- tbcli $HOME/src/core/bitcoin/build/src/bitcoin-cli
-abbr -a -g -- tbitcoin-qt $HOME/src/core/bitcoin/build/src/qt/bitcoin-qt
-abbr -a -g -- tbitcoind $HOME/src/core/bitcoin/build/src/bitcoind
-abbr -a -g -- tbwallet $HOME/src/core/bitcoin/build/src/bitcoin-wallet
+abbr -a -g -- tbcli "$HOME/src/core/bitcoin/build/bin/bitcoin-cli"
+abbr -a -g -- tbitcoin-qt "$HOME/src/core/bitcoin/build/bin/bitcoin-qt"
+abbr -a -g -- tbitcoind "$HOME/src/core/bitcoin/build/bin/bitcoind"
+abbr -a -g -- tbwallet "$HOME/src/core/bitcoin/build/bin/bitcoin-wallet"
 abbr -a -g -- todo nvim ~/todo.txt
 abbr -a -g -- update-ytdl sudo\ curl\ -L\ https://yt-dl.org/downloads/latest/youtube-dl\ -o\ /usr/local/bin/youtube-dl\nsudo\ chmod\ a+rx\ /usr/local/bin/youtube-dl
 abbr -a -g -- vim nvim
