@@ -15,7 +15,7 @@ abbr -a -g -- lcli lightning-cli
 abbr -a -g -- ll 'eza -al'
 abbr -a -g -- lld 'eza -s modified -rl'
 abbr -a -g -- llo 'eza -al -s newest'
-abbr -a -g -- ls eza
+abbr -a -g -- ls 'eza --icons --no-quotes'
 abbr -a -g -- lslm 'ls -aFlhpt'
 abbr -a -g -- lss 'ls -aFlhS'
 abbr -a -g -- make-check 'bear -- make -j16; and make -j16 check'
@@ -23,9 +23,11 @@ abbr -a -g -- make-clean 'make clean; and rm compile_commands.json; and bear -- 
 abbr -a -g -- make-lint 'bear -- make -j16; and and ./test/lint/all-lint.py'
 abbr -a -g -- make-lint-check 'bear -- make -j16; and ./test/lint/all-lint.py; and make -j16 check'
 abbr -a -g -- make-lint-check-test 'bear -- make -j16; and ./test/lint/all-lint.py; and make -j16 check; test/functional/test_runner.py --jobs=32 --cachedir=/mnt/tmp/cache --tmpdir=/mnt/tmp'
-abbr -a -g -- mvc 'mullvad connect'
-abbr -a -g -- mvd 'mullvad disconnect'
-abbr -a -g -- mutt 'pushd $HOME/Downloads/; source ~/.venv/bin/activate.fish; TERM=alacritty-direct  neomutt; popd; deactivate'
+abbr -a -g -- mutt "pushd $HOME/Downloads/; source ~/.venv/bin/activate.fish; TERM=alacritty-direct  neomutt; popd; deactivate"
+# abbr -a -g -- mvc 'mullvad connect'
+# abbr -a -g -- mvd 'mullvad disconnect'
+abbr -a -g -- mvc 'sudo tailscale set --exit-node=gb-lon-wg-003.mullvad.ts.net'
+abbr -a -g -- mvd 'sudo tailscale set --exit-node='
 abbr -a -g -- myip 'curl ifconfig.me'
 abbr -a -g -- notify 'say finished'
 abbr -a -g -- pa 'source .venv/bin/activate.fish'
