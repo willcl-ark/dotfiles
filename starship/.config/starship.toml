@@ -34,7 +34,8 @@ truncation_symbol = "…/"
 truncate_to_repo = false
 
 [character]
-success_symbol = '[₿](bitcoin)'
+# success_symbol = '[₿](bitcoin)'
+success_symbol = '[\$](bitcoin)'
 error_symbol = '[✗](bold red)'
 
 [python]
