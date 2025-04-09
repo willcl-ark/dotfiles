@@ -1,4 +1,7 @@
 CompileFlags:
   # From https://github.com/clangd/clangd/issues/662
   Add: -Wno-unknown-warning-option
-  Remove: [-m*, -f*]
+  # No longer needed?
+  # Remove: [-m*, -f*]
+Diagnostics:
+  Suppress: thread_safety_warning
