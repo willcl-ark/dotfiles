@@ -29,14 +29,13 @@ set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx MANPATH $HOME/.nvm/versions/node/v16.13.1/share/man $HOME/.npm-packages/share/man /usr/man /usr/share/man /usr/local/man /usr/local/share/man /usr/X11R6/man /opt/man /snap/man
 set -gx NPM_PACKAGES $HOME/.npm-packages
 set -gx NVM_DIR $HOME/.nvm
-set -gx NVIM_PYTHON $HOME/.pyenv/versions/neovim2/bin/python
-set -gx NVIM_PYTHON3 $HOME/.pyenv/versions/neovim3/bin/python
+set -gx NVIM_PYTHON3 $HOME/.config/nvim/.venv/bin/python3
 set -gx PIP_REQUIRE_VIRTUALENV 0
 # Hack for poetry: https://github.com/python-poetry/poetry/issues/1917#issuecomment-1235998997
 set -gx PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 set -gx SIGNER 0xCE6EC49945C17EA6=willcl-ark
-set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+# set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 set -gx VIRTUALFISH_DEFAULT_PYTHON (command -v python3)
 set -gx VISUAL nvim
 set -gx XDG_CONFIG_HOME $HOME/.config

@@ -27,3 +27,4 @@ if [ (uname) = Darwin ]
     fish_add_path /usr/local/opt/llvm/bin
     fish_add_path /usr/local/opt/ccache/libexec
 end
+fish_add_path $HOME/src/bitcoin-dev-tools/benchkit/target/debug
