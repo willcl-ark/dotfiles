@@ -1,5 +1,8 @@
-font-family = ComicCode Nerd Font
-font-size = 11
+font-family = ComicCode Nerd Font, Noto Color Emoji
+font-size = 9
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
 cursor-style = block
 
