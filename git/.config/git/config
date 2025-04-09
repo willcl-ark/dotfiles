@@ -63,6 +63,7 @@
 [core]
     excludesfile = /home/will/.config/git/gitignore_global
     editor = nvim
+    pager = delta
 
 [safe]
     directory = /home/will/src/neovim
@@ -96,28 +97,17 @@
     blame = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only
 
 [delta]
-    features = line-numbers decorations mellow-barbet
-    syntax-theme = gruvbox-dark
-    zero-style = dim syntax
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
     side-by-side = true
-    hyperlinks = true
+    features = zebra-dark
+    colorMoved = default
 
-[delta "interactive"]
-    keep-plus-minus-markers = false
-    features = decorations mellow-barbet
-    syntax-theme = gruvbox-dark
-
-[delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+[merge]
+    conflictstyle = zdiff3
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
@@ -147,3 +137,7 @@
 
 [mergetool "nvim"]
     cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[push]
+    autoSetupRemote = true
+[advice]
+	detachedHead = false
