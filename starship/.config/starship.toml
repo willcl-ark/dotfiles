@@ -49,3 +49,6 @@ detect_files = [ 'libbitcoinconsensus.pc.in' ]
 commands = [ [ 'clang', '--version' ] ]
 version_format = 'v${raw}'
 format = ': [$symbol($version(-$name) )]($style)'
+
+[aws]
+disabled = true
