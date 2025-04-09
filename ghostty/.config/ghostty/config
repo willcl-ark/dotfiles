@@ -18,3 +18,29 @@ shell-integration-features = no-cursor
 
 macos-titlebar-style = hidden
 window-decoration = false
+
+scrollback-limit = 500000
+
+# tmux-style keybinds
+keybind = ctrl+a>c=new_tab
+keybind = ctrl+a>w=toggle_tab_overview
+keybind = ctrl+a>z=toggle_split_zoom
+
+keybind = ctrl+a>shift+2=new_split:down
+keybind = ctrl+a>shift+5=new_split:right
+
+keybind = ctrl+a>shift+l=previous_tab
+keybind = ctrl+a>h=goto_split:left
+keybind = ctrl+a>j=goto_split:down
+keybind = ctrl+a>k=goto_split:up
+keybind = ctrl+a>l=goto_split:right
+
+keybind = ctrl+a>equal=equalize_splits
+keybind = ctrl+shift+left=resize_split:left,10
+keybind = ctrl+shift+down=resize_split:down,10
+keybind = ctrl+shift+up=resize_split:up,10
+keybind = ctrl+shift+right=resize_split:right,10
+
+keybind = ctrl+a>left_bracket=write_scrollback_file:paste
+
+custom-shader = /home/will/.config/ghostty/bettercrt.glsl
