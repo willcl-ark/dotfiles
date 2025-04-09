@@ -2,8 +2,9 @@ abbr -a -g -- bcli bitcoin-cli
 abbr -a -g -- cheat cht.sh
 abbr -a -g -- check-links find\ .\ -name\ \\\*.adoc\ -exec\ asciidoc-link-check\ -p\ \{\}\ \\\;
 abbr -a -g -- electrumtunnel 'ssh nucremote -L 50001:localhost:50001 -N'
-abbr -a -g -- fetch-master 'git checkout master; and git fetch --all --tags --prune; and git merge upstream/master'
 abbr -a -g -- fd 'fd -uu'
+abbr -a -g -- fetch-master 'git checkout master; and git fetch --all --tags --prune; and git merge upstream/master'
+abbr -a -g -- guix-hashes 'find guix-build-$(git rev-parse --short=12 HEAD)/output/ -type f -print0 | env LC_ALL=C sort -z | xargs -r0 sha256sum'
 abbr -a -g -- genesis-block 'bitcoin-cli getblockhash 0 | xargs -I {} bitcoin-cli getblock {} 0 | xxd -r -p | hexdump -v -C'
 abbr -a -g -- gg 'git grep -i'
 abbr -a -g -- grc 'git rebase --continue'
@@ -50,7 +51,7 @@ abbr -a -g -- vim nvim
 abbr -a -g -- wasabitunnel 'ssh nucremote -L 8333:localhost:8333 -N'
 abbr -a -g -- weather curl\ wttr.in/Frome\\\?format=v2\ \&\&\ curl\ wttr.in/Frome
 abbr -a -g -- which 'command -v'
+abbr -a -g -- xsel 'xsel -b'
 abbr -a -g -- youtube-dl-best 'youtube-dl -f bestvideo+bestaudio --merge-output-format mkv'
 abbr -a -g -- ytdl-audio 'youtube-dl -x --audio-format best'
 abbr -a -g -- ytdl-list 'youtube-dl -F'
-abbr -a -g -- xsel 'xsel -b'
