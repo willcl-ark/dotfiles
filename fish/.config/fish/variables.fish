@@ -15,6 +15,7 @@ set -gx fzf_fd_opts --hidden --max-depth 5
 set -gx GPG_TTY (tty)
 set -gx GUIX_LOCPATH $HOME/.guix-profile/lib/locale
 set -gx GUIX_SIGS_REPO $HOME/src/guix.sigs
+set -gx MANPAGER "nvim +Man!"
 set -gx HOMEBREW_NO_AUTO_UPDATE 1
 set -gx PIP_REQUIRE_VIRTUALENV 0
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
