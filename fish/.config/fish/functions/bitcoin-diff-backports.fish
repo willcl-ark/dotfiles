@@ -32,6 +32,7 @@ function bitcoin-diff-backports
     for commit_hash in (git rev-list $merge_base..HEAD)
         # Extract the "Rebased-From" hash from the commit message
         set --local rebased_from_hash (git show -s --format=%B $commit_hash | grep 'Rebased-From:' | cut -d ' ' -f 2)
+        set --local github_pull (git show -s --format=%B $commit_hash | grep 'Github-Pull:' | cut -d ' ' -f 2)
 
         # If we've found diff the patches produced by both commits
         if test -n "$rebased_from_hash"
@@ -45,6 +46,17 @@ function bitcoin-diff-backports
         else
             git -c diff.external=difft show --ext-diff $commit_hash
         end
+
+        # Check if $github_pull is found in doc/release-notes.MD
+        if test -n "$github_pull"
+            if grep -q "$github_pull" doc/release-notes.md 2>/dev/null
+                echo "PR $github_pull is in release notes"
+            else
+                echo "WARNING: PR $github_pull NOT found in release notes"
+            end
+        end
+
+
         while read --nchars 1 -l response --prompt-str="Next patch? (y/n)"
               or return 1 # if the read was aborted with ctrl-c/ctrl-d
             switch $response
