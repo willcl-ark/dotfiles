@@ -1,7 +1,7 @@
 {
     "include": ["bitcoin/test"],
     "exclude": ["**/__pycache__"],
-    "venv": "3.9.18",
+    "venv": "3.10.0",
     "venvPath": "/home/will/src/core/.venv",
     "reportMissingImports": true,
     "reportMissingTypeStubs": false,
