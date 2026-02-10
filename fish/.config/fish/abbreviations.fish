@@ -6,9 +6,12 @@ abbr -a -g -- guix-hashes 'find guix-build-$(git rev-parse --short=12 HEAD)/outp
 abbr -a -g -- genesis-block 'bitcoin-cli getblockhash 0 | xargs -I {} bitcoin-cli getblock {} 0 | xxd -r -p | hexdump -v -C'
 abbr -a -g -- grc 'git rebase --continue'
 abbr -a -g -- htop 'TERM=xterm-256color htop'
+abbr -a -g -- icdiff 'icdiff --no-bold'
+abbr -a -g -- imap 'PYENV_VERSION=offlineimap offlineimap'
+abbr -a -g -- j 'just'
+abbr -a -g -- k 'kubectl'
 abbr -a -g -- lcli lightning-cli
 abbr -a -g -- ll 'eza -al'
-abbr -a -g -- lld 'eza -s modified -rl'
 abbr -a -g -- llo 'eza -al -s newest'
 abbr -a -g -- ls 'eza --icons --no-quotes'
 abbr -a -g -- lslm 'ls -aFlhpt'
@@ -33,7 +36,10 @@ abbr -a -g -- rm 'rm -i'
 abbr -a -g -- speedtest-curl 'curl -o /dev/null http://ipv4.download.thinkbroadband.com/1GB.zip'
 abbr -a -g -- tb 'nc termbin.com 9999'
 abbr -a -g -- tbcli "$HOME/src/core/bitcoin/build/bin/bitcoin-cli"
-abbr -a -g -- tbitcoin-qt "$HOME/src/core/bitcoin/build/bin/bitcoin-qt"
+abbr -a -g -- tbcli $HOME/src/core/bitcoin/build/src/bitcoin-cli
+abbr -a -g -- tbitcoin-qt $HOME/src/core/bitcoin/build/src/qt/bitcoin-qt
+abbr -a -g -- tbitcoind $HOME/src/core/bitcoin/build/src/bitcoind
+abbr -a -g -- tbwallet $HOME/src/core/bitcoin/build/src/bitcoin-wallet
 abbr -a -g -- tbitcoind "$HOME/src/core/bitcoin/build/bin/bitcoind"
 abbr -a -g -- tbwallet "$HOME/src/core/bitcoin/build/bin/bitcoin-wallet"
 abbr -a -g -- todo nvim ~/todo.txt
