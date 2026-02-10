@@ -9,15 +9,20 @@ cursor-style = block
 mouse-hide-while-typing = true
 
 theme = GruvboxDark
+scrollback-limit = 100000000
 
+link-url = true
+
+theme = Gruvbox Material Dark
+cursor-style = block
+macos-titlebar-style = hidden
+window-decoration = false
 window-padding-x = 4
 window-padding-y = 4
 
 shell-integration = fish
 shell-integration-features = no-cursor
 
-macos-titlebar-style = hidden
-window-decoration = false
-
 scrollback-limit = 500000
 
+keybind = cmd+i=inspector:toggle
