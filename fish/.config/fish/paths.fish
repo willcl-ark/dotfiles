@@ -19,4 +19,5 @@ if [ (uname) = Darwin ]
     fish_add_path /opt/homebrew/bin/
     fish_add_path /opt/homebrew/opt/llvm/bin
     fish_add_path /opt/homebrew/opt/ccache/libexec
+    fish_add_path /opt/homebrew/opt/curl/bin
 end
